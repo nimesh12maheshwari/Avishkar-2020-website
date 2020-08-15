@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+.slogan {
+  width: 13em;
+  text-align: center;
+  font-size: 70px;
+  font-weight: 800;
+  padding: 0;
+  margin: 0 auto;
+  text-transform: uppercase;
+  position: absolute;
+  top: 65%;
+  left: 15%;
+  text-align: center;
+
+}
+.slogan>span {
+  display: inline-block;
+  text-align: center;
+  width: 1.1em;
+  color: #000;
+  margin: 15px 0;
+  
+  font-size:35px;
+  position: relative;
+  
+}
+.slogan>span:nth-child(odd) {
+  background: #db8206;
+  transform: skewY(22deg);
+  box-shadow: 0px -5px 30px -10px #000;
+  z-index: 2;
+}
+.slogan>span:nth-child(even) {
+  background: #ba6d03;
+  box-shadow: -20px -5px 30px -10px #000;
+  transform: skewY(-22deg);
+  
+}

@@ -1,0 +1,244 @@
+
+/****** Custom book colors and borders *****/
+
+/* Custom book covers */
+
+.no-csstransforms3d .book[data-book="book-1"],
+.no-js .book[data-book="book-1"],
+.book[data-book="book-1"] .front {
+    background: url(../img/1.svg);
+   /* background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/1.svg), #009bdb;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/1.svg), #009bdb;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-1"] .inner { border-color: #009bdb }*/
+
+.book[data-book="book-1"] .cover::before {
+    background: url(../img/1.svg);
+    /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/softablitz.svg), #009bdb;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/softablitz.svg), #009bdb;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-2"],
+.no-js .book[data-book="book-2"],
+.book[data-book="book-2"] .front {
+    background: url(../img/2.svg);
+    /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/2.svg), #f6a7a5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/2.svg), #f6a7a5;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-2"] .inner { border-color: #f6a7a5 }*/
+
+.book[data-book="book-2"] .cover::before {
+    background: url(../img/2.svg);
+    /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/insomnia.svg), #f6a7a5;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/insomnia.svg), #f6a7a5;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-3"],
+.no-js .book[data-book="book-3"],
+.book[data-book="book-3"] .front {
+    background: url(../img/3.svg);
+   /* background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/3.svg), #ebc989;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/3.svg), #ebc989;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-3"] .inner { border-color: #ebc989 }*/
+
+.book[data-book="book-3"] .cover::before {
+    background: url(../img/3.svg);
+    /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/impromptu.svg), #ebc989;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/droidrush.svg), #ebc989;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-4"],
+.no-js .book[data-book="book-4"],
+.book[data-book="book-4"] .front {
+    background: url(../img/4.svg);
+    /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/4.svg), #a6a1a5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/4.svg), #a6a1a5;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-4"] .inner { border-color: #a6a1a5 }*/
+
+.book[data-book="book-4"] .cover::before {
+    background: url(../img/4.svg);
+    /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/webster.svg), #a6a1a5;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/webster.svg), #a6a1a5;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-5"],
+.no-js .book[data-book="book-5"],
+.book[data-book="book-5"] .front {
+    background: url(../img/5.svg);
+    /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/5.svg), #4cbb97;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/5.svg), #4cbb97;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-5"] .inner { border-color: #4cbb97 }*/
+
+.book[data-book="book-5"] .cover::before {
+    background: url(../img/5.svg);
+   /* background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/codeoftheday.svg), #4cbb97;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/codeoftheday.svg), #4cbb97;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-6"],
+.no-js .book[data-book="book-6"],
+.book[data-book="book-6"] .front {
+    background: url(../img/codotron.svg);
+   /* background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/codotron.svg), #a1cae5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/codotron.svg), #a1cae5;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-6"] .inner { border-color: #a1cae5 }*/
+
+.book[data-book="book-6"] .cover::before {
+    background: url(../img/codotron.svg);
+  /*  background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/operomania.svg), #a1cae5;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/operomania.svg), #a1cae5;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-7"],
+.no-js .book[data-book="book-7"],
+.book[data-book="book-7"] .front {
+    background: url(../img/sphinx.svg);
+    /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/sphinx.svg), #ebe6e5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/sphinx.svg), #ebe6e5;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-7"] .inner { border-color: #ebe6e5 }*/
+
+.book[data-book="book-7"] .cover::before {
+    background: url(../img/sphinx.svg);
+    /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/sphinx.svg), #ebe6e5;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/sphinx.svg), #ebe6e5;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-8"],
+.no-js .book[data-book="book-8"],
+.book[data-book="book-8"] .front {
+    background: url(../img/embedded.svg);
+    /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/embedded.svg), #f8eb48;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/embedded.svg), #f8eb48;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-8"] .inner { border-color: #f8eb48 }*/
+
+.book[data-book="book-8"] .cover::before {
+    background: url(../img/embedded.svg);
+    /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/softathalon.svg), #f8eb48;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/softathalon.svg), #f8eb48;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-9"],
+.no-js .book[data-book="book-9"],
+.book[data-book="book-9"] .front {
+    background: url(../img/machinelearning.svg);
+   /* background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/machinelearning.svg), #f7a56e;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/machinelearning.svg), #f7a56e;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-9"] .inner { border-color: #f7a56e }*/
+
+.book[data-book="book-9"] .cover::before {
+    background: url(../img/machinelearning.svg);
+   /* background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/machinelearning.svg), #f7a56e;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/machinelearning.svg), #f7a56e;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-10"],
+.no-js .book[data-book="book-10"],
+.book[data-book="book-10"] .front {
+    background: url(../img/codewarriors.svg);
+    /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/codewarriors.svg), #4cbb97;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/codewarriors.svg), #4cbb97;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-10"] .inner { border-color: #4cbb97 }*/
+
+.book[data-book="book-10"] .cover::before {
+    background: url(../img/codewarriors.svg);
+   /* background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/codewarriors.svg), #4cbb97;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/codewarriors.svg), #4cbb97;
+    background-repeat: no-repeat;*/
+}
+
+
+.no-csstransforms3d .book[data-book="book-11"],
+.no-js .book[data-book="book-11"],
+.book[data-book="book-11"] .front {
+    background: url(../img/revengg.svg);
+    /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/revengg.svg), #f6a7a5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/revengg.svg), #f6a7a5;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-11"] .inner { border-color: #f6a7a5 }*/
+
+.book[data-book="book-11"] .cover::before {
+    background: url(../img/revengg.svg);
+    /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/revengg.svg), #f7a56e;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/revengg.svg), #f7a56e;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-12"],
+.no-js .book[data-book="book-12"],
+.book[data-book="book-12"] .front {
+    background: url(../img/tuxwars.svg);
+    /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/tuxwars.svg), #ebe6e5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/tuxwars.svg), #ebe6e5;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-12"] .inner { border-color: #f6a7a5 }*/
+
+.book[data-book="book-12"] .cover::before {
+    background: url(../img/tuxwars.svg);
+    /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/tuxwars.svg), #ebe6e5;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/tuxwars.svg), #ebe6e5;
+    background-repeat: no-repeat;*/
+}
+
+.no-csstransforms3d .book[data-book="book-13"],
+.no-js .book[data-book="book-13"],
+.book[data-book="book-13"] .front {
+    background: url(../img/inception.svg);
+    /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/inception.svg), #009bdb;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/inception.svg), #009bdb;
+    background-repeat: no-repeat;*/
+}
+
+/*.book[data-book="book-13"] .inner { border-color: #009bdb }*/
+
+.book[data-book="book-13"] .cover::before {
+    background: url(../img/inception.svg);
+    /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/inception.svg), #009bdb;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/inception.svg), #009bdb;
+    background-repeat: no-repeat;*/
+}
+/* border around bookblock same as book cover color*/
+
+/****** Transitions ******/
+
+
