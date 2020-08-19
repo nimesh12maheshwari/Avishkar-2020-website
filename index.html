@@ -24,10 +24,10 @@
 
 
 
-		<script>
-
+		<!-- <script>
+		 console.log("Inside script of index.html");
          function register_func(){
-
+			console.log("Inside register_func of index.html");
             document.getElementById('error').innerHTML = "<br><b><h5 style=\"color:green\">We are getting you onboard.<h5></b>";
 
             var first_name = document.getElementById('first_name').value;
@@ -62,20 +62,21 @@
                      document.getElementById('error').innerHTML = "<br><center><b><h5 style=\"color:red;font-family:'Indie-Flower',cursive\">Please fill all the details.<h5></b></center>";
                }
             });
+
          }
 
   
       
-		</script>
+		</script> -->
 	</head>
 	<body>
 
 		<!-- Modal -->
-		<div id="myModal" class="modal fade" role="dialog" style="overflow-y:hidden">
-		  <div class="modal-dialog">
+		<!-- <div id="myModal" class="modal fade" role="dialog" style="overflow-y:hidden">
+		  <div class="modal-dialog"> -->
 
 		    <!-- Modal content-->
-		    <div class="modal-content">
+		    <!-- <div class="modal-content">
 		      <div class="modal-header">
 		         <h4 class="modal-title" style="color:black">Register for Avishkar 2019</h4>
 		        <button type="button" class="close" data-dismiss="modal"><strong>&times;</strong></button>
@@ -119,7 +120,7 @@
 		    </div>
 
 		  </div>
-		</div>
+		</div> -->
 		<!-- MODAL ENDS -->
 
 
@@ -165,7 +166,7 @@
 						</center>
 					</div>
 					<div class="col-md-12">
-						<center><button class="btn mybtn" data-toggle="modal" onclick="window.location.href='https://forms.gle/gzPx4DvLkRNLdcRx7'">Register</button></center>
+						<center><a href="RegisterLogin.html"><button class="btn mybtn" data-toggle="modal">Register</button></a></center>
 					</div>
 				</div>
 				<div class="bottom-left">
