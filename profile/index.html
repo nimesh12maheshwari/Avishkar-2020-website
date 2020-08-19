@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="navbar/reset.css">  CSS reset -->
+  <!-- <link rel="stylesheet" href="navbar/style.css"> Resource style -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> -->
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+
+  <ul class="nav nav-pills mb-3 mt-4" id="profile-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-about-tab" data-toggle="pill" href="#pills-about" role="tab"
+        aria-controls="pills-about" aria-selected="true">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-education-tab" data-toggle="pill" href="#pills-education" role="tab"
+        aria-controls="pills-education" aria-selected="true">Education</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+        aria-controls="pills-contact" aria-selected="false">Contact</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">
+      <div style="margin-right: 800px;margin-left: 30px;margin-top: 20px;">
+        <div>
+          <label for="usernameProfile">Username</label> <br>
+          <input class="form-control" type="text" id="usernameProfile" placeholder="readonly text here..." readonly>
+        </div>
+        <div class="mt-3">
+          <label for="fnameProfile">First Name</label> <br>
+          <input class="form-control" type="text" id="fnameProfile">
+        </div>
+        <div class="mt-3">
+          <label for="lnameProfile">Last Name</label> <br>
+          <input class="form-control" type="text" id="lnameProfile">
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-education" role="tabpanel" aria-labelledby="pills-education-tab">
+      <div style="margin-right: 800px;margin-left: 30px;margin-top: 20px;">
+        <div>
+          <label for="collegeProfile">College</label> <br>
+          <input class="form-control" type="text" id="collegeProfile"
+            placeholder="e.g. National Institute of Technology, Allahabad">
+        </div>
+        <div class="mt-3">
+          <label for="resumeProfile">Resume</label>
+          <div class="input-group mb-3">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile02">
+              <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+            </div>
+            <div class="input-group-append">
+              <span class="input-group-text" id="">Upload</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+      <div style="margin-right: 800px;margin-left: 30px;margin-top: 20px;">
+        <div>
+          <label for="emailProfile">Email</label> <br>
+          <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+            <input class="form-control py-0" type="email" id="emailProfile">
+          </div>
+        </div>
+        <div class="mt-3">
+          <label for="msteamidProfile">MS Team Id</label> <br>
+          <input class="form-control" type="email" id="msteamidProfile">
+        </div>
+        <div class="mt-3">
+          <label for="phonenumProfile">Phone No.</label> <br>
+          <input class="form-control" type="number" id="phonenumProfile">
+        </div>
+        <div class="mt-3">
+          <label for="whatsappnoProfile">WhatsApp No.</label> <br>
+          <input class="form-control" type="number" id="whatsappnoProfile">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-left: 437px;margin-top: 20px;">
+    <input class="btn btn-primary" type="submit" value="Save Changes">
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
