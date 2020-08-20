@@ -3,14 +3,26 @@
     padding: 0;
     font-family: sans-serif;
 }
-.hero{
+.container-register-login{
+    background-color: #1D1F20;
+    position: relative;
+    top: 20%;
+    margin: auto;
+    width: 340px;
+    height: 445px;
+    border-radius: 0.35em;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+/* .container-register-login{
     height: 100%;
     width: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../images/bg.jpeg);
+    background-color: #1D1F20;
     background-position: center;
     background-size: cover;
     position: absolute;
-}
+} */
 .form-box{
     width: 380px;
     height: 480px;
@@ -27,6 +39,15 @@
     box-shadow: 0 0 20px 9px #ff61241f;
     border-radius: 30px;
 }
+/* .toggle-btn{
+    position: relative;
+    background-color: #1A1C1D;
+    width: 100%;
+    padding: 20px 0px;
+    border-radius: 0.35em;
+    font-size: 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+} */
 .toggle-btn{
     padding: 10px 30px;
     cursor: pointer;
@@ -84,13 +105,16 @@
     outline: none;
     border-radius: 30px;
 }
-.check-box{
-    margin: 30px 10px 30px 0;
+.login-check-box{
+    margin: 30px 10px 30px -260px;
+}
+.register-check-box{
+    margin: 30px 10px 30px -260px;
 }
 span{
     color: #777;
     font-size: 12px;
-    bottom: 68px;
+    bottom: 64px;
     position: absolute;
 }
 #login{
