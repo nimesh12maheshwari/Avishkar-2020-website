@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="description" content="Login - Register Template">
+    <meta name="author" content="Lorenzo Angelino aka MrLolok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/register-login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div id="container-login">
+        <div id="title">
+            <i class="material-icons lock">lock</i> Login
+        </div>
+
+        <form id="login-form">
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">vpn_key</i>
+                </div>
+                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+                <span class="login-eye">
+                    <i id="hide1" class="fa fa-eye"></i>
+                    <i id="hide2" class="fa fa-eye-slash"></i>
+                </span>
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox">
+                <span style="color: #DDD">Remember Me</span>
+            </div>
+
+            <input type="submit" value="Log In" />
+        </form>
+
+        <div class="forgot-password">
+            <a href="#"><u>Forgot your password?</u></a>
+        </div>
+        <div class="privacy">
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="register">
+            Don't have an account yet?
+            <a href="register.html"><button id="register-link">Register here</button></a>
+        </div>
+    </div>
+    <script>
+        const myForm = document.getElementById('login-form');
+        console.log("Going to addEventListener 1");
+        myForm.addEventListener('submit', async (e) => {
+            console.log("Going to addEventListener 2");
+            e.preventDefault();
+            // var formdata = new FormData();
+            console.log("Going to addEventListener 3");
+            let formdata = new FormData();
+            let UserName = document.getElementById("login-form").elements[0].value;
+            console.log("UserName : " + UserName);
+            let Password = document.getElementById("login-form").elements[1].value;
+            console.log("Password : " + Password);
+            let rememberMe = document.getElementById("login-form").elements[2].value;
+            let res = null;
+            console.log("remember Me : " + rememberMe);
+
+            formdata.append("username", UserName);
+            formdata.append("password", Password);
+
+            var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+            };
+
+            await fetch("https://avishkarapi.sahajbamba.me/auth/api-token-auth/", requestOptions)
+            .then( (response) => {
+                return response.text();
+            })
+            .then( (result) => {
+                res = JSON.parse(result);
+                console.log(res.token);
+                if(res.token) {
+                    localStorage.setItem("authtoken", res.token);
+                    console.log(localStorage);
+                    alert("logined successful");
+                    window.location = "../events - Copy/";
+                } else {
+                    alert("Either username or password is wrong.");
+                }
+            })
+            .catch( (error) => {
+                alert("error : " + error);
+                console.log('error : ', error);
+            });
+            console.log("Going to addEventListener 4");
+        });
+        console.log("Going to addEventListener 5");
+    </script>
+</body>
+
+</html>

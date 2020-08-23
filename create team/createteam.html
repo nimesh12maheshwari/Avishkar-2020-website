@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <script src="manageteam.js">
+  </script>
+  <link rel="stylesheet" href="manageteam.css">
+  <title>Manage Team</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Manage Teams</h1>
+    <button class="btn btn-primary" id="create-team">Create a team</button>
+    <div id="accordion">
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-add-member" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a Member</h5>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" role="alert" style="display: none;" id="modal-alert-add-member">
+            
+          </div>
+          <label for="username">Username</label><br>
+          <input type="text" id="username" class="form-control">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="send-request">Send Request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-create-team" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Team</h5>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" role="alert" style="display: none;" id="modal-alert-create-team">
+            
+          </div>
+          <label for="team-name">Team Name</label><br>
+          <input type="text" id="team-name" class="form-control">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="send-create-team-request">Create Team</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
