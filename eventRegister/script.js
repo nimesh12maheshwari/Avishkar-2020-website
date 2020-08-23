@@ -284,7 +284,7 @@ function eventRegister(tokenId, teamId, eventId) {
     xhr.send(data);
 }
 
-var tokenId = 'Token 39f4fd462a9095e954722ec10c66c9adde71d2b1';
+var tokenId = localStorage.getItem('authtoken');
 getTeams(tokenId);
 
 
