@@ -120,11 +120,16 @@ function acceptRequest() {
 
 	fetch("https://avishkarapi.sahajbamba.me/event/joinrequestdecision/", requestOptions)
 		.then(response => response.text())
-		.then(result => console.log(result))
-		.catch(error => console.log('error', error));
-	
-		$('#exampleModal').modal('hide');
-		location.reload();
+		.then(result => {
+			$('#exampleModal').modal('hide');
+			location.reload();
+			console.log(result)						//to be removed later
+		})
+		.catch(error => {
+			$('#exampleModal').modal('hide');
+			console.log('error', error);			//to be removed later
+		});
+
 }
 
 function rejectRequest() {
@@ -145,11 +150,17 @@ function rejectRequest() {
 
 	fetch("https://avishkarapi.sahajbamba.me/event/joinrequestdecision/", requestOptions)
 		.then(response => response.text())
-		.then(result => console.log(result))
-		.catch(error => console.log('error', error));
+		.then(result => {
+			$('#exampleModal').modal('hide');
+			location.reload();
+			console.log(result)						//to be removed later
+		})
+		.catch(error => {
+			$('#exampleModal').modal('hide');
+			console.log('error', error);			//to be removed later
+		});
 
-		$('#exampleModal').modal('hide');
-		location.reload();
+		
 }
 
 function logout(){
