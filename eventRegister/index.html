@@ -10,16 +10,60 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>iCoder : Heaven for Programmers </title>
+    <title>Avishar: Event Registration </title>
+
 </head>
 
 <body>
 
-    
-     <button class="btn btn-danger" data-toggle="modal" data-target="#registerModal">Register Now</button>
-         
-
-    <!-- Modal -->
+    <div class="container" style="margin-top: 100px;padding-right: 300px;padding-left: 300px;">
+        <div>
+            <div>
+                <label for="selectEvent"><strong>Select Event</strong></label> <br>
+                <select name="" class="form-control" id="selectEvent">
+                    <option value="choose">Choose...</option>
+                    <option value="cyberquest">Cyberquest</option>
+                    <option value="aerodynamix">Aerodynamix</option>
+                    <option value="electromania">Electromania</option>
+                    <option value="genesis">Genesis</option>
+                    <option value="mechrocosm">Mechrocosm</option>
+                    <option value="nirmaan">Nirmaan</option>
+                    <option value="oligopoly">Oligopoly</option>
+                    <option value="powersurge">Powersurge</option>
+                    <option value="rasayans">Rasayans</option>
+                    <option value="robomania">Robomania</option>
+                    <option value="monopoly">Monopoly</option>
+                    <option value="kreedomania">Kreedomania</option>
+                    <option value="gnosiomania">Gnosiomania</option>
+                </select>
+            </div>
+            <div id="errorEvent"></div>
+        </div>
+        <hr>
+        <div>
+            <div>
+                <label for="selectContest"><strong>Select Contest</strong></label> <br>
+                <select name="" class="form-control" id="selectContest">
+                    <option value="choose">Choose...</option>
+                </select>
+            </div>
+            <div id="errorContest"></div>
+        </div>
+        <hr>
+        <div>
+            <div>
+                <label for="selectTeam"><strong>Select Team</strong></label> <br>
+                <select name="" class="form-control" id="selectTeam">
+                    <option value="choose">Choose...</option>
+                </select>
+            </div>
+            <div id="errorTeam"></div>
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary" id="submitBtn" style="float: right;">Register</button>
+    </div>
+    <!-- 
+    <button class="btn btn-danger" data-toggle="modal" data-target="#registerModal">Register Now</button>
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -32,31 +76,31 @@
                 <div class="modal-body">
 
                     <form>
-                        <div class="form-group">
+                        <div class="form-group" id="teamname">
                             <label for="inputTeamname">Team Name</label>
                             <input type="text" class="form-control" id="inputTeamname" placeholder="">
+                            <div id="errorTeam"></div>
                         </div>
-                        <div class="form-group">
+                         <div class="form-group"> 
                             <label for="inputUsername1">Member 1</label>
-                            <input type="text" class="form-control" id="inputUsername1" placeholder="UserName" >
+                            <input type="text" class="form-control" id="inputUsername1" placeholder="UserName">
+                            <div id="errorUser1"></div>
                         </div>
                         <div class="form-group">
                             <label for="inputUsername2">Member 2</label>
                             <input type="text" class="form-control" id="inputUsername2" placeholder="UserName">
+                            <div id="errorUser2"></div>
                         </div>
 
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+                    <button type="button" id="closeBtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-    </div>
-
-
-
+    </div> -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -69,6 +113,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <script src="/script.js"></script>
 </body>
 
 </html>
