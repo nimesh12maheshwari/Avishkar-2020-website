@@ -284,7 +284,8 @@ function eventRegister(tokenId, teamId, eventId) {
     xhr.send(data);
 }
 
-var tokenId = localStorage.getItem('authtoken');
+var tokenId = 'Token '+localStorage.getItem('authtoken');
+console.log(tokenId);
 getTeams(tokenId);
 
 

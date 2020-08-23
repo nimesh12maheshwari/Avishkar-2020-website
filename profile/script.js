@@ -3,7 +3,8 @@
         //Redirect to Login Page
     }
     */
-var tokenId = localStorage.getItem('authtoken');
+var tokenId = 'Token '+localStorage.getItem('authtoken').toString();
+console.log(tokenId);
 var details = getUserDetails(tokenId);
 
 
