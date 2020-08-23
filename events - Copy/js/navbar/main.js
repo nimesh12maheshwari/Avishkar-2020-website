@@ -1,48 +1,153 @@
-jQuery(document).ready(function($){
-	//move nav element position according to window width
-	moveNavigation();
-	$(window).on('resize', function(){
-		(!window.requestAnimationFrame) ? setTimeout(moveNavigation, 300) : window.requestAnimationFrame(moveNavigation);
-	});
+window.onload = getUserDetails();
+var pendingRequest = [];
+var teamID = undefined;
 
-	//mobile version - open/close navigation
-	$('.cd-nav-trigger').on('click', function(event){
-		event.preventDefault();
-		if($('header').hasClass('nav-is-visible')) $('.moves-out').removeClass('moves-out');
-		
-		$('header').toggleClass('nav-is-visible');
-		$('.cd-main-nav').toggleClass('nav-is-visible');
-		$('.cd-main-content').toggleClass('nav-is-visible');
-	});
+function initialize(userDetails) {
+	const userName = userDetails.userName;
+	var count = 0;
+	var token = null;
 
-	//mobile version - go back to main navigation
-	$('.go-back').on('click', function(event){
-		event.preventDefault();
-		$('.cd-main-nav').removeClass('moves-out');
-	});
-
-	//open sub-navigation
-	$('.cd-subnav-trigger').on('click', function(event){
-		event.preventDefault();
-		$('.cd-main-nav').toggleClass('moves-out');
-	});
-
-	function moveNavigation(){
-		var navigation = $('.cd-main-nav-wrapper');
-  		var screenSize = checkWindowWidth();
-        if ( screenSize ) {
-        	//desktop screen - insert navigation inside header element
-			navigation.detach();
-			navigation.insertBefore('.cd-nav-trigger');
-		} else {
-			//mobile screen - insert navigation after .cd-main-content element
-			navigation.detach();
-			navigation.insertAfter('.cd-main-content');
+	for (let key in userDetails.teams) {
+		let pendingMembers = userDetails.teams[key].pendingMembers;
+		if (pendingMembers.indexOf(userName) >= 0) {
+			++count;
+			pendingRequest.push({
+				"teamID": userDetails.teams[key].teamID,
+				"teamAdmin": userDetails.teams[key].teamAdmin,
+				"teamName": userDetails.teams[key].teamName
+			});
 		}
 	}
 
-	function checkWindowWidth() {
-		var mq = window.getComputedStyle(document.querySelector('header'), '::before').getPropertyValue('content').replace(/"/g, '').replace(/'/g, "");
-		return ( mq == 'mobile' ) ? false : true;
+	document.getElementById("notificationCount").textContent = count;
+}
+
+function getUserDetails() {
+
+	token = localStorage.getItem("authtoken");
+
+	if (token === null) {
+		var childNodes = document.getElementById("login");
+		childNodes.remove();
+		document.getElementById("notlogin").style.display = "block";
 	}
-});
+	else {
+		var myHeaders = new Headers();
+		myHeaders.append(
+			"Authorization",
+			"Token " + token
+		);
+
+		var formdata = new FormData();
+
+		var requestOptions = {
+			method: "POST",
+			headers: myHeaders,
+			body: formdata,
+			redirect: "follow",
+		};
+
+		fetch(
+			"https://avishkarapi.sahajbamba.me/auth/getuserdetails/",
+			requestOptions
+		)
+			.then((response) => response.text())
+			.then((result) => {
+				var userDetails = JSON.parse(result);
+				if (!userDetails["success"]) throw result;
+				initialize(userDetails);
+			})
+			.catch((error) => {
+				var childNodes = document.getElementById("login");
+				childNodes.remove();
+				document.getElementById("notlogin").style.display = "block";
+				alert(error);
+			});
+	}
+
+}
+
+function showPendingRequests() {
+	var div = document.getElementById("pendingRequests");
+	if (document.getElementById("pendingRequests").style.display === "block") {
+		while (div.firstChild) {
+			div.removeChild(div.lastChild);
+		}
+		document.getElementById("pendingRequests").style.display = "None";
+		return;
+	}
+	if (pendingRequest.length > 0) document.getElementById("pendingRequests").style.display = "block";
+
+	for (let i = 0; i < pendingRequest.length; i++) {
+		let req = pendingRequest[i];
+		var option = document.createElement("a");
+		option.setAttribute('href', "#");
+		option.className = "dropdown-item";
+		option.classList.add("font-weight-bolder");
+		option.classList.add("text-primary");
+		option.innerText = req.teamAdmin + " has sent request\nfor team " + req.teamName;
+		option.id = req.teamID;
+		option.addEventListener("click", showModal);
+		div.appendChild(option);
+		if (i < pendingRequest.length - 1) {
+			let divider = document.createElement("div");
+			divider.className = "dropdown-divider";
+			div.appendChild(divider);
+		}
+	}
+}
+
+function showModal(event) {
+	$('#exampleModal').modal('show');
+	teamID = event.target.id;
+}
+
+function acceptRequest() {
+	console.log(teamID);
+	// var myHeaders = new Headers();
+	// myHeaders.append("Authorization", "Token " + token);
+
+	// var formdata = new FormData();
+	// formdata.append("teamid", teamID);
+	// formdata.append("decision", "accept");
+
+	// var requestOptions = {
+	// 	method: 'POST',
+	// 	headers: myHeaders,
+	// 	body: formdata,
+	// 	redirect: 'follow'
+	// };
+
+	// fetch("https://avishkarapi.sahajbamba.me/event/joinrequestdecision/", requestOptions)
+	// 	.then(response => response.text())
+	// 	.then(result => console.log(result))
+	// 	.catch(error => console.log('error', error));
+	
+		$('#exampleModal').modal('hide');
+		location.reload();
+}
+
+function rejectRequest() {
+	console.log(teamID);
+	// var myHeaders = new Headers();
+	// myHeaders.append("Authorization", "Token " + token);
+
+	// var formdata = new FormData();
+	// formdata.append("teamid", teamID);
+	// formdata.append("decision", "reject");
+
+	// var requestOptions = {
+	// 	method: 'POST',
+	// 	headers: myHeaders,
+	// 	body: formdata,
+	// 	redirect: 'follow'
+	// };
+
+	// fetch("https://avishkarapi.sahajbamba.me/event/joinrequestdecision/", requestOptions)
+	// 	.then(response => response.text())
+	// 	.then(result => console.log(result))
+	// 	.catch(error => console.log('error', error));
+
+		$('#exampleModal').modal('hide');
+		location.reload();
+}
