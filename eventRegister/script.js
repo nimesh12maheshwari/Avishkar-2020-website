@@ -198,14 +198,23 @@ function getTeamsUtil(teamsObj){
 
 
 document.getElementById('selectEvent').addEventListener('change',function(){
+    var tmp = document.getElementById('errorEvent').innerHTML;
+    if(tmp != '')
+        adjustHeight(false);
     document.getElementById('errorEvent').innerHTML = null;
 });
 
 document.getElementById('selectContest').addEventListener('change',function(){
+    var tmp = document.getElementById('errorContest').innerHTML;
+    if(tmp != '')
+        adjustHeight(false);
     document.getElementById('errorContest').innerHTML = null;
 });
 
 document.getElementById('selectTeam').addEventListener('change',function(){
+    var tmp = document.getElementById('errorTeam').innerHTML;
+    if(tmp != '')
+        adjustHeight(false);
     document.getElementById('errorTeam').innerHTML = null;
 });
 
@@ -228,14 +237,17 @@ document.querySelector('#submitBtn').addEventListener('click', function () {
 
     if (events == 'choose') {
         flag = false;
+        adjustHeight(true);
         document.getElementById('errorEvent').innerHTML = '<small style="color: red;">* Please select a valid event.</small>';
     }
     if (contests == 'choose') {
         flag = false;
+        adjustHeight(true);
         document.getElementById('errorContest').innerHTML = '<small style="color: red;">* Please select a valid contest.</small>';
     }
     if (teams == 'choose') {
         flag = false;
+        adjustHeight(true);
         document.getElementById('errorTeam').innerHTML = '<small style="color: red;">* Please select a valid team.</small>';
     }
 
@@ -282,6 +294,16 @@ function eventRegister(tokenId, teamId, eventId) {
     }
 
     xhr.send(data);
+}
+
+function adjustHeight(op){
+    var tmp = parseInt(document.getElementById('section').style.height.substr(0,3));
+    if(op == true)
+        tmp += 24;
+    else
+        tmp -= 24;
+    
+    document.getElementById('section').style.height = tmp+"px";
 }
 
 var tokenId = 'Token '+localStorage.getItem('authtoken');
