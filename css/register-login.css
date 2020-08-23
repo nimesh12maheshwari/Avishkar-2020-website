@@ -189,3 +189,19 @@ input[type=submit] {
     cursor: pointer;
     border-radius: 3px;
 }
+
+.login-eye {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: -15px;
+}
+
+.register-eye {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: -15px;
+}
+
+#hide1 {
+    display: none;
+}
