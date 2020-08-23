@@ -104,24 +104,24 @@ function showModal(event) {
 
 function acceptRequest() {
 	console.log(teamID);
-	// var myHeaders = new Headers();
-	// myHeaders.append("Authorization", "Token " + token);
+	var myHeaders = new Headers();
+	myHeaders.append("Authorization", "Token " + token);
 
-	// var formdata = new FormData();
-	// formdata.append("teamid", teamID);
-	// formdata.append("decision", "accept");
+	var formdata = new FormData();
+	formdata.append("teamid", teamID);
+	formdata.append("decision", "accept");
 
-	// var requestOptions = {
-	// 	method: 'POST',
-	// 	headers: myHeaders,
-	// 	body: formdata,
-	// 	redirect: 'follow'
-	// };
+	var requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: formdata,
+		redirect: 'follow'
+	};
 
-	// fetch("https://avishkarapi.sahajbamba.me/event/joinrequestdecision/", requestOptions)
-	// 	.then(response => response.text())
-	// 	.then(result => console.log(result))
-	// 	.catch(error => console.log('error', error));
+	fetch("https://avishkarapi.sahajbamba.me/event/joinrequestdecision/", requestOptions)
+		.then(response => response.text())
+		.then(result => console.log(result))
+		.catch(error => console.log('error', error));
 	
 		$('#exampleModal').modal('hide');
 		location.reload();
@@ -129,25 +129,30 @@ function acceptRequest() {
 
 function rejectRequest() {
 	console.log(teamID);
-	// var myHeaders = new Headers();
-	// myHeaders.append("Authorization", "Token " + token);
+	var myHeaders = new Headers();
+	myHeaders.append("Authorization", "Token " + token);
 
-	// var formdata = new FormData();
-	// formdata.append("teamid", teamID);
-	// formdata.append("decision", "reject");
+	var formdata = new FormData();
+	formdata.append("teamid", teamID);
+	formdata.append("decision", "reject");
 
-	// var requestOptions = {
-	// 	method: 'POST',
-	// 	headers: myHeaders,
-	// 	body: formdata,
-	// 	redirect: 'follow'
-	// };
+	var requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: formdata,
+		redirect: 'follow'
+	};
 
-	// fetch("https://avishkarapi.sahajbamba.me/event/joinrequestdecision/", requestOptions)
-	// 	.then(response => response.text())
-	// 	.then(result => console.log(result))
-	// 	.catch(error => console.log('error', error));
+	fetch("https://avishkarapi.sahajbamba.me/event/joinrequestdecision/", requestOptions)
+		.then(response => response.text())
+		.then(result => console.log(result))
+		.catch(error => console.log('error', error));
 
 		$('#exampleModal').modal('hide');
 		location.reload();
+}
+
+function logout(){
+	localStorage.removeItem("authtoken");
+	window.location = "../index.html";
 }

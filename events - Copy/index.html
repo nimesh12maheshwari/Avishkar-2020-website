@@ -29,8 +29,8 @@
 
 <body>
 
-	<header>
-		<div class="navbar navbar-expand-md navbar-dark bg-dark">
+	
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 			<div class="container" >
 				<a class="navbar-brand" href="#">
 					<img class="navbar-items-logo" src="../images/whitelogo.png" width="80" alt=""
@@ -41,7 +41,7 @@
 				
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
-				  </button>
+				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
@@ -78,13 +78,13 @@
 								<img class="navbar-items-logo" src="img/person.svg">
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item font-weight-bolder" href="#">Profile</a>
+								<a class="dropdown-item font-weight-bolder" href="../profile/index.html">Profile</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item font-weight-bolder" href="#">Create Team</a>
+								<a class="dropdown-item font-weight-bolder" href="../create team/createteam.html">Create Team</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item font-weight-bolder" href="#">Register for Events</a>
+								<a class="dropdown-item font-weight-bolder" href="../eventRegister/index.html">Register for Events</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item font-weight-bolder" href="#">Logout</a>
+								<a class="dropdown-item font-weight-bolder" href="#" onclick="logout()">Logout</a>
 							</div>
 						</li>
 					</ul>
@@ -93,14 +93,15 @@
 				<div id="notlogin" style="display: none;">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link font-weight-bold" href="#" style="color:white; outline-style:solid; outline-color:white;">Login/<br/>Register</a>
+						<a class="nav-link font-weight-bold" href="../register/login.html" style="color:white; outline-style:solid; outline-color:white;">Login/<br/>Register</a>
 					</li>
 				</ul>	
 				</div>
 			</div>
-		</div>
-	</header>
+		</nav>
+	
 
+	
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">

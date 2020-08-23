@@ -81,15 +81,15 @@
             let is_mnnit = document.getElementById("register-form").elements[3].value;
 
             if(is_mnnit === "on") {
-                is_mnnit = "True";
+                is_mnnit = "true";
             } else {
-                is_mnnit = "False";
+                is_mnnit = "false";
             }
 
             formdata.append("username", userName);
             formdata.append("email", Email);
             formdata.append("password", password);
-            formdata.append("is_mnnit", is_mnnit);
+            formdata.append("ismnnit", is_mnnit);
 
             var requestOptions = {
             method: 'POST',
