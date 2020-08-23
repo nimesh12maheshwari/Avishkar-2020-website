@@ -285,7 +285,6 @@ function eventRegister(tokenId, teamId, eventId) {
 }
 
 var tokenId = 'Token '+localStorage.getItem('authtoken');
-console.log(tokenId);
 getTeams(tokenId);
 
 
