@@ -3,7 +3,7 @@
         //Redirect to Login Page
     }
     */
-var tokenId = 'Token '+localStorage.getItem('authtoken').toString();
+var tokenId = 'Token ' + 'ca8359c8a39a74803f8576ac9b9c449319a84e63'; //+localStorage.getItem('authtoken').toString();
 var details = getUserDetails(tokenId);
 
 
