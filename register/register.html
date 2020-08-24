@@ -37,7 +37,7 @@
                 <div class="input-addon">
                     <i class="material-icons">face</i>
                 </div>
-                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off" pattern="[a-z][a-z0-9$_]{1,14}" title="Username length should be between 2 to 15. It should start with small english alphabets(a-z), followed by characters : small english alphabets(a-z), numbers(0-9), special symbols($ (Dollar) and _ (Underscore))">
             </div>
 
             <div class="clearfix"></div>
@@ -46,8 +46,8 @@
                 <div class="input-addon">
                     <i class="material-icons">vpn_key</i>
                 </div>
-                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
-                <span class="register-eye">
+                <input title="Minimum password length should be 7 characters long" id="password" placeholder="Password" type="password" required class="validate" autocomplete="off"pattern=".{7,}">
+                <span class="register-eye" onclick="myFunction()">
                     <i id="hide1" class="fa fa-eye"></i>
                     <i id="hide2" class="fa fa-eye-slash"></i>
                 </span>
@@ -62,7 +62,7 @@
         </form>
 
         <div class="privacy">
-            <a href="#">Privacy Policy</a>
+            <!-- <a href="#">Privacy Policy</a> -->
         </div>
 
         <div class="register">
@@ -71,6 +71,21 @@
         </div>
     </div>
     <script>
+        function myFunction() {
+            var x = document.getElementById('password');
+            var y = document.getElementById('hide1');
+            var z = document.getElementById('hide2');
+
+            if(x.type === 'password') {
+                x.type = 'text';
+                y.style.display = 'block';
+                z.style.display = 'none';
+            } else {
+                x.type = 'password';
+                y.style.display = 'none';
+                z.style.display = 'block';
+            }
+        }
         const myForm = document.getElementById('register-form');
         myForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -108,7 +123,7 @@
                     alert("registered successful");
                     window.location = "login.html";
                 } else {
-                    alert("Something went wrong.");
+                    alert("Something went wrong." + res.errors);
                 }
             })
             .catch((error) => {

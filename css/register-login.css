@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+
 body {
     margin: 0;
     padding: 0;
@@ -192,13 +193,13 @@ input[type=submit] {
 
 .login-eye {
     position: absolute;
-    margin-top: 4px;
+    margin-top: 6px;
     margin-left: -15px;
 }
 
 .register-eye {
     position: absolute;
-    margin-top: 4px;
+    margin-top: 6px;
     margin-left: -15px;
 }
 
