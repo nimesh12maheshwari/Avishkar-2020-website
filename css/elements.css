@@ -49,8 +49,12 @@ padding:10px 0;
 font-size:20px;
 cursor:pointer;
 margin-left: 350px;
-margin-top: 470px;
+margin-top: 350px;
 border-radius:5px
+}
+#p-popup {
+    margin-top: 60px;
+    font-size: larger;
 }
 #popup {
 width:10%;
