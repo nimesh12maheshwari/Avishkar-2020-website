@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../css/register-login.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/elements.css" rel="stylesheet">
+    <script src="../js/my_js.js"></script>
     <style>
         body {
             background-color: #303641;
@@ -20,6 +22,17 @@
 </head>
 
 <body>
+    <div id="abc">
+        <div id="popupContact">
+            <form id="form-popup">
+                <h2 id="h2-popup">Contact anyone mentioned below :</h2>
+                <ul id="text-popup">
+                    <li>AbhishekKumardvdvdsvdsvdvjacjkdbbckjjsbckjjbkjhfuuftjkrbtkjkrjhyuewhtfjjbjscbslsj</li>
+                </ul>
+                <button id="submit-popup" onclick="div_hide()">Close</button>
+            </form>
+        </div>
+    </div>
     <div id="container-login">
         <div id="title">
             <i class="material-icons lock">lock</i> Login
@@ -40,7 +53,7 @@
                     <i class="material-icons">vpn_key</i>
                 </div>
                 <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
-                <span class="login-eye">
+                <span class="login-eye" onclick="myFunction()">
                     <i id="hide1" class="fa fa-eye"></i>
                     <i id="hide2" class="fa fa-eye-slash"></i>
                 </span>
@@ -55,10 +68,10 @@
         </form>
 
         <div class="forgot-password">
-            <a href="#"><u>Forgot your password?</u></a>
+            <a href="javascript:div_show()"><u>Forgot your password?</u></a>
         </div>
         <div class="privacy">
-            <a href="#">Privacy Policy</a>
+            <!-- <a href="#">Privacy Policy</a> -->
         </div>
 
         <div class="register">
@@ -67,6 +80,21 @@
         </div>
     </div>
     <script>
+        function myFunction() {
+            var x = document.getElementById('password');
+            var y = document.getElementById('hide1');
+            var z = document.getElementById('hide2');
+
+            if(x.type === 'password') {
+                x.type = 'text';
+                y.style.display = 'block';
+                z.style.display = 'none';
+            } else {
+                x.type = 'password';
+                y.style.display = 'none';
+                z.style.display = 'block';
+            }
+        }
         const myForm = document.getElementById('login-form');
         console.log("Going to addEventListener 1");
         myForm.addEventListener('submit', async (e) => {
@@ -106,6 +134,7 @@
                     window.location = "../events/";
                 } else {
                     alert("Either username or password is wrong.");
+                    location.reload(true);
                 }
             })
             .catch( (error) => {
