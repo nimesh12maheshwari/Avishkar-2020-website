@@ -189,6 +189,6 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     
 });
 
-document.querySelector('.container').addEventListener('input',function(){
+document.querySelector('.profileSection').addEventListener('input',function(){
     document.getElementById('saveBtn').disabled = false;
 });
