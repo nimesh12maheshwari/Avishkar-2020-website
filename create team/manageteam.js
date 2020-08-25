@@ -6,29 +6,47 @@ let currentTeamSelected;
 $(document).ready(function () {
     //localStorage.setItem('authtoken', '1ccd67221b3cb291a978bf8259baf482c6ef89ba'); // to remove later on
     authtoken = localStorage.getItem('authtoken');
+    if (authtoken == null) {
+        showLoginPrompt();
+    } else {
+        fillAccordion();
+        $('#send-create-team-request').on('click', (e) => {
+            createTeamBtnClicked();
+        });
+        $('#create-team').on('click', (e) => {
+            $('#modal-alert-create-team').hide();
+            $('#modal-create-team').modal('show');
+        });
+
+        $('#send-request').on('click', function (e) {
+            sendRequestBtnClicked();
+        });
+    }
+});
+
+function showLoginPrompt() {
+    $('.main').hide();
+    $('#prompt-login').show();
+}
+
+function fillAccordion() {
+    $('#accordion').empty();
     getUserDetails()
         .then(data => {
             userDetails = data;
-            populatePage(data);
+            console.log(data);
+            if (data['detail'] == 'Invalid token.') {
+                console.log('hello');
+                showLoginPrompt();
+            } else
+                populatePage(data);
         })
         .catch(() => {
             console.log("Error in getting user details");
         });
-    $('#send-create-team-request').on('click', (e) => {
-        createTeamBtnClicked();
-    });
-    $('#create-team').on('click', (e) => {
-        $('#modal-alert-create-team').hide();
-        $('#modal-create-team').modal('show');
-    });
-
-    $('#send-request').on('click', function (e) {
-        sendRequestBtnClicked();
-    });
-});
+}
 
 function populatePage(data) {
-    console.log(data);
     $.each(data['teams'], (key, team) => {
         let card = makeAccordionCard(team, accordionIndex);
         addAccordionCard(card, team);
@@ -36,6 +54,7 @@ function populatePage(data) {
 }
 
 function addAccordionCard(card, team) {
+    card.data('team',team);
     $('#accordion').append(card);
     $(`#collapse${accordionIndex} .add-member`).on('click', (e) => {
         console.log(team);
@@ -138,9 +157,6 @@ function makeRegisteredEventsTableBody(team) {
 }
 
 function makeTeamTable(team, index) {
-    let teamAdmin = team['teamAdmin'];
-    let teamMembers = team['teamMembers'];
-    let pendingMembers = team['pendingMembers'];
 
     let tableWrapper = $('<div>', {
         'class': 'table-wrapper',
@@ -151,10 +167,11 @@ function makeTeamTable(team, index) {
         'class': 'table'
     });
     table.append(makeTableHeader());
-    table.append(makeTableBody(teamAdmin, teamMembers, pendingMembers));
+    table.append(makeTableBody(team));
     tableWrapper.append(table);
     return tableWrapper;
 }
+
 function makeRegisteredEventsTableHeader() {
     let tableHeader = $('<thead>');
     let tr = $('<tr>').append($('<th>', {
@@ -166,6 +183,7 @@ function makeRegisteredEventsTableHeader() {
     tableHeader.append(tr);
     return tableHeader;
 }
+
 function makeTableHeader(first = 'Username', second = 'Status') {
     let tableHeader = $('<thead>');
     let tr = $('<tr>').append($('<th>', {
@@ -176,38 +194,51 @@ function makeTableHeader(first = 'Username', second = 'Status') {
         }).text(first))
         .append($('<th>', {
             'scope': 'col'
-        }).text(second));
+        }).text(second))
+        .append($('<th>').text('Options'));
     tableHeader.append(tr);
     return tableHeader;
 }
 
-function makeTableBody(teamAdmin, teamMembers, pendingMembers) {
+function makeTableBody(team) {
+    let teamAdmin = team['teamAdmin'];
+    let teamMembers = team['teamMembers'];
+    let pendingMembers = team['pendingMembers'];
+    let teamId = team['teamID'];
     let tbody = $('<tbody>');
     let rowIndex = 1;
     $.each(teamMembers, (index, val) => {
         let tr;
         if (val === teamAdmin) {
-            tr = makeNewRow(rowIndex, val, 'Admin');
+            tr = makeNewRow(rowIndex, val, 'Admin',teamId);
         } else {
-            tr = makeNewRow(rowIndex, val, 'Member');
+            tr = makeNewRow(rowIndex, val, 'Member',teamId);
         }
         rowIndex++;
         tbody.append(tr);
     });
 
     $.each(pendingMembers, (index, val) => {
-        let tr = makeNewRow(rowIndex, val, 'Pending');
+        let tr = makeNewRow(rowIndex, val, 'Pending',teamId);
         rowIndex++;
         tbody.append(tr);
     });
     return tbody;
 }
 
-function makeNewRow(rowIndex, username, status) {
+function makeNewRow(rowIndex, username, status, teamId) {
+    let threeDots = $(`<div class="dropdown"><button class="options-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+    </svg></button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item remove-member" href="#">Remove Member</a>
+    </div>
+  </div>`);
+  
     let tr = $('<tr>').append($('<th>', {
         'scope': 'row'
     }).text(rowIndex));
-    rowIndex++;
     let tdUsername = $('<td>').text(username);
     let tdStatus = $('<td>');
     let spanBadge;
@@ -225,7 +256,28 @@ function makeNewRow(rowIndex, username, status) {
         }).text(status);
     }
     tdStatus.append(spanBadge);
-    tr.append([tdUsername, tdStatus]);
+    let dots = threeDots.clone();
+    dots.addClass('team-table-dots').attr('id','team-table-dots-' + rowIndex.toString());
+    dots.find('.remove-member').on('click',(e) => {
+        e.preventDefault();
+        console.log(teamId + " " + username);
+        sendRemoveMemberRequest(teamId,username)
+        .then((data) => {
+            console.log(data);
+            if(data['success'] == true) {
+                fillAccordion();
+            }
+            else {
+                console.log(data['errors'][0]);
+            }
+        }).catch(() => {
+            console.log('Unable to remove Member');
+        })
+    });
+    let dotsTd = $('<td>').append(dots);
+    tr.append([tdUsername, tdStatus,dotsTd]);
+
+    rowIndex++;
     return tr;
 }
 
@@ -244,7 +296,7 @@ function createTeamBtnClicked() {
                     teamID: data['team_id'],
                     teamMembers: [userDetails['userName']],
                     pendingMembers: [],
-                    registeredEvents:{}
+                    registeredEvents: {}
                 };
                 let card = makeAccordionCard(team, accordionIndex);
                 addAccordionCard(card, team);
@@ -272,7 +324,7 @@ function sendRequestBtnClicked() {
             if (data['success']) {
                 $('#modal-add-member').modal('hide');
                 console.log('Request Sent');
-
+                fillAccordion();
             } else {
                 console.log(data['errors'][0]);
                 $('#modal-alert-add-member').text(data['errors'][0]);
@@ -365,5 +417,22 @@ async function sendAddMemberRequest(teamid, username) {
     };
 
     let response = await fetch("https://avishkarapi.sahajbamba.me/event/addteammember/", requestOptions);
+    return response.json();
+}
+
+async function sendRemoveMemberRequest(teamid,username) {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Token " + authtoken);
+
+    var formdata = new FormData();
+    formdata.append('teamid', teamid);
+    formdata.append('memberusername', username);
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formdata,
+    };
+
+    let response = await fetch("https://avishkarapi.sahajbamba.me/event/removeteammember/", requestOptions);
     return response.json();
 }

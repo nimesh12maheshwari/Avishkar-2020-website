@@ -30,16 +30,14 @@
 <body>
 
 	
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark">		<!--class navbar-expand-md-->
 			<div class="container" >
 				<a class="navbar-brand" href="#">
 					<img class="navbar-items-logo" src="../images/whitelogo.png" width="80" alt=""
 						>
 				</a>
-			</div>
-			<div class="container">
-				
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+				<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
@@ -49,24 +47,25 @@
 							<a class="nav-link font-weight-bold" href="#" style="color:black;">Events</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link font-weight-bold" href="#" style="color:white; outline-style:solid; outline-color:white;">Schedule</a>
+							<a class="nav-link font-weight-bold" href="#" style="color:white; margin-left:12px;">Schedule</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link font-weight-bold" href="#" style="color:white; outline-style:solid; outline-color:white;">Sponsors</a>
+							<a class="nav-link font-weight-bold" href="#" style="color:white; margin-left:12px;">Sponsors</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link font-weight-bold" href="#" style="color:white; outline-style:solid; outline-color:white;">Team</a>
+							<a class="nav-link font-weight-bold" href="#" style="color:white; margin-left:12px;">Team</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link font-weight-bold" href="#" style="color:white; outline-style:solid; outline-color:white;">FAQ</a>
+							<a class="nav-link font-weight-bold" href="#" style="color:white;margin-left:12px;margin-right:12px;">FAQ</a>
 						</li>
 					</ul>
-				</div>
+				
+				<!--login div container-->
 				<div id="login">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item dropdown">
 							<a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;margin-right:12px">
 								<img class="navbar-items-logo" src="img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
@@ -93,10 +92,11 @@
 				<div id="notlogin" style="display: none;">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link font-weight-bold" href="../register/login.html" style="color:white; outline-style:solid; outline-color:white;">Login/<br/>Register</a>
+						<a class="nav-link font-weight-bold" href="../register/login.html" style="color:white;outline-style:solid; outline-color:white;">Login/Register</a>
 					</li>
 				</ul>	
 				</div>
+			</div>
 			</div>
 		</nav>
 	
