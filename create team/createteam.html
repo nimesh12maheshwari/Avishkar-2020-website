@@ -22,6 +22,102 @@
 </head>
 
 <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">		<!--class navbar-expand-md-->
+    <div class="container" >
+        <a class="navbar-brand" href="#">
+            <img class="navbar-items-logo" src="../images/whitelogo.png" width="80" alt=""
+                >
+        </a>
+
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../events/" style="color:white;">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../schedule/" style="color:white; margin-left:12px;">Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../sponsors/" style="color:white; margin-left:12px;">Sponsors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../team/" style="color:white; margin-left:12px;">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../faq/" style="color:white;margin-left:12px;margin-right:12px;">FAQ</a>
+                </li>
+            </ul>
+        
+        <!--login div container-->
+        <div id="login">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;margin-right:12px">
+                        <img class="navbar-items-logo" src="../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+                        <img class="navbar-items-logo" src="../img/person.svg">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../profile/index.html">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../create team/createteam.html">Create Team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../eventRegister/index.html">Register for Events</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="notlogin" style="display: none;">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="../register/login.html" style="color:white;outline-style:solid; outline-color:white;">Login/Register</a>
+            </li>
+        </ul>	
+        </div>
+    </div>
+    </div>
+</nav>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div>
+              <h5><small>Do you want to accept or reject the request?</small></h5>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" onclick="acceptRequest()">Accept</button>
+      <button type="button" class="btn btn-primary" onclick="rejectRequest()">Reject</button>
+    </div>
+  </div>
+</div>
+</div>
+
   <div class="container">
     <div id="prompt-login"><h3 class="h3">You first have to <a href="*">Login</a>/ <a href="*">Register</a> to Manage Teams</h3> </div>
     <div class="main">
@@ -79,6 +175,8 @@
       </div>
     </div>
   </div>
+
+  <script src="../js/navbar/main.js"></script>
 </body>
 
 </html>
