@@ -23,11 +23,15 @@
 
 <body>
   <div class="container">
-    <h1>Manage Teams</h1>
-    <button class="btn btn-primary" id="create-team">Create a team</button>
-    <div id="accordion">
+    <div id="prompt-login"><h3 class="h3">You first have to <a href="*">Login</a>/ <a href="*">Register</a> to Manage Teams</h3> </div>
+    <div class="main">
+      <h1>Manage Teams</h1>
+      <button class="btn btn-primary" id="create-team">Create a team</button>
+      <div id="accordion">
 
+      </div>
     </div>
+
   </div>
 
   <!-- Modal -->
@@ -39,7 +43,7 @@
         </div>
         <div class="modal-body">
           <div class="alert alert-danger" role="alert" style="display: none;" id="modal-alert-add-member">
-            
+
           </div>
           <label for="username">Username</label><br>
           <input type="text" id="username" class="form-control">
@@ -62,7 +66,7 @@
         </div>
         <div class="modal-body">
           <div class="alert alert-danger" role="alert" style="display: none;" id="modal-alert-create-team">
-            
+
           </div>
           <label for="team-name">Team Name</label><br>
           <input type="text" id="team-name" class="form-control">
