@@ -3,7 +3,7 @@
         //Redirect to Login Page
     }
     */
-var tokenId = 'Token ' + 'ca8359c8a39a74803f8576ac9b9c449319a84e63'; //+localStorage.getItem('authtoken').toString();
+var tokenId = 'Token '+localStorage.getItem('authtoken').toString();
 var details = getUserDetails(tokenId);
 
 
@@ -54,16 +54,37 @@ function setAllFields(details) {
 
 function updateOtherDetails(details, tokenId) {
 
-    var college = document.getElementById('collegeProfile').value;
-    var msteamid = document.getElementById('msteamidProfile').value;
-    var phone = document.getElementById('phonenoProfile').value;
-    var whatsapp = document.getElementById('whatsappnoProfile').value;
-    var resume = document.getElementById('resumeProfile').value;
+    var college = document.getElementById('collegeProfile').value.trim();
+    var msteamid = document.getElementById('msteamidProfile').value.trim();
+    var phone = document.getElementById('phonenoProfile').value.trim();
+    var whatsapp = document.getElementById('whatsappnoProfile').value.trim();
+    var resume = document.getElementById('resumeProfile').value.trim();
+
 
     if(college == 'MNNIT')
         college = '';
 
     var flag = true;
+
+    if(phone == '' || phone.length < 10){
+        swal({
+            title: "Error!",
+            text: "Invalid Phone Number",
+            icon: "error",
+            button: "close",
+        });
+        return false;
+    }
+
+    if(whatsapp == '' || whatsapp.length < 10){
+        swal({
+            title: "Error!",
+            text: "Invalid Whatsapp Number",
+            icon: "error",
+            button: "close",
+        });
+        return false;
+    }
 
     if ((college != details.college) || (msteamid != details.msteamsID) || (phone != details.phone) || (whatsapp != details.whatsapp) || (resume != details.resume)) {
 
@@ -83,7 +104,6 @@ function updateOtherDetails(details, tokenId) {
 
         xhr.onload = function () {
             var tmp = JSON.parse(this.response);
-            console.log(tmp);
             if (tmp.success == true) {
                 flag = true;
             }
@@ -94,7 +114,6 @@ function updateOtherDetails(details, tokenId) {
                     icon: "error",
                     button: "close",
                 });
-                console.log('UpdateOtherDetails');
                 flag = false;
             }
         };
@@ -109,9 +128,9 @@ function updateOtherDetails(details, tokenId) {
 
 function updateNameEmail(details, tokenId) {
 
-    var fname = document.getElementById('fnameProfile').value;
-    var lname = document.getElementById('lnameProfile').value;
-    var email = document.getElementById('emailProfile').value;
+    var fname = document.getElementById('fnameProfile').value.trim();
+    var lname = document.getElementById('lnameProfile').value.trim();
+    var email = document.getElementById('emailProfile').value.trim();
 
     var flag = true;
 
@@ -130,7 +149,6 @@ function updateNameEmail(details, tokenId) {
 
         xhr.onload = function () {
             var tmp = JSON.parse(this.response);
-            console.log(tmp)
             if (tmp.success == true) {
                 flag = true;
             }
@@ -141,7 +159,6 @@ function updateNameEmail(details, tokenId) {
                     icon: "error",
                     button: "close",
                 });
-                console.log('UpdateName');
                 flag = false;
             }
         };
@@ -154,7 +171,6 @@ function updateNameEmail(details, tokenId) {
 
 document.getElementById('saveBtn').addEventListener('click', function () {
 
-    console.log(details);
     var flag1 = true;
     var flag2 = true;
 
@@ -162,7 +178,6 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     if(flag1 == true)
         flag2 = updateOtherDetails(details, tokenId)
 
-        console.log(flag1 + " "+flag2 );
     if(flag1 && flag2){
         swal({
             title: "Success!",
