@@ -223,8 +223,7 @@ document.querySelector('#submitBtn').addEventListener('click', function () {
     var events = getSelectValue('selectEvent');
     var contests = document.getElementById('selectContest').value;
     var teams = document.getElementById('selectTeam').value;
-
-    console.log(events+" "+contests+" "+teams);
+    
     // If user is not logged in, redirect to login page.
 
     /*tokenId = localStorage.getItem('authtoken');
