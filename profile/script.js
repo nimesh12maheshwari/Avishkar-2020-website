@@ -1,11 +1,18 @@
-/*tokenId = localStorage.getItem('authtoken');
-    if(tokenId == null){
-        //Redirect to Login Page
-    }
-    */
-var tokenId = 'Token ' + localStorage.getItem('authtoken').toString();
-var details = getUserDetails(tokenId);
+var tokenId;
+init();
+var details;
 
+function init() {
+    var token = localStorage.getItem('authtoken');
+    if (token == null) {
+        document.getElementById('prompt-login').style.display = "block";
+    }
+    else {
+        document.getElementById('profile').style.display = "block";
+        tokenId = 'Token ' + token.toString();
+        details = getUserDetails(tokenId);
+    }
+}
 
 function getUserDetails(tokenId) {
 
@@ -65,7 +72,7 @@ function updateOtherDetails(details, tokenId) {
     if ((college != details.college) || (msteamid != details.msteamsID) || (phone != details.phone) || (whatsapp != details.whatsapp) || (resume != details.resume)) {
 
         if (college == 'MNNIT')
-        college = '';
+            college = '';
 
         if (phone == '' || phone.length < 10) {
             swal({

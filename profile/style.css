@@ -1,0 +1,15 @@
+.prompt {
+    margin-top: 40px;
+    display: none;
+    text-align: center;
+}
+
+.profileSection {
+    background-image: url(../images/highlight.jpg);
+    display: none;
+}
+
+.listTab {
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
