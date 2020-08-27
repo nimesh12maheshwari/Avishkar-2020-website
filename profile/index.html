@@ -18,7 +18,7 @@
   <title>Avishkar: User Profile</title>
 </head>
 
-<body style="background-image: url('../images/highlight.jpg');">
+<body class="bodyStyle">
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <!--class navbar-expand-md-->
@@ -122,13 +122,13 @@
   </div>
 
   <div class="container prompt" id="prompt-login">
-      <h3 class="h3">You first have to <a href="../register/login.html">Login</a>/ <a
-          href="../register/register.html">Register</a> to see your Profile Section</h3>
-    </div>
+    <h3 class="h3">You first have to <a href="../register/login.html">Login</a>/ <a
+        href="../register/register.html">Register</a> to see your Profile Section</h3>
+  </div>
 
   <div class="container profileSection mt-5" id="profile">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-6 col-lg-4 col-sm-8 col-12" style="background-color: white;">
+    <div class="row d-flex justify-content-between">
+      <div class="col-md-6 col-lg-4 col-sm-8 col-12 mt-3 border rounded" style="background-color: white;">
         <ul class="nav nav-pills flex-column flex-sm-row listTab" id="profile-tab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="pills-about-tab" data-toggle="pill" href="#pills-about" role="tab"
@@ -200,9 +200,15 @@
             </form>
           </div>
         </div>
-
         <div class="form-group">
           <input class="btn btn-primary btn-lg btn-block" type="submit" id="saveBtn" value="Save Changes" disabled>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-sm-8 mt-3 border rounded" style="background-color: white; padding-top: 10px;">
+        <div id="eventList">
+          <h4 style="text-align: center;color: blue;"><strong>Registered Events</strong></h4>
+             
+          </table>
         </div>
       </div>
     </div>
