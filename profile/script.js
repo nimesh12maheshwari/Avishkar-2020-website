@@ -3,7 +3,7 @@
         //Redirect to Login Page
     }
     */
-var tokenId = 'Token '+localStorage.getItem('authtoken').toString();
+var tokenId = 'Token ' + localStorage.getItem('authtoken').toString();
 var details = getUserDetails(tokenId);
 
 
@@ -21,10 +21,10 @@ function getUserDetails(tokenId) {
         if (details.success == true) {
             return setAllFields(details);
         }
-        else{
+        else {
             swal({
                 title: "Error!",
-                text: ""+details.errors,
+                text: "" + details.errors,
                 icon: "error",
                 button: "close",
             });
@@ -60,68 +60,68 @@ function updateOtherDetails(details, tokenId) {
     var whatsapp = document.getElementById('whatsappnoProfile').value.trim();
     var resume = document.getElementById('resumeProfile').value.trim();
 
-
-    if(college == 'MNNIT')
-        college = '';
-
     var flag = true;
-
-    if(phone == '' || phone.length < 10){
-        swal({
-            title: "Error!",
-            text: "Invalid Phone Number",
-            icon: "error",
-            button: "close",
-        });
-        return false;
-    }
-
-    if(whatsapp == '' || whatsapp.length < 10){
-        swal({
-            title: "Error!",
-            text: "Invalid Whatsapp Number",
-            icon: "error",
-            button: "close",
-        });
-        return false;
-    }
 
     if ((college != details.college) || (msteamid != details.msteamsID) || (phone != details.phone) || (whatsapp != details.whatsapp) || (resume != details.resume)) {
 
-        
-        var data = new FormData();
-        data.append('college', college.toString());
-        data.append('phone', phone.toString());
-        data.append('whatsapp', whatsapp.toString());
-        data.append('msteams', msteamid);
-        data.append('resume', resume);
+        if (college == 'MNNIT')
+        college = '';
 
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
+        if (phone == '' || phone.length < 10) {
+            swal({
+                title: "Error!",
+                text: "Invalid Phone Number",
+                icon: "error",
+                button: "close",
+            });
+            flag = false;
+        }
 
-        xhr.open("POST", "https://avishkarapi.sahajbamba.me/auth/updatecontact/", false);
-        xhr.setRequestHeader("authorization", tokenId);
+        if (whatsapp == '' || whatsapp.length < 10) {
+            swal({
+                title: "Error!",
+                text: "Invalid Whatsapp Number",
+                icon: "error",
+                button: "close",
+            });
+            flag = false;
+        }
 
-        xhr.onload = function () {
-            var tmp = JSON.parse(this.response);
-            if (tmp.success == true) {
-                flag = true;
-            }
-            else{
-                swal({
-                    title: "Error!",
-                    text: ""+tmp.errors,
-                    icon: "error",
-                    button: "close",
-                });
-                flag = false;
-            }
-        };
+        if (flag) {
+            var data = new FormData();
+            data.append('college', college.toString());
+            data.append('phone', phone.toString());
+            data.append('whatsapp', whatsapp.toString());
+            data.append('msteams', msteamid);
+            data.append('resume', resume);
 
-        xhr.send(data);
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.open("POST", "https://avishkarapi.sahajbamba.me/auth/updatecontact/", false);
+            xhr.setRequestHeader("authorization", tokenId);
+
+            xhr.onload = function () {
+                var tmp = JSON.parse(this.response);
+                if (tmp.success == true) {
+                    flag = true;
+                }
+                else {
+                    swal({
+                        title: "Error!",
+                        text: "" + tmp.errors,
+                        icon: "error",
+                        button: "close",
+                    });
+                    flag = false;
+                }
+            };
+
+            xhr.send(data);
+        }
     }
-    if(flag)
-    return true;
+    if (flag)
+        return true;
     return false;
 }
 
@@ -152,10 +152,10 @@ function updateNameEmail(details, tokenId) {
             if (tmp.success == true) {
                 flag = true;
             }
-            else{
+            else {
                 swal({
                     title: "Error!",
-                    text: ""+tmp.errors,
+                    text: "" + tmp.errors,
                     icon: "error",
                     button: "close",
                 });
@@ -164,8 +164,8 @@ function updateNameEmail(details, tokenId) {
         };
         xhr.send(data);
     }
-    if(flag)
-    return true;
+    if (flag)
+        return true;
     return false;
 }
 
@@ -175,10 +175,10 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     var flag2 = true;
 
     flag1 = updateNameEmail(details, tokenId);
-    if(flag1 == true)
+    if (flag1 == true)
         flag2 = updateOtherDetails(details, tokenId)
 
-    if(flag1 && flag2){
+    if (flag1 && flag2) {
         swal({
             title: "Success!",
             text: "All changes are successfully saved.",
@@ -186,9 +186,9 @@ document.getElementById('saveBtn').addEventListener('click', function () {
             button: "close",
         });
     }
-    
+
 });
 
-document.querySelector('.profileSection').addEventListener('input',function(){
+document.querySelector('.profileSection').addEventListener('input', function () {
     document.getElementById('saveBtn').disabled = false;
 });
