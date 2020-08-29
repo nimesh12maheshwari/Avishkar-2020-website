@@ -137,14 +137,15 @@
                     });
                 } else {
                     // alert("Something went wrong." + res.errors);
-                    bs4pop.alert(res.errors, function (e) {
+                    bs4pop.alert(res.errors + "", function (e) {
+                        console.log(res.errors);
                     });
                 }
             })
             .catch((error) => {
                 // alert("error : " + error);
                 // console.log('error : ', error);
-                bs4pop.alert(error, function (e) {
+                bs4pop.alert("" + error, function (e) {
                         console.log('error : ', error);
                     });
             });
