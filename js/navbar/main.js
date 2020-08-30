@@ -98,11 +98,12 @@ function showPendingRequests() {
 
 function showModal(event) {
 	$('#exampleModal').modal('show');
+	showPendingRequests();
 	teamID = event.target.id;
+	
 }
 
 function acceptRequest() {
-	console.log(teamID);
 	var myHeaders = new Headers();
 	myHeaders.append("Authorization", "Token " + token);
 

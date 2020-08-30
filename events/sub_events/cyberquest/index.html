@@ -4,17 +4,17 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Cyberquest - Avishkar 2019</title>
+      <title>Cyberquest - Avishkar 2020</title>
       <link rel="shortcut icon" href="../favicon.ico">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
       <link rel="stylesheet" type="text/css" href="../css/demo.css" />
       <link rel="stylesheet" type="text/css" href="../css/bookblock.css" />
       <link rel="stylesheet" type="text/css" href="css/component.css" />
 
-      <link rel="stylesheet" href="../../css/navbar/reset.css"> <!-- CSS reset -->
-      <link rel="stylesheet" href="../../css/navbar/style.css"> <!-- Resource style -->
       <link rel="stylesheet" href="../../css/my.css"> <!-- Resource style -->
       <link rel="stylesheet" href="../css/my.css"> <!-- Resource style -->
 
@@ -23,30 +23,128 @@
    </head>
    <body>
 
-      <header>
-         <div class="cd-logo"><a href="../../"><img src="../../../images/whitelogo.png" alt="Logo" class="img-responsive"></a></div>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">		<!--class navbar-expand-md-->
+			<div class="container" >
+				<a class="navbar-brand pt-0 pb-0" href="#">
+					<img class="navbar-items-logo" src="../../../images/whitelogo.png" height="80" alt=""
+						>
+				</a>
 
-         <nav class="cd-main-nav-wrapper">
-            <ul class="cd-main-nav">
-               <li><a href="../../../">Home</a></li>
-               <li class="active"><a href="../../">Events</a></li>
-               <li><a href="../../../schedule">Schedule</a></li>
-               <li><a href="../../../sponsors">Sponsors</a></li>
-               <li><a href="../../../team">Team</a></li>
-               <li><a href="../../../faq">FAQ</a></li>
-            </ul> <!-- .cd-main-nav -->
-         </nav> <!-- .cd-main-nav-wrapper -->
-         
-         <a href="#0" class="cd-nav-trigger"><span></span></a>
-      </header>
+				<button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-      <main class="cd-main-content">
+				<div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link font-weight-bold" href="#" style="color:black; margin-left:12px;">Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="../../../schedule/" style="color:white; margin-left:12px;">Schedule</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="../../../sponsors/" style="color:white; margin-left:12px;">Sponsors</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="../../../team/" style="color:white; margin-left:12px;">Team</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="../../../faq/" style="color:white;margin-left:12px;margin-right:12px;">FAQ</a>
+						</li>
+					</ul>
+				
+				<!--login div container-->
+				<div id="login">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;margin-right:12px">
+								<img class="navbar-items-logo" src="../../../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+								<img class="navbar-items-logo" src="../../../img/person.svg">
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="../../../profile/index.html">Profile</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="../../../create team/createteam.html">Create Team</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+							</div>
+						</li>
+					</ul>
+				</div>
 
-         <header class="header" style="position: relative;">
-            <!-- <h1 class="glitched">CyberQuest</h1> -->               
-            <h1 class="glitched"><font color="#00ffff">C</font><font color="#20dfff">y</font><font color="#40bfff">b</font><font color="#609fff">e</font><font color="#8080ff">r</font><font color="#9f60ff">Q</font><font color="#bf40ff">u</font><font color="#df20ff">e</font><font color="#ff00ff">s</font><font color="#ef22ff">t</font></h1>
-         </header>
+				<div id="notlogin" style="display: none;">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link font-weight-bold" href="../../../register/login.html" style="color:white;outline-style:solid; outline-color:white;">Login/Register</a>
+					</li>
+				</ul>	
+				</div>
+			</div>
+			</div>
+		</nav>
+	
 
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel" style="color:black">Confirmation</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<div>
+			  		<h5 style="color:black"><small>Do you want to accept or reject the request?</small></h5>
+				</div>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-success" onclick="acceptRequest()">Accept</button>
+			  <button type="button" class="btn btn-primary" onclick="rejectRequest()">Reject</button>
+			</div>
+		  </div>
+		</div>
+	</div>
+<!--Modal ends here-->
+<!--select team modal start here-->
+<div class="modal" id="selectTeamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 5000;">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="selectTeamModalLabel" style="color:black">Select Team to Register</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <select id="teamDropdownMenu">
+          </select>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary" onclick="registerAfterSelectingTeam(event)">Register</button>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!--select team modal ends here-->
+
+<main class="cd-main-content">
+
+   <header class="header" style="position: relative;">
+      <!-- <h1 class="glitched">CyberQuest</h1> -->               
+      <h1 class="glitched"><font color="#00ffff">C</font><font color="#20dfff">y</font><font color="#40bfff">b</font><font color="#609fff">e</font><font color="#8080ff">r</font><font color="#9f60ff">Q</font><font color="#bf40ff">u</font><font color="#df20ff">e</font><font color="#ff00ff">s</font><font color="#ef22ff">t</font></h1>
+   </header>
       <div id="scroll-wrap" class="container mybookcont">
          <div class="main">
             <div id="bookshelf" class="bookshelf">
@@ -337,7 +435,8 @@
                   </h3>
                </div>
                <div class="bb-custom-side page-layout-1">
-                  <p>The Algorithmic Extravaganza where you get to quench your thirst for solving real life problems</p>
+                  <div class="d-flex justify-content-center" style="margin-top:17em;"><button type="button" id="insomniaButtonId" onclick="registerForEvent(event)" class="btn btn-warning">Register</button></div>
+                  <p style="margin-top:2px;">The Algorithmic Extravaganza where you get to quench your thirst for solving real life problems</p>
                </div>
             </div>
             <div class="bb-item">
@@ -1076,14 +1175,21 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
       <div class="footer">
          <p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2019</p>
        </div>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
       <script src="../js/bookblock.min.js"></script>
       <script src="../js/classie.js"></script>
       <script src="../js/bookshelf.js"></script>
-      <script src="../../js/navbar/main.js"></script> <!-- Resource jQuery -->
+      <script src="../../../js/navbar/main.js"></script> <!-- Resource jQuery -->
+      
       <script type="text/javascript">
          $("header").append("<div class='glitch-window'></div>");
          $( "h1.glitched" ).clone().appendTo( ".glitch-window" );
       </script>
+      <script src="cyberquest.js"></script>
    </body>
 </html>
