@@ -6,6 +6,15 @@
     <meta name="description" content="Login - Register Template">
     <meta name="author" content="Lorenzo Angelino aka MrLolok">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bs4.pop.css">
+    <script src="../js/bs4.pop.js"></script>
+    <script src="../jquery/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+
+
     <link rel="stylesheet" href="../css/register-login.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,9 +36,9 @@
             <form id="form-popup">
                 <h2 id="h2-popup">Contact anyone mentioned below :</h2>
                 <ul id="text-popup">
-                    <p id="p-popup"><font color="black"><b>&nbsp;&nbsp;&nbsp;&nbsp;Name</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Whatsapp Number</b></font></p>
-                    <p><font color="black">Abhishek Kumar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;imabhishekad7@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8218806878</font></p>
-                    <p><font color="black">&nbsp;&nbsp;&nbsp;Sahaj Bamba&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sahajbamba1999@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8476896757</font></p>
+                    <p id="p-popup"><font color="black"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Whatsapp Number</b></font></p>
+                    <p><font color="black">Abhishek Kumar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;imabhishekad7@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8218806878</font></p>
+                    <p><font color="black">&nbsp;&nbsp;&nbsp;Sahaj Bamba&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sahajbamba1999@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8476896757</font></p>
                 </ul>
                 <button id="submit-popup" onclick="div_hide()">Close</button>
             </form>
@@ -61,12 +70,12 @@
                 </span>
             </div>
 
-            <div class="remember-me">
+            <!-- <div class="remember-me">
                 <input type="checkbox">
                 <span style="color: #DDD">Remember Me</span>
-            </div>
+            </div> -->
 
-            <input type="submit" value="Log In" />
+            <input class="Log-In-Btn" type="submit" value="Log In" />
         </form>
 
         <div class="forgot-password">
@@ -109,9 +118,7 @@
             console.log("UserName : " + UserName);
             let Password = document.getElementById("login-form").elements[1].value;
             console.log("Password : " + Password);
-            let rememberMe = document.getElementById("login-form").elements[2].value;
             let res = null;
-            console.log("remember Me : " + rememberMe);
 
             formdata.append("username", UserName);
             formdata.append("password", Password);
@@ -132,16 +139,29 @@
                 if(res.token) {
                     localStorage.setItem("authtoken", res.token);
                     console.log(localStorage);
-                    alert("logined successful");
-                    window.location = "../events/";
+                    // bs4pop.notice('Login Successful', {type: 'success'})
+                    bs4pop.alert("Login Successful", function (e) {
+                        window.location = "../events/";
+                    });
+                    // alert("logined successful");
+                    // window.location = "../events/";
                 } else {
-                    alert("Either username or password is wrong.");
-                    location.reload(true);
+                    // alert("Either username or password is wrong.");
+                    // location.reload(true);
+                    bs4pop.alert("Either username or password is wrong.", function (e) {
+                        location.reload(true);
+                    });
+                    // bs4pop.notice('Either username or password is wrong', {type: 'warning'});
+                    // location.reload(true);
                 }
             })
             .catch( (error) => {
-                alert("error : " + error);
-                console.log('error : ', error);
+                // alert("error : " + error);
+                // console.log('error : ', error);
+                    bs4pop.alert("" + error, function (e) {
+                        console.log('error : ', error);
+                    });
+                    // bs4pop.notice('error : ' + error, {type: 'danger'})
             });
             console.log("Going to addEventListener 4");
         });

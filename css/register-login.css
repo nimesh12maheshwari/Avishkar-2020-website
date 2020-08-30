@@ -107,6 +107,21 @@ input[type=email]:focus {
     border: 1px solid #373b3d;
 }
 
+#email {
+    height: 30px;
+    font-size: 15px;
+}
+
+#username {
+    height: 30px;
+    font-size: 15px;
+}
+
+#password {
+    height: 30px;
+    font-size: 15px;
+}
+
 .forgot-password {
     position: relative;
     bottom: 0%;
@@ -125,6 +140,12 @@ input[type=email]:focus {
 .forgot-password a:hover {
     color: #FFF;
     transition: color 1s;
+}
+
+.Log-In-Btn {
+    margin-top: 30px;
+    height: 35px;
+    font-size: 16px;
 }
 
 .privacy {
@@ -171,7 +192,7 @@ input[type=submit] {
     margin: auto;
     padding: 16px 0;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px;
     width: 85%;
     border-top: 1px solid #C1C3C6;
 }
@@ -189,12 +210,14 @@ input[type=submit] {
     border: 0 none;
     cursor: pointer;
     border-radius: 3px;
+    height: 30px;
+    font-size: 14px;
 }
 
 .login-eye {
     position: absolute;
-    margin-top: 6px;
-    margin-left: -15px;
+    margin-top: 7px;
+    margin-left: -17px;
 }
 
 .register-eye {
