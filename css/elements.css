@@ -15,7 +15,7 @@ overflow:auto
 }
 #popupContact {
 position:absolute;
-left: 37%;
+left: 40%;
 top:17%;
 margin-left:-202px;
 font-family:'Raleway',sans-serif
@@ -23,7 +23,7 @@ font-family:'Raleway',sans-serif
 #form-popup {
 width: 800px;
 height: 600px;
-padding:10px 50px;
+padding: 10px 50px;
 border:2px solid gray;
 border-radius:10px;
 font-family:raleway;
@@ -48,8 +48,8 @@ border:1px solid #FFCB00;
 padding:10px 0;
 font-size:20px;
 cursor:pointer;
-margin-left: 350px;
-margin-top: 350px;
+margin-left: 310px;
+margin-top: 270px;
 border-radius:5px
 }
 #p-popup {

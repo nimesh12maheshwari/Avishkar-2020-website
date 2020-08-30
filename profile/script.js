@@ -1,11 +1,18 @@
-/*tokenId = localStorage.getItem('authtoken');
-    if(tokenId == null){
-        //Redirect to Login Page
-    }
-    */
-var tokenId = 'Token ' + localStorage.getItem('authtoken').toString();
-var details = getUserDetails(tokenId);
+var tokenId;
+init();
+var details;
 
+function init() {
+    var token = localStorage.getItem('authtoken');
+    if (token == null) {
+        document.getElementById('prompt-login').style.display = "block";
+    }
+    else {
+        document.getElementById('profile').style.display = "block";
+        tokenId = 'Token ' + token.toString();
+        details = getUserDetails(tokenId);
+    }
+}
 
 function getUserDetails(tokenId) {
 
@@ -48,9 +55,80 @@ function setAllFields(details) {
     document.getElementById('phonenoProfile').value = details.phone;
     document.getElementById('whatsappnoProfile').value = details.whatsapp;
 
+    var cnt = 1;
+    let table = createTable();
+    let thead = createHead(['#','Event','Team Name','Team Id']);
+    let tbody = document.createElement("tbody");
+    let teams = details.teams;
+
+    for(var teamId in teams){
+
+        let events = teams[teamId].registeredEvents;
+        var teamName = teams[teamId].teamName;
+
+        for(var eventId in events){
+
+            var eventName = events[eventId].eventName;
+            let tr = createRows([cnt.toString(),eventName,teamName,teamId]);
+            tbody.appendChild(tr);
+            cnt++;
+        }
+    }
+
+    console.log(cnt);
+    if(cnt>1){
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        document.getElementById('eventList').appendChild(table);
+    }
+    else{
+        let hr = document.createElement("hr");
+        let span = document.createElement("span");
+        span.appendChild(document.createTextNode("You have not registered for any event yet."));
+        document.getElementById('eventList').appendChild(hr);
+        document.getElementById('eventList').appendChild(span);
+    }
     return details;
 }
 
+function createTable(){
+
+    let table = document.createElement("table");
+    table.setAttribute("class","table table-striped mt-3 table-responsive");
+    return table;
+}
+
+function createHead(fields){
+
+    let thead = document.createElement("thead");
+    let tr = document.createElement("tr");
+
+    for (var i=0;i<fields.length;i++){
+        let th = document.createElement("th");
+        th.setAttribute("scope","col");
+        th.appendChild(document.createTextNode(fields[i]));
+
+        tr.appendChild(th);
+    }
+    thead.appendChild(tr);
+    return thead;
+}
+
+function createRows(fields){
+
+    let tr = document.createElement("tr");
+    let th = document.createElement("th");
+    th.setAttribute("scope","row");
+    th.appendChild(document.createTextNode(fields[0]));
+    tr.appendChild(th);
+
+    for(var i=1;i<fields.length;i++){
+        let td = document.createElement("td");
+        td.appendChild(document.createTextNode(fields[i]));
+        tr.appendChild(td);
+    }
+    return tr;
+}
 
 function updateOtherDetails(details, tokenId) {
 
@@ -65,7 +143,7 @@ function updateOtherDetails(details, tokenId) {
     if ((college != details.college) || (msteamid != details.msteamsID) || (phone != details.phone) || (whatsapp != details.whatsapp) || (resume != details.resume)) {
 
         if (college == 'MNNIT')
-        college = '';
+            college = '';
 
         if (phone == '' || phone.length < 10) {
             swal({
