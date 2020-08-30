@@ -3,6 +3,10 @@ let authtoken;
 let userDetails;
 let accordionIndex = 1;
 let currentTeamSelected;
+
+toastr.options = {
+    "positionClass": "toast-bottom-right",
+}
 $(document).ready(function () {
     //localStorage.setItem('authtoken', '1ccd67221b3cb291a978bf8259baf482c6ef89ba'); // to remove later on
     authtoken = localStorage.getItem('authtoken');
@@ -31,18 +35,18 @@ function showLoginPrompt() {
 
 function fillAccordion() {
     $('#accordion').empty();
+    accordionIndex = 1;
     getUserDetails()
         .then(data => {
             userDetails = data;
-            console.log(data);
+            // console.log(data);
             if (data['detail'] == 'Invalid token.') {
-                console.log('hello');
                 showLoginPrompt();
             } else
                 populatePage(data);
         })
         .catch(() => {
-            console.log("Error in getting user details");
+            toastr.warning("Error in getting user details");
         });
 }
 
@@ -57,7 +61,7 @@ function addAccordionCard(card, team) {
     card.data('team',team);
     $('#accordion').append(card);
     $(`#collapse${accordionIndex} .add-member`).on('click', (e) => {
-        console.log(team);
+        // console.log(team);
         currentTeamSelected = team;
         $('#modal-alert-add-member').hide();
         $('#modal-add-member').modal('show');
@@ -75,20 +79,18 @@ function makeAccordionCard(team, index) {
 
 function makeAccordionHeader(teamID, teamName, index) {
     let cardHeader = $('<div>', {
-        'class': 'card-header',
-        'id': 'heading' + index.toString()
-    });
-    let h5 = $('<h5>', {
-        'class': 'mb-0'
-    });
-    let button = $('<button>', {
-        'class': 'btn btn-link',
+        'class': 'card-header collapsed',
+        'id': 'heading' + index.toString(),
         'data-toggle': 'collapse',
         'data-target': '#collapse' + index.toString()
-    }).text(teamName + " - " + teamID);
+    });
+    // let h5 = $('<h5>', {
+    //     'class': 'mb-0'
+    // });
+    let a = $('<span>').text(index + ".   " + teamName + " - " + teamID);
 
-    h5.append(button);
-    cardHeader.append(h5);
+    // h5.append(button);
+    cardHeader.append(a);
     return cardHeader;
 }
 
@@ -112,10 +114,11 @@ function makeAccordionBody(team, index) {
         'title': 'Add a Member',
         'data-placement': 'right'
     });
-    let addMemberBtn = $('<button>', {
-        'type': 'button',
-        'class': 'btn btn-primary add-member'
-    }).text('Add Member');
+    let addMemberBtn = $('<a>', {
+        'class': 'add-member neon-btn'
+    });
+    addMemberBtn.append([$('<span>'),$('<span>'),$('<span>'),$('<span>')]);
+    addMemberBtn.append($('<u>Add Member</u>'));
     spanBtn.append(addMemberBtn);
     cardBody.append([registeredEvents, spanBtn, teamTable]);
     body.append(cardBody);
@@ -260,18 +263,18 @@ function makeNewRow(rowIndex, username, status, teamId) {
     dots.addClass('team-table-dots').attr('id','team-table-dots-' + rowIndex.toString());
     dots.find('.remove-member').on('click',(e) => {
         e.preventDefault();
-        console.log(teamId + " " + username);
+        // console.log(teamId + " " + username);
         sendRemoveMemberRequest(teamId,username)
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             if(data['success'] == true) {
                 fillAccordion();
             }
             else {
-                console.log(data['errors'][0]);
+                toastr.error(data['errors'][0]);
             }
         }).catch(() => {
-            console.log('Unable to remove Member');
+            toastr.error('Unable to remove Member');
         })
     });
     let dotsTd = $('<td>').append(dots);
@@ -285,10 +288,10 @@ function createTeamBtnClicked() {
     let teamName = $('#team-name').val();
     if (teamNameValidate()) {
         sendCreateTeamRequest(teamName).then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data['success']) {
                 $('#modal-create-team').modal('hide');
-                console.log('Team Created');
+                toastr.success('Team Created');
 
                 let team = {
                     teamName: teamName,
@@ -301,14 +304,14 @@ function createTeamBtnClicked() {
                 let card = makeAccordionCard(team, accordionIndex);
                 addAccordionCard(card, team);
             } else {
-                console.log(data['errors'][0]);
+                // toastr.warning(data['errors'][0]);
                 $('#modal-alert-create-team').text(data['errors'][0]);
                 $('#modal-alert-create-team').show();
             }
 
         }).catch(() => {
             $('#modal-create-team').modal('hide');
-            console.log('unable to send create team');
+            toastr.error('Error in creating team');
         });
     } else {
         $('#modal-alert-create-team').text('Team name should be of length more than 5 and should contain lowercase characters');
@@ -320,19 +323,19 @@ function sendRequestBtnClicked() {
     let username = $('#username').val();
     if (usernameValidate()) {
         sendAddMemberRequest(currentTeamSelected['teamID'], username).then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data['success']) {
                 $('#modal-add-member').modal('hide');
-                console.log('Request Sent');
+                toastr.success('Request Sent');
                 fillAccordion();
             } else {
-                console.log(data['errors'][0]);
+                // toastr.error(data['errors'][0]);
                 $('#modal-alert-add-member').text(data['errors'][0]);
                 $('#modal-alert-add-member').show();
             }
         }).catch(() => {
             $('#modal-add-member').modal('hide');
-            console.log('unable to send request');
+            toastr.error('Unable to send request');
         });
     } else {
         $('#modal-alert-add-member').text("Team name should be of length more than 5 and should contain lowercase characters or '_' or numbers");
@@ -356,7 +359,7 @@ function teamNameValidate() {
 
 function usernameValidate() {
     let username = $('#username').val();
-    console.log(username);
+    // console.log(username);
     if (username == null || typeof username != 'string' || username.length < 6 || username.length > 255) return false;
     //if(!isNaN(username[0]*1)) return false;
     for (let c of username) {

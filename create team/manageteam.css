@@ -1,14 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+:root {
+    --bgcolor:#262626;
+    --accent-color:#D4F311;
+}
+body ,.card, .modal-content{
+    background-color: var(--bgcolor) !important;
+    color: white;
+}
+#main-container {
+    font-family: 'Orbitron', sans-serif;
+}
 #create-team , .add-member{
     display: block;
     margin-bottom: 10px;
+}
+#create-team-wrapper {
+    width: 100%;
+    display: flex;
+}
+#create-team {
+    margin-left: auto;
 }
 #prompt-login {
     text-align: center;
     margin-top: 100px;
     display: none;
 }
-
+.card-header {
+    border-width: 2px;
+    border-color: var(--accent-color);
+}
+.card-header span {
+    color: var(--accent-color);
+    font-size: 20px;
+    font-style: italic;
+}
+.card-body {
+    font-size: 0.9rem;
+}
 .options-btn {
     background: transparent;
     border: 0px;
+}
+.options-btn svg {
+    fill: white;
+}
+.accordion .card-header:after {
+    font-family: 'FontAwesome';  
+    content: "\f068";
+    color: var(--accent-color);
+    float: right; 
+    transform: translateY(40%);
+
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f067"; 
+    color: var(--accent-color);
+    transform: translateY(40%);
+}
+
+
+
+/* Neon Button */
+.neon-btn {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #00fff6 !important;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-decoration: none !important;
+    font-size: 20px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+.neon-btn:visited {
+    color: #00fff6;
+}
+.neon-btn:hover {
+    color: #050f1a !important;
+    background: #00fff6;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #00fff6, 0 0 40px #00fff6, 0 0 80px #00fff6;
+    transition-delay: 600ms;
+}
+.neon-btn span {
+    position: absolute;
+    display: block;
+}
+/************************************************ 3. NEON DU HAUT ************************************************/
+.neon-btn span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00fff6);
+}
+.neon-btn:hover span:nth-child(1) {
+    left: 100%;
+    transition: 600ms;
+}
+/************************************************ 4. NEON DU BAS ************************************************/
+.neon-btn span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #00fff6);
+}
+.neon-btn:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 250ms;
+}
+/************************************************ 5. NEON DE DROITE ************************************************/
+.neon-btn span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #00fff6);
+}
+.neon-btn:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 100ms;
+}
+/************************************************ 5. NEON DE GAUCHE ************************************************/
+.neon-btn span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #00fff6);
+}
+.neon-btn:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 450ms;
 }
