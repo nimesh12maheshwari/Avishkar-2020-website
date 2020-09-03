@@ -345,7 +345,7 @@ function sendRequestBtnClicked() {
 }
 
 function teamNameValidate() {
-    let teamName = $('#team-name').val();
+    /*let teamName = $('#team-name').val();
     if (teamName == null || typeof teamName != 'string' || teamName.length < 6 || teamName.length > 255) return false;
     for (let c of teamName) {
         if (!isNaN(c * 1)) {
@@ -353,7 +353,7 @@ function teamNameValidate() {
         }
         if (c == c.toUpperCase())
             return false;
-    }
+    }*/
     return true;
 }
 

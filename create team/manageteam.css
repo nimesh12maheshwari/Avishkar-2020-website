@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 :root {
     --bgcolor:#262626;
-    --accent-color:#D4F311;
+    --accent-color:orange;
 }
 body ,.card, .modal-content{
     background-color: var(--bgcolor) !important;

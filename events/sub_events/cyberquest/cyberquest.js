@@ -34,6 +34,7 @@ $(document).ready(function () {
                                 let registeredEventID = value.registeredEvents[key].eventID;
                                 registeredEvents.push(registeredEventID);
                                 console.log(registeredEventID);
+                                changeStateOfButtonToRegistered(registeredEventID);
                             }
                         }
                     }
@@ -53,14 +54,11 @@ function registerForEvent(event){
     eventID = event.target.id.substring(0,event.target.id.indexOf('Button'));
     console.log(eventID);
 
-    for(let i=0;i<registeredEvents.length;i++){
-        if(registeredEvents[i] === eventID){
-            //return;                             // add toast of already registered
-        }
-    }
-
     if(createdTeams.length === 0){
-        return;                         //create team to register for event
+        toastr.error('Create team to register for event','Error!', {
+            closeButton: true
+        });
+        return;                        
     }
 
     $('#selectTeamModal').modal('show');
@@ -87,13 +85,31 @@ function registerAfterSelectingTeam(event){
     $('#selectTeamModal').modal('hide');
     apiCallRegisterEvent(teamID)
         .then(result => {
-            console.log(result);            //add toast
-            //location.reload();
+            if (result['success']) {
+                console.log(result['success']);
+                toastr.success(result['success'],'Success!',{
+                    closeButton: true
+                });
+                changeStateOfButtonToRegistered(eventID);
+            } else {
+                console.log(result['errors'][0]);
+                toastr.error(result['errors'][0],'Error!', {
+                    closeButton: true
+                });
+            }
         })
         .catch(error => {
-            console.log(error);             //add toast
-            
+            console.log(error);             
+            toastr.error('Unable to send request','Error',{closeButton:true});
         });
+}
+
+function changeStateOfButtonToRegistered(eventID){                
+    let button = document.getElementById(eventID + "ButtonId");
+    button.disabled = true;
+    button.innerText = 'Registered';
+    //button.style.backgroundColor = 'green';
+    //button.style.color = 'white';
 }
 
 // to send a api request to fetch user details
