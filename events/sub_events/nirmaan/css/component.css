@@ -93,10 +93,12 @@
     background-repeat: no-repeat;*/
 }
 
+
+
 .no-csstransforms3d .book[data-book="book-6"],
 .no-js .book[data-book="book-6"],
 .book[data-book="book-6"] .front {
-    background: url(../img/codotron.svg);
+    background: url(../img/6.png);
    /* background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/codotron.svg), #a1cae5;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/codotron.svg), #a1cae5;
     background-repeat: no-repeat;*/
@@ -105,7 +107,7 @@
 /*.book[data-book="book-6"] .inner { border-color: #a1cae5 }*/
 
 .book[data-book="book-6"] .cover::before {
-    background: url(../img/codotron.svg);
+    background: url(../img/6.png);
   /*  background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/operomania.svg), #a1cae5;
     background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/operomania.svg), #a1cae5;
     background-repeat: no-repeat;*/
@@ -114,7 +116,7 @@
 .no-csstransforms3d .book[data-book="book-7"],
 .no-js .book[data-book="book-7"],
 .book[data-book="book-7"] .front {
-    background: url(../img/sphinx.svg);
+    background: url(../img/7.svg);
     /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/sphinx.svg), #ebe6e5;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/sphinx.svg), #ebe6e5;
     background-repeat: no-repeat;*/
@@ -123,7 +125,7 @@
 /*.book[data-book="book-7"] .inner { border-color: #ebe6e5 }*/
 
 .book[data-book="book-7"] .cover::before {
-    background: url(../img/sphinx.svg);
+    background: url(../img/7.svg);
     /*background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/sphinx.svg), #ebe6e5;
     background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/sphinx.svg), #ebe6e5;
     background-repeat: no-repeat;*/
