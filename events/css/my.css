@@ -2,8 +2,12 @@
 
 
 body{
-    background: url("../../img/demo3/bg11.jpg");
-	/* background: url("../../img/demo3/background.jpg"); */
+    /* background: url("../../img/demo3/bg11.jpg"); */
+    background-image: url("../../img/demo3/3236.jpg");
+    /* background: url("../../img/demo3/background.jpg"); */
+    
+    background-position: center;
+    background-attachment: fixed;
 	overflow-x: none;
 }
 
