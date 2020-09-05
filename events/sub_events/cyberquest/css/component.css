@@ -120,6 +120,8 @@
 .no-js .book[data-book="book-7"],
 .book[data-book="book-7"] .front {
     background: url(../img/mathrush.png);
+    background-size: cover;
+    
     /*background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/sphinx.svg), #ebe6e5;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/sphinx.svg), #ebe6e5;
     background-repeat: no-repeat;*/

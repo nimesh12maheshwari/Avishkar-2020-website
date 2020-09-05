@@ -36,19 +36,18 @@ $(document).ready(function () {
                                 createdTeams.push([value.teamName, value.teamID]);
                             }
 
-                        for(let key in value.registeredEvents){
-                            if(value.registeredEvents.hasOwnProperty(key)){
-                                let registeredEventID = value.registeredEvents[key].eventID;
-                                registeredEvents.push(registeredEventID);
-                                console.log(registeredEventID);
-                                changeStateOfButtonToRegistered(registeredEventID);
+                            for(let key in value.registeredEvents){
+                                if(value.registeredEvents.hasOwnProperty(key)){
+                                    let registeredEventID = value.registeredEvents[key].eventID;
+                                    registeredEvents.push(registeredEventID);
+                                    console.log(registeredEventID);
+                                    changeStateOfButtonToRegistered(registeredEventID);
+                                }
                             }
                         }
-
                     }
                 }
-            })
-            .catch(() => {
+            }).catch(() => {
                 disableButton();
                 console.log("Error in getting user details");
             });
@@ -176,23 +175,21 @@ function registerForEvent(event) {
     eventID = event.target.id.substring(0, event.target.id.indexOf('Button'));
     console.log(eventID);
 
-<<<<<<< HEAD
     if(createdTeams.length === 0){
         toastr.error('Create team to register for event','Error!', {
             closeButton: true
         });
-        return;                        
-=======
+        return; 
+    }                       
     for (let i = 0; i < registeredEvents.length; i++) {
         if (registeredEvents[i] === eventID) {
-            //return;                             // add toast of already registered
+            toastr.error('Already Registered for the Event','Error!', {
+                closeButton: true
+            });
+            return;                             // add toast of already registered
         }
     }
 
-    if (createdTeams.length === 0) {
-        return; //create team to register for event
->>>>>>> 0c02e0dce518eca33abdfbb4ddaa3838d77c9cc9
-    }
 
     $('#selectTeamModal').modal('show');
 
@@ -218,7 +215,6 @@ function registerAfterSelectingTeam(event) {
     $('#selectTeamModal').modal('hide');
     apiCallRegisterEvent(teamID)
         .then(result => {
-<<<<<<< HEAD
             if (result['success']) {
                 console.log(result['success']);
                 toastr.success(result['success'],'Success!',{
@@ -235,14 +231,6 @@ function registerAfterSelectingTeam(event) {
         .catch(error => {
             console.log(error);             
             toastr.error('Unable to send request','Error',{closeButton:true});
-=======
-            console.log(result); //add toast
-            //location.reload();
-        })
-        .catch(error => {
-            console.log(error); //add toast
-
->>>>>>> 0c02e0dce518eca33abdfbb4ddaa3838d77c9cc9
         });
 }
 

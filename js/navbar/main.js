@@ -1,7 +1,7 @@
 window.onload = getUserDetails();
 var pendingRequest = [];
 var teamID = undefined;
-var token = undefined;
+var token;
 
 function initialize(userDetails) {
 	const userName = userDetails.userName;
@@ -166,13 +166,16 @@ function rejectRequest() {
 
 function logout(){
 	
-	
+	console.log(token);
 	logoutApiCall()
 	.then(result => {
 		console.log(result);
 		if(result['success']){
 			localStorage.removeItem("authtoken");
 			window.location = "../index.html";
+		}
+		else{
+			alert(result);
 		}
 	})
 	.catch(error => console.log('error', error));
@@ -194,6 +197,6 @@ async function logoutApiCall(){
 	redirect: 'follow'
 	};
 
-	return (await fetch("https://avishkarapi.sahajbamba.me/auth/logout", requestOptions)).json;
+	return (await fetch("https://avishkarapi.sahajbamba.me/auth/logout/", requestOptions)).json();
 	
 }
