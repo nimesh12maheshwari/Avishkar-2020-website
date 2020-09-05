@@ -15,8 +15,8 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
-  font-family: "PT Sans", sans-serif;
+  font-size: 12px;
+  font-family: 'Orbitron', sans-serif;
   color: #33414a;
   background-color: #f2f2f2;
 }
@@ -37,7 +37,7 @@ header {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #33414a;
+  background-color: black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Force Hardware Acceleration */
@@ -329,12 +329,14 @@ header::before {
     padding: 0 .4em;
   }
   .cd-main-nav li a {
+    border-radius: 10%;
+    color:#00E3EF;
     display: inline-block;
     padding: .8em;
     line-height: 1;
-    font-size: 1.6rem;
+    font-size: 12px;
     border-bottom: none;
-    border: 3px solid white;
+    border: 3px solid #00E3EF;
     text-decoration: none;
     /* Prevent .cd-subnav-trigger flicker is Safari */
     -webkit-transform: translateZ(0);
