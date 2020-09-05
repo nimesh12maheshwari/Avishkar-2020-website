@@ -136,6 +136,9 @@
         <span></span>
         <u>Create Team</u>
     </a></div>
+    <div id="prompt-no-team">
+      <h3 class="h3">You have no team. Click on Create Team to create a new team.</h3>
+    </div>
       <div id="accordion" class="accordion">
 
       </div>
@@ -189,6 +192,27 @@
     </div>
   </div>
 
+   <!-- Modal -->
+   <div class="modal fade" id="modal-remove-member" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h5 class="modal-title">Add a Member</h5>
+        </div> -->
+        <div class="modal-body">
+          <p>Are you sure?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="remove-member-cancel">Cancel</button>
+          <button type="button" class="btn btn-primary" id="remove-member-confirm">Remove Member</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 300px;width: 100%;"></div>
+  <div class="footer">
+		<p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
+	</div>
   <script src="../js/navbar/main.js"></script>
   <script src="manageteam.js"></script>
 

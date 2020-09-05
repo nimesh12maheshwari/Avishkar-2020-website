@@ -3,9 +3,13 @@ let authtoken;
 let userDetails;
 let accordionIndex = 1;
 let currentTeamSelected;
+let removeMemberTeamId;
+let removeMemberUsername;
 
 toastr.options = {
     "positionClass": "toast-bottom-right",
+    maxOpened: 1,
+    autoDismiss: true,
 }
 $(document).ready(function () {
     //localStorage.setItem('authtoken', '1ccd67221b3cb291a978bf8259baf482c6ef89ba'); // to remove later on
@@ -25,9 +29,38 @@ $(document).ready(function () {
         $('#send-request').on('click', function (e) {
             sendRequestBtnClicked();
         });
+
+        $('body').on('click', '.remove-member', function (e) {
+            removeMemberTeamId = $(this).data('teamId');
+            removeMemberUsername = $(this).data('username');
+            $('#modal-remove-member').modal({
+                backdrop: "static",
+                keyboard: false
+            });
+        });
+        $('#remove-member-confirm').on('click', (e) => {
+            $('#modal-remove-member').modal('hide');
+            sendRemoveMemberRequest(removeMemberTeamId, removeMemberUsername)
+                .then((data) => {
+                    // console.log(data);
+                    if (data['success'] == true) {
+                        fillAccordion();
+                    } else {
+                        toastr.error(data['errors'][0]);
+                    }
+                }).catch(() => {
+                    toastr.error('Unable to remove Member');
+                });
+        });
+
     }
 });
-
+function showNoTeamPrompt() {
+    $('#prompt-no-team').show();
+}
+function hideNoTeamPrompt() {
+    $('#prompt-no-team').hide();
+}
 function showLoginPrompt() {
     $('.main').hide();
     $('#prompt-login').show();
@@ -42,8 +75,12 @@ function fillAccordion() {
             // console.log(data);
             if (data['detail'] == 'Invalid token.') {
                 showLoginPrompt();
-            } else
-                populatePage(data);
+            } else {
+                if(Object.keys(data.teams).length == 0)
+                    showNoTeamPrompt();
+                else
+                    populatePage(data);
+            }
         })
         .catch(() => {
             toastr.warning("Error in getting user details");
@@ -58,7 +95,7 @@ function populatePage(data) {
 }
 
 function addAccordionCard(card, team) {
-    card.data('team',team);
+    card.data('team', team);
     $('#accordion').append(card);
     $(`#collapse${accordionIndex} .add-member`).on('click', (e) => {
         // console.log(team);
@@ -117,7 +154,7 @@ function makeAccordionBody(team, index) {
     let addMemberBtn = $('<a>', {
         'class': 'add-member neon-btn'
     });
-    addMemberBtn.append([$('<span>'),$('<span>'),$('<span>'),$('<span>')]);
+    addMemberBtn.append([$('<span>'), $('<span>'), $('<span>'), $('<span>')]);
     addMemberBtn.append($('<u>Add Member</u>'));
     spanBtn.append(addMemberBtn);
     cardBody.append([registeredEvents, spanBtn, teamTable]);
@@ -213,16 +250,16 @@ function makeTableBody(team) {
     $.each(teamMembers, (index, val) => {
         let tr;
         if (val === teamAdmin) {
-            tr = makeNewRow(rowIndex, val, 'Admin',teamId);
+            tr = makeNewRow(rowIndex, val, 'Admin', teamId);
         } else {
-            tr = makeNewRow(rowIndex, val, 'Member',teamId);
+            tr = makeNewRow(rowIndex, val, 'Member', teamId);
         }
         rowIndex++;
         tbody.append(tr);
     });
 
     $.each(pendingMembers, (index, val) => {
-        let tr = makeNewRow(rowIndex, val, 'Pending',teamId);
+        let tr = makeNewRow(rowIndex, val, 'Pending', teamId);
         rowIndex++;
         tbody.append(tr);
     });
@@ -238,7 +275,7 @@ function makeNewRow(rowIndex, username, status, teamId) {
       <a class="dropdown-item remove-member" href="#">Remove Member</a>
     </div>
   </div>`);
-  
+
     let tr = $('<tr>').append($('<th>', {
         'scope': 'row'
     }).text(rowIndex));
@@ -260,25 +297,34 @@ function makeNewRow(rowIndex, username, status, teamId) {
     }
     tdStatus.append(spanBadge);
     let dots = threeDots.clone();
-    dots.addClass('team-table-dots').attr('id','team-table-dots-' + rowIndex.toString());
-    dots.find('.remove-member').on('click',(e) => {
-        e.preventDefault();
-        // console.log(teamId + " " + username);
-        sendRemoveMemberRequest(teamId,username)
-        .then((data) => {
-            // console.log(data);
-            if(data['success'] == true) {
-                fillAccordion();
-            }
-            else {
-                toastr.error(data['errors'][0]);
-            }
-        }).catch(() => {
-            toastr.error('Unable to remove Member');
-        })
-    });
+    dots.addClass('team-table-dots').attr('id', 'team-table-dots-' + rowIndex.toString());
+    dots.find('.remove-member').data('teamId', teamId);
+    dots.find('.remove-member').data('username', username);
+    // dots.find('.remove-member').on('click', (e) => {
+    //     e.preventDefault();
+    //     $('#modal-remove-member').modal({
+    //         backdrop: 'static',
+    //         keyboard: false
+    //     }).on('click', '#remove-member-confirm', (e) => {
+    //         console.log('click');
+    //         sendRemoveMemberRequest(teamId, username)
+    //             .then((data) => {
+    //                 console.log(data);
+    //                 if (data['success'] == true) {
+    //                     fillAccordion();
+    //                 } else {
+    //                     toastr.error(data['errors'][0]);
+    //                 }
+    //             }).catch(() => {
+    //                 toastr.error('Unable to remove Member');
+    //             });
+    //         $('#remove-member-cancel').click();
+    //         return true;
+    //     })
+
+    // });
     let dotsTd = $('<td>').append(dots);
-    tr.append([tdUsername, tdStatus,dotsTd]);
+    tr.append([tdUsername, tdStatus, dotsTd]);
 
     rowIndex++;
     return tr;
@@ -291,6 +337,7 @@ function createTeamBtnClicked() {
             // console.log(data);
             if (data['success']) {
                 $('#modal-create-team').modal('hide');
+                hideNoTeamPrompt();
                 toastr.success('Team Created');
 
                 let team = {
@@ -423,7 +470,7 @@ async function sendAddMemberRequest(teamid, username) {
     return response.json();
 }
 
-async function sendRemoveMemberRequest(teamid,username) {
+async function sendRemoveMemberRequest(teamid, username) {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Token " + authtoken);
 
