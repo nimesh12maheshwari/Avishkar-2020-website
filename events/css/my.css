@@ -3,12 +3,14 @@
 
 body{
     /* background: url("../../img/demo3/bg11.jpg"); */
-    background-image: url("../../img/demo3/3236.jpg");
+    background-image: url("../../img/demo3/glowing_blr.png");
     /* background: url("../../img/demo3/background.jpg"); */
-    
+    color:white;
     background-position: center;
     background-attachment: fixed;
-	overflow-x: none;
+    overflow-x: none;
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 
 

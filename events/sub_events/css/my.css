@@ -152,8 +152,9 @@ body {
     margin: 1em 0 0 0;
     font-weight: 300;
     font-size: 1.8em;
-    font-family: "Abril Fatface", serif;
-    color: black;
+    font-family: "Orbitron", sans-serif;
+    color: white;
+    text-shadow:0px 0px 5px #604DF9;
 }
 
 .bookshelf figcaption h2 span {

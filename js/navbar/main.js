@@ -29,7 +29,8 @@ function getUserDetails() {
 
 	if (token === null) {
 		var childNodes = document.getElementById("login");
-		childNodes.remove();
+		if(childNodes)
+			childNodes.remove();
 		document.getElementById("notlogin").style.display = "block";
 	}
 	else {
