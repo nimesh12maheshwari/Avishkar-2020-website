@@ -251,11 +251,15 @@ document.getElementById('saveBtn').addEventListener('click', function () {
 
     var flag1 = true;
     var flag2 = true;
-
-    flag1 = updateNameEmail(details, tokenId);
-    if (flag1 == true)
-        flag2 = updateOtherDetails(details, tokenId)
-
+    let activeTab  = $('.listTab .active').text();
+    console.log($('.listTab .active').text());
+    if(activeTab === 'About'){
+        flag1 = updateNameEmail(details, tokenId);
+    }
+    else{
+        flag2 = updateOtherDetails(details, tokenId);
+    }
+        
     if (flag1 && flag2) {
         swal({
             title: "Success!",
