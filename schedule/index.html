@@ -6,41 +6,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Avishkar 2019 | Schedule</title>
+  <title>Avishkar 2020 | Schedule</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/navbar/navbar.css">
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css">
+  
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-glyphicons.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
-  <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <link rel="stylesheet" href="css/navbar/reset.css"> <!-- CSS reset -->
-  <link rel="stylesheet" href="css/navbar/style.css"> <!-- Resource style -->
   <link rel="stylesheet" href="css/my.css"> <!-- Resource style -->
-  
+  <script src="../js/navbar/main.js"></script>
 </head>
 
 <body>
 
-    <header>
-      <div class="cd-logo"><a href="../"><img src="../images/whitelogo.png" alt="Logo" class="img-responsive"></a></div>
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <!--class navbar-expand-md-->
+    <div class="container-fluid">
+      <a class="navbar-brand pt-0 pb-0" href="#">
+        <img class="navbar-items-logo" src="../img/Neon_triangle.png" height="80" alt="">
+      </a>
 
-      <nav class="cd-main-nav-wrapper">
-        <ul class="cd-main-nav">
-          <li><a href="../">Home</a></li>
-          <li><a href="../events">Events</a></li>
-          <li class="active"><a href="#">Schedule</a></li>
-          <li><a href="../sponsors">Sponsors</a></li>
-          <li><a href="../team">Team</a></li>
-          <li><a href="../faq">FAQ</a></li>
-        </ul> <!-- .cd-main-nav -->
-      </nav> <!-- .cd-main-nav-wrapper -->
-      
-      <a href="#0" class="cd-nav-trigger"><span></span></a>
-    </header>
+      <button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto style">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../events/" style="margin-left:12px">EVENTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../schedule/" style="margin-left:12px;">SCHEDULE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../sponsors/" style="margin-left:12px;">SPONSORS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../team/" style="margin-left:12px;">TEAM</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../faq/"
+                style="margin-left:12px;margin-right:12px;">FAQ</a>
+            </li>
+          </ul>
+        
+        <!--login div container-->
+        <div id="login">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
+                        <img class="navbar-items-logo" src="../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="navbar-items-logo" src="../img/person.svg">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../profile/index.html">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../create team/createteam.html">Create Team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="notlogin" style="display: none;">
+          <ul class="navbar-nav ml-auto style">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../register/login.html">Login/Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <h5><small>Do you want to accept or reject the request?</small></h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" onclick="acceptRequest()">Accept</button>
+          <button type="button" class="btn btn-primary" onclick="rejectRequest()">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <main class="cd-main-content">
 <div class="container">
   <div class="page-header">
-    <h1><strong>Avishkar 2019 Schedule</strong></h1>
+    <h1 style="color: white;"><strong>Avishkar 2020 Schedule</strong></h1>
   </div>
   
   <ul class="timeline">
@@ -48,81 +139,12 @@
    
   </ul>
 </div>
+<div style="height: 100px;"></div>
 </main>
     <div class="footer">
-      <p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2019</p>
+      <p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
     </div>
 </body>
-<script>
-    $("body").ready(function(){
-          console.log("Schedule Fetching");
-          $.ajax({
-            url : "http://www.yourneed.in/test.php",
-            success  :function(result){
-              //result = JSON.parse(result);
-              day0 = result.nameValuePairs.day0;
-              day1 = result.nameValuePairs.day1;
-              day2 = result.nameValuePairs.day2;
-              day3 = result.nameValuePairs.day3;
-              const schedule = {
-                "Day 1" : day0,
-                "Day 2" : day1,
-                "Day 3" : day2,
-                "Day 4" : day3
-              };
-              console.log(schedule);
-              
-              var day_array = {
-                "Day 1" : "11 October, 2019",
-                "Day 2" : "12 October, 2019",
-                "Day 3" : "13 October, 2019",
-                "Day 4" : "14 October, 2019"                  
-              }
 
-              var timeline = document.getElementsByClassName("timeline")[0];
-              console.log(timeline,)
-              for(var day in schedule){
-                var bit = 1;
-                var header_li =  document.createElement("li");
-                var header_div = document.createElement("div");
-                header_div.classList.add("tldate");
-                header_div.innerHTML = day_array[day];
-                header_li.appendChild(header_div);
-                timeline.appendChild(header_li);
-                console.log(header_li);  
-                for(var day_schedule in schedule[day]){
-                  var event = schedule[day][day_schedule];
-                  var event_li = document.createElement("li");
-
-                  if(bit == 1){
-                    event_li.classList.add("timeline-inverted");
-                    bit = 0;
-                  }
-                  else
-                    bit = 1;
-
-                  var circle_div = document.createElement("div");
-                  circle_div.classList.add("tl-circ");
-                  event_li.appendChild(circle_div);
-                  var event_panel_div = document.createElement("div");
-                  event_panel_div.classList.add("timeline-panel");
-                  var event_heading_div = document.createElement("div");
-                  event_heading_div.classList.add("tl-heading");
-                  event_heading_div.innerHTML = '<h4> '+event.eventName+'</h4><br><p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>'+event.time+'</small></p>';
-                  event_panel_div.appendChild(event_heading_div);
-                  var event_detail_div = document.createElement("div");
-                  event_detail_div.classList.add("tl-body");
-                  event_detail_div.innerHTML = '<p> Venue '+event.venue+'</p>';
-                  event_panel_div.appendChild(event_detail_div);
-                  event_li.appendChild(event_panel_div);
-                  timeline.appendChild(event_li);
-                  console.log(timeline);
-                }
-              }
-            }
-          })
-    });
-</script>
-<script src="../js/navbar/main.js"></script>
 <!-- Mirrored from culrav.in/schedule/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Jul 2016 00:24:58 GMT -->
 </html>

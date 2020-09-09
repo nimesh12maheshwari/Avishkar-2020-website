@@ -1,7 +1,10 @@
 body{
-    background: url("../../img/demo3/background.jpg");
+    background: url("../../img/f.jpg");
     overflow: visible;
-    overflow-x:hidden; 
+    overflow-x:hidden;
+    background-size:cover;
+    background-repeat: no-repeat; 
+    color:white;
 }
 
 .title{

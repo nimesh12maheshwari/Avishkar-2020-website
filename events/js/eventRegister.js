@@ -47,9 +47,9 @@ $(document).ready(function () {
                         }
                     }
                 }
-            }).catch(() => {
+            }).catch((error) => {
                 disableButton();
-                console.log("Error in getting user details");
+                console.log("Error in getting user details"+ error);
             });
 
 
@@ -205,7 +205,7 @@ function registerForEvent(event) {
 }
 
 function disableButton() { //add all button to disable
-    document.getElementById("insomniaButtonId").disabled = true;
+    //document.getElementById("insomniaButtonId").disabled = true;
 }
 
 function registerAfterSelectingTeam(event) {
@@ -236,6 +236,7 @@ function registerAfterSelectingTeam(event) {
 
 function changeStateOfButtonToRegistered(eventID){                
     let button = document.getElementById(eventID + "ButtonId");
+    if(!button)return;
     button.disabled = true;
     button.innerText = 'Registered';
     //button.style.backgroundColor = 'green';

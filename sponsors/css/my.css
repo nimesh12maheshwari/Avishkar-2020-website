@@ -1,5 +1,7 @@
  body{
-    background: url("../../img/demo3/bg11.jpg");
+    background: url("../../img/f.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 main{
   	font-family: 'Orbitron',sans-serif;
