@@ -44,10 +44,10 @@ header.header{
     transform: translateY(-50%);
 }
 header.header h1{
-    font-size: 8rem;
-    color: white;
+    font-size: 6rem;
+    color: #00E3EF;
     text-align: center;
-    
+    text-shadow: 5px 5px 2px purple;
     text-transform: uppercase;
     font-weight: 900;
 }
