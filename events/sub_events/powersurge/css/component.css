@@ -3,6 +3,12 @@
 
 /* Custom book covers */
 
+
+#btn-bottom-exception-component-css-file {
+    padding: 0;
+}
+
+
 .no-csstransforms3d .book[data-book="book-1"],
 .no-js .book[data-book="book-1"],
 .book[data-book="book-1"] .front {
