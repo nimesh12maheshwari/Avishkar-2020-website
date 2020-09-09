@@ -1,0 +1,11 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+
+.head_text {
+  font-family: 'Orbitron',sans-serif;
+  font-weight: bold;
+  font-size: 28px;
+  color: #fafafa;
+}
+.dud {
+  color: #757575;
+}

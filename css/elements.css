@@ -1,0 +1,71 @@
+@import "http://fonts.googleapis.com/css?family=Raleway";
+/*----------------------------------------------
+CSS settings for HTML div Exact Center
+------------------------------------------------*/
+#abc {
+width:100%;
+height:100%;
+opacity: .99;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-color:#313131;
+overflow:auto
+}
+#popupContact {
+position:absolute;
+left: 40%;
+top:17%;
+margin-left:-202px;
+font-family:'Raleway',sans-serif
+}
+#form-popup {
+width: 800px;
+height: 600px;
+padding: 10px 50px;
+border:2px solid gray;
+border-radius:10px;
+font-family:raleway;
+background-color:#fff
+}
+#h2-popup {
+background-color:#FEFFED;
+color: red;
+padding:20px 35px;
+margin:-10px -50px;
+text-align:center;
+border-radius:10px 10px 0 0
+}
+#submit-popup {
+text-decoration:none;
+width:100px;
+text-align:center;
+display:block;
+background-color:#FFBC00;
+color:#fff;
+border:1px solid #FFCB00;
+padding:10px 0;
+font-size:20px;
+cursor:pointer;
+margin-left: 310px;
+margin-top: 270px;
+border-radius:5px
+}
+#p-popup {
+    margin-top: 60px;
+    font-size: larger;
+}
+#popup {
+width:10%;
+height:45px;
+border-radius:3px;
+background-color:#cd853f;
+color:#fff;
+font-family:'Raleway',sans-serif;
+font-size:18px;
+cursor:pointer
+}
+#text-popup {
+    color: royalblue;
+}

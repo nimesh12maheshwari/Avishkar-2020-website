@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.style li a{
+    border-radius: 10%;
+    color:#00E3EF !important;
+    font-size: 12px;
+    padding: .8em;
+    line-height: 1;
+    border-bottom: none;
+    border: 3px solid #00E3EF;
+    font-size: 12px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.navbar-dark{
+    border-bottom: 1px solid #d500fb;
+    margin-bottom: 2.5rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+

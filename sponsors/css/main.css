@@ -1,0 +1,10 @@
+
+.img-classics{
+    opacity: .2;
+}
+.img-classics.hover{
+    opacity: .8;
+}
+.margin-50{
+    margin-top: 70px;
+}

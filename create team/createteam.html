@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="manageteam.css">
+  <link rel="stylesheet" href="navbar.css">
+  
+  <title>Manage Team</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark" style="background-color: black;">
+    <!--class navbar-expand-md-->
+    <div class="container-fluid">
+      <a class="navbar-brand pt-0 pb-0" href="#">
+        <img class="navbar-items-logo" src="../images/whitelogo.png" height="80" alt="">
+      </a>
+
+      <button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto style">
+            <li class="nav-item active">
+              <a class="nav-link font-weight-bold" href="../events/" style="margin-left:12px">EVENTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../schedule/" style="margin-left:12px;">SCHEDULE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../sponsors/" style="margin-left:12px;">SPONSORS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../team/" style="margin-left:12px;">TEAM</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../faq/"
+                style="margin-left:12px;margin-right:12px;">FAQ</a>
+            </li>
+          </ul>
+        
+        <!--login div container-->
+        <div id="login">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
+                        <img class="navbar-items-logo" src="../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="navbar-items-logo" src="../img/person.svg">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../profile/index.html">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../create team/createteam.html">Create Team</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="notlogin" style="display: none;">
+          <ul class="navbar-nav ml-auto style">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../register/login.html">Login/Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <h5><small>Do you want to accept or reject the request?</small></h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" onclick="acceptRequest()">Accept</button>
+          <button type="button" class="btn btn-primary" onclick="rejectRequest()">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="main-container">
+    <div id="prompt-login">
+      <h3 class="h3">You first have to <a href="../register/login.html">Login</a>/ <a
+          href="../register/register.html">Register</a> to Manage Teams</h3>
+    </div>
+    <div class="main">
+      <h1>Manage Teams</h1>
+      <div id="create-team-wrapper"><a href="#" class="neon-btn" id="create-team">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <u>Create Team</u>
+    </a></div>
+    <div id="prompt-no-team">
+      <h3 class="h3">You have no team. Click on Create Team to create a new team.</h3>
+    </div>
+      <div id="accordion" class="accordion">
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-add-member" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a Member</h5>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" role="alert" style="display: none;" id="modal-alert-add-member">
+
+          </div>
+          <label for="username">Username</label><br>
+          <input type="text" id="username" class="form-control">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="send-request">Send Request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-create-team" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Team</h5>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" role="alert" style="display: none;" id="modal-alert-create-team">
+
+          </div>
+          <label for="team-name">Team Name</label><br>
+          <input type="text" id="team-name" class="form-control">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="send-create-team-request">Create Team</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="modal-remove-member" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h5 class="modal-title">Add a Member</h5>
+        </div> -->
+        <div class="modal-body">
+          <p>Are you sure?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="remove-member-cancel">Cancel</button>
+          <button type="button" class="btn btn-primary" id="remove-member-confirm">Remove Member</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 300px;width: 100%;"></div>
+  <div class="footer">
+		<p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
+	</div>
+  <script src="../js/navbar/main.js"></script>
+  <script src="manageteam.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="description" content="Login - Register Template">
+    <meta name="author" content="Lorenzo Angelino aka MrLolok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bs4.pop.css">
+    <script src="../js/bs4.pop.js"></script>
+    <script src="../jquery/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+
+
+
+    <link rel="stylesheet" href="../css/register-login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container-register">
+        <div id="title">
+            <i class="material-icons lock"> lock </i> Register
+        </div>
+
+        <form id="register-form">
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">email</i>
+                </div>
+                <input id="email" placeholder="Email" type="email" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off" pattern="[a-z][a-z0-9$_]{1,14}" title="Username length should be between 2 to 15. It should start with small english alphabets(a-z), followed by characters : small english alphabets(a-z), numbers(0-9), special symbols($ (Dollar) and _ (Underscore))">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">vpn_key</i>
+                </div>
+                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off"pattern=".{7,}" title="Minimum password length should be 7 characters long">
+                <span class="register-eye" onclick="myFunction()">
+                    <i id="hide1" class="fa fa-eye"></i>
+                    <i id="hide2" class="fa fa-eye-slash"></i>
+                </span>
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox">
+                <span style="color: #DDD">Are you from MNNIT</span>
+            </div>
+
+            <input type="submit" value="Register" />
+        </form>
+
+        <div class="privacy">
+            <!-- <a href="#">Privacy Policy</a> -->
+        </div>
+
+        <div class="register">
+            Do you already have an account?
+            <a href="login.html"><button id="register-link">Log In here</button></a>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById('password');
+            var y = document.getElementById('hide1');
+            var z = document.getElementById('hide2');
+
+            if(x.type === 'password') {
+                x.type = 'text';
+                y.style.display = 'block';
+                z.style.display = 'none';
+            } else {
+                x.type = 'password';
+                y.style.display = 'none';
+                z.style.display = 'block';
+            }
+        }
+        const myForm = document.getElementById('register-form');
+        myForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            let formdata = new FormData();
+            let Email = document.getElementById("register-form").elements[0].value;
+            let userName = document.getElementById("register-form").elements[1].value;
+            let password = document.getElementById("register-form").elements[2].value;
+            let is_mnnit = document.getElementById("register-form").elements[3].value;
+
+            if(is_mnnit === "on") {
+                is_mnnit = "true";
+            } else {
+                is_mnnit = "false";
+            }
+
+            formdata.append("username", userName);
+            formdata.append("email", Email);
+            formdata.append("password", password);
+            formdata.append("ismnnit", is_mnnit);
+
+            var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+            };
+
+            await fetch("https://avishkarapi.sahajbamba.me/auth/register/", requestOptions)
+            .then((response) => {
+                return response.text();
+            })
+            .then((result) => {
+                let res = JSON.parse(result);
+                console.log(res);
+                if(res.success) {
+                    // alert("registered successful");
+                    // window.location = "../events/";
+                    bs4pop.alert("Registered successful", function (e) {
+                        window.location = "../events/";
+                    });
+                } else {
+                    // alert("Something went wrong." + res.errors);
+                    bs4pop.alert(res.errors + "", function (e) {
+                        console.log(res.errors);
+                    });
+                }
+            })
+            .catch((error) => {
+                // alert("error : " + error);
+                // console.log('error : ', error);
+                bs4pop.alert("" + error, function (e) {
+                        console.log('error : ', error);
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>

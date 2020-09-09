@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Cyberquest - Avishkar 2020</title>
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+      <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+      <link rel="stylesheet" type="text/css" href="../css/bookblock.css" />
+      <link rel="stylesheet" type="text/css" href="css/component.css" />
+
+      <link rel="stylesheet" href="../../css/my.css"> <!-- Resource style -->
+      <link rel="stylesheet" href="../css/my.css"> <!-- Resource style -->
+
+      <script src="../js/modernizr.custom.js"></script>
+   </head>
+   <body>
+
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">		<!--class navbar-expand-md-->
+			<div class="container" >
+				<a class="navbar-brand pt-0 pb-0" href="#">
+					<img class="navbar-items-logo" src="../../../images/whitelogo.png" height="80" alt=""
+						>
+				</a>
+
+				<button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link font-weight-bold" href="#" style="color:black; margin-left:12px;">Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="../../../schedule/" style="color:white; margin-left:12px;">Schedule</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="../../../sponsors/" style="color:white; margin-left:12px;">Sponsors</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="../../../team/" style="color:white; margin-left:12px;">Team</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="../../../faq/" style="color:white;margin-left:12px;margin-right:12px;">FAQ</a>
+						</li>
+					</ul>
+				
+				<!--login div container-->
+				<div id="login">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;margin-right:12px">
+								<img class="navbar-items-logo" src="../../../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+								<img class="navbar-items-logo" src="../../../img/person.svg">
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="../../../profile/index.html">Profile</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="../../../create team/createteam.html">Create Team</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div id="notlogin" style="display: none;">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link font-weight-bold" href="../../../register/login.html" style="color:white;outline-style:solid; outline-color:white;">Login/Register</a>
+					</li>
+				</ul>	
+				</div>
+			</div>
+			</div>
+		</nav>
+	
+
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel" style="color:black">Confirmation</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<div>
+			  		<h5 style="color:black"><small>Do you want to accept or reject the request?</small></h5>
+				</div>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-success" onclick="acceptRequest()">Accept</button>
+			  <button type="button" class="btn btn-primary" onclick="rejectRequest()">Reject</button>
+			</div>
+		  </div>
+		</div>
+	</div>
+<!--Modal ends here-->
+<!--select team modal start here-->
+<div class="modal" id="selectTeamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 5000;">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="selectTeamModalLabel" style="color:black">Select Team to Register</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <select id="teamDropdownMenu">
+          </select>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary" onclick="registerAfterSelectingTeam(event)">Register</button>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!--select team modal ends here-->
+
+<main class="cd-main-content">
+
+   <header class="header" style="position: relative;">
+      <!-- <h1 class="glitched">CyberQuest</h1> -->               
+      <h1 class="glitched"><font color="#00ffff">C</font><font color="#20dfff">y</font><font color="#40bfff">b</font><font color="#609fff">e</font><font color="#8080ff">r</font><font color="#9f60ff">Q</font><font color="#bf40ff">u</font><font color="#df20ff">e</font><font color="#ff00ff">s</font><font color="#ef22ff">t</font></h1>
+   </header>
+      <div id="scroll-wrap" class="container mybookcont">
+         <div class="main">
+            <div id="bookshelf" class="bookshelf">
+               <figure>
+                  <div class="book" data-book="book-2"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>Insomnia</h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-4"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2> Webster</h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-1"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>Softablitz</h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-8"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>Softathalon </h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               
+               <figure>
+                  <div class="book" data-book="book-3"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>Droidrush</h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               
+               <figure>
+                  <div class="book" data-book="book-5"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>Code of the day</h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-6"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>Operaomnia</h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-7"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>MathRush</h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-9"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>Logical Rhythm </h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-10"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>Code Warriors</h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-11"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2> Revengg </h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-12"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2> Tuxwars </h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+               <figure>
+                  <div class="book" data-book="book-13"></div>
+                  <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
+                  <figcaption>
+                     <h2>TechMaiden</h2>
+                  </figcaption>
+                  <div class="details">
+                  </div>
+               </figure>
+            </div>
+         </div>
+         <!-- /main -->
+         
+      </div>
+
+      <div>
+            <h3 style="text-align:center;font-family: 'Orbitron',sans-serif;font-size: 2.3em;margin-top: 2%;color:black;">
+               Branch Coordinator's
+            </h3>
+            <!-- Button Container -->
+         <div id="btns">
+           <!-- Start Button 1 -->
+           <div class="btn">
+             <div class="btn-inner">
+               <div class="btn-top">
+                 <!-- Icon -->
+                 <!-- Title -->
+                 <h4>Anuj Modi</h4>
+               </div>
+               <!-- End ButtonTop -->
+               <div class="btn-bottom">
+                 <!-- Icon -->
+                 <!-- Title -->
+                 <h4>Anuj Modi</h4>
+                 <!-- Text -->
+                 <p>9711523327<br>anujmodi2011@gmail.com</p>
+                 <!-- End Button Bottom -->
+               </div>
+               <!-- End Button Inner -->
+             </div>
+             <!-- End Button 1 -->
+           </div>
+           <!-- Start Button 2 -->
+           <div class="btn">
+             <div class="btn-inner">
+               <div class="btn-top">
+                 <!-- Icon -->
+                 <!-- Title -->
+                 <h4>Arsh Singh</h4>
+               </div>
+               <!-- End ButtonTop -->
+               <div class="btn-bottom">
+                 <!-- Icon -->
+                 <!-- Title -->
+                 <h4>Arsh Singh</h4>
+                 <!-- Text -->
+                  <p>9599325474<br>arsh2300singh@gmail.com</p>
+                 <!-- End Button Bottom -->
+               </div>
+               <!-- End Button Inner -->
+             </div>
+             <!-- End Button 2 -->
+           </div>
+           <!-- Start Button 3 -->
+           <div class="btn">
+             <div class="btn-inner">
+               <div class="btn-top">
+                 <!-- Icon -->
+                 <i class="fa fa-ship"></i>
+                 <!-- Title -->
+                 <h4>Gaurav Katare</h4>
+               </div>
+               <!-- End ButtonTop -->
+               <div class="btn-bottom">
+                 <!-- Icon -->
+                 <i class="fa fa-shipe"></i>
+                 <!-- Title -->
+                 <h4>Gaurav Katare</h4>
+                 <!-- Text -->
+                 <p>7905436190<br>kataregaurav1501@gmail.com</p>
+                 <!-- End Button Bottom -->
+               </div>
+               <!-- End Button Inner -->
+             </div>
+             <!-- End Button 3 -->
+           </div>
+           <!-- End Button Container -->
+         </div>
+      </div>
+
+
+      <!-- /container -->
+      <!-- Fullscreen BookBlock -->
+      <!-- for demo purpose we repeat each bookblock -->
+      <div class="bb-custom-wrapper" id="book-1">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Softablitz</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>Step into the world of software development, by building your own software!</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>A software development event which targets building solutions for problem statements using Java. 
+                      This event not only evaluates the participants on the implementation of features of the application but also
+                      innovation, code modularity and overall efficiency of the application.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : 3</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-II year</li></ul></p>
+                     <p>No outside participation</p>
+                     <p>Open to all branches</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Shrey Pandey<ul><li>shreypandey1509@gmail.com</li><li>7408921252</li></ul></li>
+                     <li>Suraj Goel<ul><li>surajgoel.1225@gmail.com</li><li>8901435825</li></ul></li>
+                     <li>Shashwat Pandey<ul><li>shashwat.pandey.1901@gmail.com</li><li>9455851989</li></ul></li>
+                     </ul></p>
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                        <ul>
+                           <li>Directions for making software will be listed in the problem statements itself.</li>
+                           <li>Max. one problem statement can be attempted.</li>
+                           <li>Team Size will be of a maximum of 3 members and at least one member should be from CS/IT branch.</li>
+                           <li>It is mandatory to attempt every round.</li>
+                        </ul>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <!-- /bb-custom-wrapper -->
+      <div class="bb-custom-wrapper" id="book-2">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Insomnia</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <div class="d-flex justify-content-center" style="margin-top:17em;">
+                     <button type="button" style="margin: 5px;" id="insomniaButtonId" onclick="registerForEvent(event)" class="btn btn-warning">Register</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="a" class="btn btn-success download-list">Download List</button>
+                  </div>
+                  <p style="margin-top:2px;">The Algorithmic Extravaganza where you get to quench your thirst for solving real life problems</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>The flagship event of Cyberquest which records participation from the brightest brains across the country. 
+                      It is a competitive coding event with problems of varying difficulty levels. 
+                      Young coding enthusiasts participate with vigour each year to satiate their programming appetite.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : 3</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-II year</li></ul></p>
+                     <p><u>Outside Participation</u>: Allowed</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Abhishek Kumar<ul><li>imabhishekad7@gmail.com</li><li>8218806878</li></ul></li>
+                     <li>Keshav<ul><li>keshavsharma1857@gmail.com</li><li>7889468247</li></ul></li>
+                     <li>Vivek Rathi<ul><li>vivekrathi53@gmail.com</li><li>7748843519</li></ul></li>
+                     </ul></p>
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p style="font-size: 12px">
+                        <u>Round 1:</u><br><br>This will be an online round to be held on codechef from which top teams will be selected for next round.
+<br><br>
+                        <u>Round 2:</u><br><br>This will be the final round with long duration of 5 hours with challenging problem set and exciting prizes.<br><br>
+
+                        Team can comprise of students belonging to same college otherwise they won't be applicable for final round.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <div class="bb-custom-wrapper" id="book-3">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Droidrush</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>What is that an app can’t do?</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>
+                     	Android is one of the mostly used OS worldwide. Starting fron smartphones, tablets to TVs and wearables. Even many leading organisations have separate teams for android development. Being in touch with this in demand technology definitely stands out. 
+Droidrush provides an excellent opportunity to learn basics of app development and build up some great projects that will help you to poliah your resume. And of course - you can even get your app published on Google Playstore for free, if judged done of the best.
+
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : 3</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <p><u>Outside Participation</u>: Not Allowed</p>
+                     <p>All branches allowed</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Kunal Sevkani<ul><li>ksevkani495@gmail.com</li><li>7976127003</li></ul></li>
+                     <li>Harshit Agarwall<ul><li>harshitagr98@gmail.com</li><li>9957058681</li></ul></li>
+                     <li>Shubham Damani<ul><li>damani.shubham4@gmail.com</li><li>8947913485</li></ul></li>
+                     </ul></p>
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p style="font-size: 14px;">
+                        <u>Abstract submission round:</u><br>All the registered teams need to submit abstracts for their projects  failing which will result in disqualification.
+<br><br>
+                        <u>Mid Term Code Review :</u><br>Teams need to show their code and explain the working. They also need to mail a zip file of their projects for evaluations.<br><br>
+                        <u>Pitch Round :</u><br>Teams need to pitch their build as a product that they would have launched. It would be for 2 min.<br><br>
+                        <u>Pitch Round :</u><br>Application would be tested on available devices and code quality would be check.<br><br>
+                        Selected teams will present their final build of the application followed by Q&A round and interviews.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+
+
+
+
+
+      <!-- /bb-custom-wrapper -->
+      <div class="bb-custom-wrapper" id="book-4">
+         <div class="bb-bookblock">
+
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Webster</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>Change the web, Change the world!!</p>
+               </div>
+            </div>
+
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p style="font-size: 15px;">The Web isn’t just about the Web anymore. When companies think about their websites today, they think about mobile technology and social media at the same time. Web development, in reality, has a lot of facets — the front end, the back end, the mobile Web, content management systems and e-commerce, to name just some. <br><br>This event will help you showcase your skills in the field of web development so that your app feels good and works good at the same time. This event will also check how good you are when it comes to talking with databases.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : 3</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-II year</li></ul></p>
+                     <p><u>Outside Participation</u>: Not Allowed</p>
+                     <p>Interyear participation allowed</p>
+                     <p>All branches allowed</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Nitin Doodhiya<ul><li>nitindoodhiya@gmail.com</li><li>8224828079</li></ul></li>
+                     <li>Tanisha Kumbhakar<ul><li>tanishakumb@gmail.com</li><li>7699101959</li></ul></li>
+                     <li>Mohit Dogra<ul><li>mohit2598@gmail.com</li><li>9882413530</li></ul></li>
+                     </ul></p>
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p style="font-size: 15px;">
+                        <u>Progress Round:</u><br><br>The participants will be evaluated based on their progress, their approach to solving the problem statement and suggestions will be given in this round.<br><br>
+                        <u>Online Round :</u><br><br>The participants will be evaluated on their web development skills in this round. There will be a variety of questions including debugging questions, multiple choice questions as well as small frontend and backend development tasks.<br><br>
+                        <u>Final Round:</u><br><br>In the final round, the paticipants are required to give a presentation of the web application, followed by Q&A session and interviews.<br><br>
+                        No Elimination 
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-3">
+
+
+                  <h3 style="margin-top:3%">Unique Sponsors</h3>
+                  <div class="container" style="padding: 0;">
+                     <div class="row" style="padding: 0;">
+                        <span><a href="https://devfolio.co/" target="_blank"><img
+                                 src="../../../sponsors/logos/2019/devfolio.svg"
+                                 style="height:60px;width:35%;margin-left:10%;"></a></span>
+                        <span><a href="https://matic.network/" target="_blank"><img src="../../../sponsors/logos/2019/matic.png"
+                                 style="width: 35%;height: 60px;margin-left: 50px;"></a></span>
+                     </div>
+                  </div>
+
+
+                  <h3 style="margin-top: 5%;">Platform Sponsor</h3>
+                  <a href="https://www.hackerearth.com" target="_blank"><img src="../../../sponsors/logos/2019/hackerearth.png"></a>
+
+                  <h3 style="margin-top: 30px;margin-bottom: 0px;">Community Sponsor</h3>
+                  <div class="row" style="padding: 0;">
+                     <span><a href="https://www.paytm.com" target="_blank"><img src="../../../sponsors/logos/2019/paytm.png"></a></span>
+                  </div>
+                  <!-- <h3 style="margin-top: 30px;margin-bottom: 20px;">Event Sponsors</h3>
+                  <div class="row" style="padding: 0;margin-top:20px;">
+                     <span><a href="https://www.sketch.com" target="_blank"><img src="../../../sponsors/logos/2019/sketch.svg"
+                              style="height:100px;width:35%;margin-left:10%;"></a></span>
+                     <span><a href="https://proto.io/?utm_source=Avishkar19" target="_blank"><img
+                              src="../../../sponsors/logos/2019/intbudd.png"
+                              style="width: 40%;height: 80px;margin-left: 50px;"></a></span>
+                  </div> -->
+
+               </div>
+               <div class="bb-custom-side page-layout-3">
+                  <h3 style="margin-top: 30px;margin-bottom: 20px;">Event Sponsors</h3>
+                  <div class="row" style="padding: 0;margin-top:20px;">
+                     <span><a href="https://www.sketch.com" target="_blank"><img src="../../../sponsors/logos/2019/sketch.svg"
+                              style="height:100px;width:35%;margin-left:10%;"></a></span>
+                     <span><a href="https://proto.io/?utm_source=Avishkar19" target="_blank"><img
+                              src="../../../sponsors/logos/2019/intbudd.png"
+                              style="width: 40%;height: 80px;margin-left: 50px;"></a></span>
+                  </div>
+                  <div class="row" style="padding: 0;margin-top:20px;">
+                     <!-- <span><a href="https://www.jetbrains.com" target="_blank"><img src="../../../images/sponsors/webster/jetbrains.svg"
+                                                style="width:40%; height:140px;margin-left: 10%;"></a></span> -->
+                     <span><a href="https://www.jetbrains.com" target="_blank"><img src="../../../images/sponsors/webster/jetbrains.svg"
+                              style="height:70px;width:25%;margin-left:10%;"></a></span>
+                     <span><a href="https://proto.io/?utm_source=Avishkar19" target="_blank"><img
+                              src="../../../images/sponsors/webster/proto.png" style="width: 25%;height: 50px;margin-left: 50px;"></a></span>
+                  </div>
+                  <div class="container" style="padding: 0;margin-top:20px;">
+                     <div class="row" style="padding: 0;">
+                        <span><a href="https://www.bugsee.com" target="_blank"><img src="../../../images/sponsors/webster/bugsee.png"
+                                 style="width:30%; height:80px;float: left;margin-left: 10%;"></a></span>
+                        <span><a href="https://www.creative-tim.com/" target="_blank"><img src="../../../images/sponsors/webster/ctim.png"
+                                 style="width:25%; height:120px;float: left;margin-left: 10%;"></a></span>
+                     </div>
+                  </div>
+                  <div class="container" style="padding: 0;">
+                     <div class="row" style="padding: 0;">
+                        
+                        <span><a href="https://www.balsamiq.com" target="_blank"><img src="../../../images/sponsors/webster/balsamiq.png"
+                                 style="width: 30%;height: 60px;margin-left: 50px;"></a></span>
+                     </div>
+                  
+                  </div>
+               </div>
+            </div>
+
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+
+
+
+
+      
+      <!-- /bb-custom-wrapper -->
+      <div class="bb-custom-wrapper" id="book-5">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Code of the Day</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>A code a day, keeps boredom away</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>A week-long competitive coding event attracting nationwide participation. 
+                      It consists of a set of 7 problems, one for each day. 
+                      The participants labour relentlessly to submit efficient solutions within 24 hours of the release of the problem.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : Individual Event</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <p><u>Outside Participation</u>: Not Allowed</p>
+                     <p>All branches allowed</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                      <p><ul>
+                     <li>Prakhar Kulshrestha<ul><li>prakhar4020@gmail.com</li><li>9911129329</li></ul></li>
+                     <li>Sudhanshu Kumar<ul><li>sudhanshuat6324@gmail.com</li><li>7543895373</li></ul></li>
+                     <li>Gaurav Kumar<ul><li>kgaurav27143@gmail.com</li><li>9431613410</li></ul></li>
+                     </ul></p>
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                        <ol>
+                           <li>This is an individual event and runs for 7 days on hackerearth.com.</li>
+                           <li>There will be 7 questions (2-easy, 3-medium, 2-hard)</li>
+                           <li>Users are free to submit as many times as they want.</li>
+                           <li>User can use any of the language.</li>
+                           <li>There will not be any partial scoring.</li>
+                           <li>Use of any unfair means will be dealt with immediate disqualification and judge’s decision will be treated as final.</li>
+                        </ol>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <!-- /bb-custom-wrapper -->
+      <div class="bb-custom-wrapper" id="book-6">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Operaomnia</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>We are pieces to each other’s puzzles.</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>It's not about your knowledge but about what can you think. Avishkar 19 brings you the most interesting puzzling event with mind boggling brain teasers and logical puzzles. This event will help you to open the locks of your brain and reach to a new level of thinking where you haven't been earlier and at the same time you will be having fun.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : Solo Event</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <p><u>Outside Participation</u>: Not Allowed</p>
+                     <p>No Branch or year restriction in team formation (except Final years).</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Mredul Jain<ul><li>mreduljain1999@gmail.com </li><li>9463532188</li></ul></li>
+                     <li>Prabhnoor Singh Saluja<ul><li>isaluja1811@gmail.com</li><li>9953444433</li></ul></li>
+                     <li>Chitransh<ul><li>chitransh.nigam2998@gmail.com</li><li>8887603830</li></ul></li>
+                     </ul></p>
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                        <ol>
+                           <li>There will be in total of 3 rounds.</li>
+                           <li>After each round there will be elimination.</li>
+                           <li>Any practice of unfair means is highly discouraged.</li>
+                           <li>The decision of coordinators will be final and binding.</li>
+                        </ol>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <div class="bb-custom-wrapper" id="book-7">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>MathRush</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>Pure mathematics is the world's best game. It is more absorbing than chess, more of a gamble than poker, and lasts longer than Monopoly. It's free. It can be played anywhere - Archimedes did it in a bathtub.</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>MathRush is a mathematical puzzle contest in which sound knowledge of mathematics together with taste of programming will be essential to solve problems.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : Solo event</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <p><u>Outside Participation</u>: Not Allowed</p>
+                     <p>No Branch or year restriction.</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Gaurav Shukla<ul><li>gauravshukla672@gmail.com</li><li>7905909356</li></ul></li>
+                     <li>Mohit Bansal<ul><li>bansalmohitwss@gmail.com </li><li>8058880050</li></ul></li>
+                     <li>Nimesh Maheshwari<ul><li>nimesh12maheshwari@gmail.com</li><li>8077165188</li></ul></li>
+                     </ul></p>              
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                        <ol>
+                           <li>There is only one round of 3 hours and will be hosted on hackerrank.</li>
+                           <li>There will be 15 questions (6-easy 5-medium 4-hard).</li>
+                           <li>Users are free to submit as many times as they want.</li>
+                           <li>There will not be any partial scoring.</li>
+                           <li>User can use any of the programming language.</li>
+                        </ol>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <div class="bb-custom-wrapper" id="book-8">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Softathalon</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <div class="d-flex justify-content-center" style="position:absolute;top:60%;left:50%;margin:0;max-width:400px;width:100%;transform:translateY(-50%) translateX(-50%)">
+                     <button type="button" id="softathalonButtonId" style="background-color: darkslategrey; color:white" onclick="registerForEvent(event)" class="btn">Register</button>
+                  </div>
+                  <p>Get ready to amaze us with your prowess as a Computer Science Major</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>An event aimed at simulating the software profile based recruitment procedure for under graduates. 
+                      It consists of a series of written and coding rounds testing the technical prowess of the candidate. 
+                      Interview rounds also form an integral part of the event in which the students are judged on the knowledge and confidence they exude.
+                      It provides students a learning experience and pushes them a step forward towards their “Dream job”.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : Individual Event</p>
+                     <p><u>Branch</u> : CSE/IT (2nd/3rd Year), MCA(1st/2nd year)</p>
+                     <p><u>Outside Participation</u>: Not Allowed</p>
+                     
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Shashank Sharma<ul><li>shashanksharma7874@gmail.com</li><li>9084980484</li></ul></li>
+                     <li>Ranjit<ul><li>rkranjeet244@gmail.com</li><li>9773730420</li></ul></li>
+                     <li>Anzum Bano<ul><li>anzumsalim0786@gmail.com</li></ul></li>
+                     </ul></p> 
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                        <ol>
+                           <li>The event is mandatory for all CSE/IT students of 2nd/3rd year.</li>
+                           <li>First and second round are coding+MCQs rounds with elimination in each.</li>
+                           <li>Third round will be virtual interview round.</li>
+                           <li>Indulging in any unfair means will lead to disqualification.</li>
+                        </ol>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <!-- /bb-custom-wrapper -->
+      <div class="bb-custom-wrapper" id="book-9">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Logical Rhythm</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>ACCURACY_MATTERS</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>A riveting journey across the terrains of machine learning and data science designed to catalyse the knowledge of budding engineers in this field.
+Logical Rhythm gives you a perfect platform to design innovative and intelligent models, which can study the intricacies of data themselves to solve real-life problems. This competitive forum will also help the budding Data Scientists or Machine Learning enthusiasts to assess their potential, and grow both in confidence and ability.
+
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : 1-3</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <p style="font-size: 12px">For BTech 2nd,3rd years and MCA 1st,2nd year team members may be of different years or branches.</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Yash Sawarn<ul><li>yashsawarn1654@gmail.com</li><li>7042629877</li></ul></li>
+                     <li>Arpit Yadav<ul><li>yadavarpit771999@gmail.com</li><li>8299509672</li></ul></li>
+                     <li>Harsh Chaturvedi<ul><li>harsh48chaturvedi@gmail.com</li><li>9110903327</li></ul></li>
+                     </ul></p> 
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                        
+                         <u>First Round :</u><br>
+                           <ul>
+                              <li style="font-size: 12px"><u>Mid-term Evaluation </u>: For checking the progress of each team, an evaluation is conducted.</li>
+                              <li style="font-size: 12px"><u>Technical Quiz </u>: A quiz comprising of question from machine learning, deep learning and probability aspects of machine learning will be conducted.</li>
+                           </ul><br>
+                        <u>Second Round :</u><br>
+                           <ul>
+                              <li style="font-size: 12px"><u>Final Project Submission with Final Evaluation </u>: All teams will be required to submit the work they developed. Evaluations will be done on all the problem statements attempted.</a></li>
+                           </ul><br>
+                        <u>Third Round :</u><br>
+                           <ul>
+                              <li style="font-size: 12px"><u>Interview </u>: Interview on all aspects of attempted solutions to the problem statements as well as evaluating the insights of all the trending algorithms will help in finding the best of all.</a></li>
+                           </ul>
+                           
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <!-- /bb-custom-wrapper -->
+      <div class="bb-custom-wrapper" id="book-10">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Code Warriors</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p></p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>Code Warrior is an event where gaming bots made with the help of Artificial Intelligence and its concepts
+                        like alpha-beta pruning, mini-max etc, compete among themselves on an arena of board-game and the most
+                        unbeatable bot wins. Its is the most fun-oriented yet technical event of Cyberquest                        
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : 2</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <p style="font-size: 12px">Eligibility: One member from CS/IT</p>
+                     <p style="font-size: 12px">No of rounds: 1</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Arsh Singh<ul><li>arsh2300singh@gmail.com</li><li>9599325474</li></ul></li>
+                     <li>Nitish Gupta<ul><li>nitishgupta1101@gmail.com</li><li>9571039577</li></ul></li>
+                     <li>Sahaj Bamba<ul><li>sahajbamba1999@gmail.com</li><li>8476896757</li></ul></li>
+                     </ul></p> 
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                           <ul>
+                              <li style="font-size: 15px">Team should be available on the final round on the day of Avishkar.</li>
+                              <li style="font-size: 15px">Don't share your bots before final round.</li>
+                              <li style="font-size: 15px">Code has to be submitted before final round.</li>
+                              <li style="font-size: 15px">Bots will fight in a tournament based structure.</li>
+                              <li style="font-size: 15px">Languages allowed are: C, C++, Java.</li>
+                              <li style="font-size: 15px">Use of external libraries aren't allowed.</li>
+                           </ul><br>                   
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <!-- /bb-custom-wrapper -->
+      <div class="bb-custom-wrapper" id="book-11">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>Revengg</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>When solving problems, dig at the roots instead of just hacking at the leaves</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>A CTF-style challenge for all active and aspiring reverse engineers. So dust off the disassembler, oil your debugger and get your favourite chat client ready to participate in Revengg to win prizes bumper.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : 2</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li style="font-size:12px"> B.Tech-I year</li><li style="font-size:12px"> B.Tech-II year</li><li style="font-size:12px"> B.Tech-III year</li><li style="font-size:12px"> MCA-I year</li><li style="font-size:12px"> MCA-II year</li></ul></p>
+                     <p><ol>
+                        <li>Team members must be from the same year.</li>
+                        <li>All Rounds will be an open round where you can use the internet as per your requirement.</li>
+                        <li>At least one member should be from CS/IT branch.</li>
+                     </ol></p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Anuj Modi<ul><li>anujmodi2011@gmail.com</li><li>9711523327</li></ul></li>
+                     <li>Anshul Singh<ul><li>iosdev747.icloud@gmail.com</li><li>9599325403</li></ul></li>
+                     <li>Prashant Shakya<ul><li>prashushakya@gmail.com</li><li>9005902201</li></ul></li>
+                     </ul></p> 
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                        <ul>
+                           <li style="font-size:16px"><u>Practise round </u>- Participants will have to find flags by tinkering with files, exploiting applications, etc. Problems will be mainly from binary exploitation, forensics, reverse engineering, web-based exploits with some fun challenges.</li>
+                           <li style="font-size:16px"><u>Round 1 </u>- Participants will be given games, applications to hack and reverse engineer.</li>
+                           <li style="font-size:16px"><u>Round 2 </u>- This will be the final round. It will be similar to the first round with tighter time constraints.</li>
+                        </ul>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <!-- /bb-custom-wrapper -->
+      <div class="bb-custom-wrapper" id="book-12">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>TuxWars</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>Why have just Windows, when Linux can give you the entire /home</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>This event tests your practical acumen with Linux command line tools, shell scripting and networking. Using /bin/bash as your weapon dive into the dark /etc/shadow of the Kernel and fight for ultimate glory #!<br><br>
+                      The written round tests the theoretical understanding in Linux and the practical round expects the teams to compete in a time bound environment while working on systems and applying concepts.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : 2</p>
+                     <p><u>Years participating</u> :<br>
+                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <p>Min one member from CS/IT.</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Manas Uniyal<ul><li>manasuniyal100@gmail.com</li><li>9149379200</li></ul></li>
+                     <li>Rituparno Biswas<ul><li>rituparnobiswas@gmail.com</li><li>9031964914</li></ul></li>
+                     <li>A N Sai Krishna<ul><li>attalurisaikrishna@gmail.com</li><li>7376516392</li></ul></li>
+                     </ul></p>
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                        <ol>
+                           <li>Team members should belong to the same year.</li>
+                           <li>Each team should have Linux installed on their system.</li>
+                           <li>For rounds each team should not use internet(unless explicitly allow).</li>
+                           <li>All the members of a team should be present in all rounds.</li>
+                        </ol>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <!-- /bb-custom-wrapper -->
+      <div class="bb-custom-wrapper" id="book-13">
+         <div class="bb-bookblock">
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-1">
+                  <h3>
+                     Cyberquest<span>TechMaiden</span>
+                  </h3>
+               </div>
+               <div class="bb-custom-side page-layout-1">
+                  <p>Have a dream to become techie? let's begin now.</p>
+               </div>
+            </div>
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3>About</h3>
+                     <p>
+                        The brand new all girls' event aims to provide you with overall development as a women techie. 
+                        The event is open to only girls and consists of coding and aptitude round followed by interviews.
+                     </p>
+                  </div>
+                  <div>
+                     <h3 style="font-size: 2em">Participation Criteria</h3>
+                     <p><u>Team size</u> : Individual Event</p>
+                     <p><u>Years participating</u> :<br>
+                        <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>   
+                     <p>Open to all branches girls</p>
+                  </div>
+               </div>
+               <div class="bb-custom-side page-layout-2">
+                  <div>
+                     <h3 style="font-size: 2em">Contact Info</h3>
+                     <p><ul>
+                     <li>Shikha Singh<ul><li>shikhasinghs216@gmail.com</li></ul></li>
+                     <li>Siddhi Mahawar<ul><li>siddhi@mnnit.ac.in</li></ul></li>
+                     <li>Gaurav Katare<ul><li>kataregaurav1501@gmail.com</li><li>7905436190</li></ul></li>
+                     </ul></p>
+                  </div>
+                  <div>
+                     <h3>Rules</h3>
+                     <p>
+                        <ol>
+                           <li>1 Coding round open to all branches girls.</li>
+                           <li>Selection of one girl candidate to interview round from every branch.</li>
+                        </ol>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- /bb-bookblock -->
+         <nav>
+            <a href="#" class="bb-nav-prev">Previous</a>
+            <a href="#" class="bb-nav-next">Next</a>
+            <a href="#" class="bb-nav-close">Close</a>
+         </nav>
+      </div>
+      <!-- /bb-custom-wrapper -->
+      </main>
+      <div class="footer">
+         <p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
+       </div>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+      <script src="../js/bookblock.min.js"></script>
+      <script src="../js/classie.js"></script>
+      <script src="../js/bookshelf.js"></script>
+      <script src="../../../js/navbar/main.js"></script> <!-- Resource jQuery -->
+      <script type="text/javascript">
+         $("header").append("<div class='glitch-window'></div>");
+         $( "h1.glitched" ).clone().appendTo( ".glitch-window" );
+      </script>
+      <script src="cyberquest.js"></script>
+   </body>
+</html>

@@ -1,0 +1,104 @@
+body {
+    font-family: "Lato", sans-serif;
+    color: #747704;
+    font-weight: 300;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+header {
+    margin-top: 2%;
+}
+
+.text-muted {
+    color: #bcbbbb;
+}
+
+.text-thin {
+    font-weight: 100;
+}
+
+.title-logo {
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.title-super {
+    font-size: 50px;
+}
+
+.banner-image {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.project-image {
+    cursor: pointer;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+hr {
+    display: block;
+    height: 5px;
+    border: 0;
+    border-top: 2px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+a:hover {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.project-content {
+    font-size: 16px;
+}
+
+.project-modal-image {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 800px) {
+    .title-super {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .title-super {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .title-super {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .title-super {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .title-super {
+        font-size: 25px;
+    }
+}
