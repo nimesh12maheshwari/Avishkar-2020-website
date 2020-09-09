@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display');
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body{
     /* background: url("../../img/demo3/bg11.jpg"); */
-    background-image: url("../../img/demo3/glowing_blr.png");
+    background-image: url("../../img/f.jpg");
     /* background: url("../../img/demo3/background.jpg"); */
     color:white;
     background-position: center;
@@ -40,12 +40,12 @@ body{
     background-color: transparent;
 }
 header.header{
-    font-family: 'Sedgwick Ave Display', cursive;
+    font-family: 'Press Start 2P', cursive;
     transform: translateY(-50%);
 }
 header.header h1{
     font-size: 8rem;
-    color: #222222;
+    color: white;
     text-align: center;
     
     text-transform: uppercase;

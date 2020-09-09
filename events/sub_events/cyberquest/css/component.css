@@ -1,11 +1,6 @@
 
 /****** Custom book colors and borders *****/
-#toast-container > .toast-success {
-    color: green;
-}
-#toast-container > .toast-error {
-    color: red;
-}
+
 /* Custom book covers */
 
 .no-csstransforms3d .book[data-book="book-1"],

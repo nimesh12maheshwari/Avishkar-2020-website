@@ -1025,3 +1025,10 @@ header.header h1{
     margin-bottom: 10px;
   }
 }
+/*Toaster color*/
+#toast-container > .toast-success {
+    color: green;
+}
+#toast-container > .toast-error {
+    color: red;
+}

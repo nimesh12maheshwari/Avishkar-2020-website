@@ -27,7 +27,7 @@ body{
 	position: relative;
 	overflow: hidden;
 	margin: 5px;
-	background: #333;
+	background: #fff;
 }
 
 .grid figure img {
@@ -195,17 +195,18 @@ body{
 }
 
 .demo-3 body {
-
+	
 }
 
 .demo-3 .grid figcaption h2 {
-	color: #ffffff;
+	color: white;
 	font-weight: 900;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 }
 .demo-3 .grid figcaption p {
-	color: #E0E0E0;
-	font-family: 'Roboto', sans-serif;
+	color: white;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 13px;
 }
 
 .demo-3 .grid a:hover figcaption h2 {

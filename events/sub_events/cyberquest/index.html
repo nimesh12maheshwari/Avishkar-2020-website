@@ -19,78 +19,84 @@
 
       <link rel="stylesheet" href="../../css/my.css"> <!-- Resource style -->
       <link rel="stylesheet" href="../css/my.css"> <!-- Resource style -->
+      <link rel="stylesheet" href="../../../css/navbar/navbar.css">
 
       <script src="../js/modernizr.custom.js"></script>
+      <script src="../../../js/navbar/main.js"></script> <!-- Resource jQuery -->
+      <script src="../../js/eventRegister.js"></script>
    </head>
    <body>
 
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">		<!--class navbar-expand-md-->
-			<div class="container" >
-				<a class="navbar-brand pt-0 pb-0" href="#">
-					<img class="navbar-items-logo" src="../../../images/whitelogo.png" height="80" alt=""
-						>
-				</a>
-
-				<button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active">
-							<a class="nav-link font-weight-bold" href="#" style="color:black; margin-left:12px;">Events</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link font-weight-bold" href="../../../schedule/" style="color:white; margin-left:12px;">Schedule</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link font-weight-bold" href="../../../sponsors/" style="color:white; margin-left:12px;">Sponsors</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link font-weight-bold" href="../../../team/" style="color:white; margin-left:12px;">Team</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link font-weight-bold" href="../../../faq/" style="color:white;margin-left:12px;margin-right:12px;">FAQ</a>
-						</li>
-					</ul>
-				
-				<!--login div container-->
-				<div id="login">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item dropdown">
-							<a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;margin-right:12px">
-								<img class="navbar-items-logo" src="../../../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
-								<img class="navbar-items-logo" src="../../../img/person.svg">
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="../../../profile/index.html">Profile</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="../../../create team/createteam.html">Create Team</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" onclick="logout()">Logout</a>
-							</div>
-						</li>
-					</ul>
-				</div>
-
-				<div id="notlogin" style="display: none;">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link font-weight-bold" href="../../../register/login.html" style="color:white;outline-style:solid; outline-color:white;">Login/Register</a>
-					</li>
-				</ul>	
-				</div>
-			</div>
-			</div>
-		</nav>
+      <nav class="navbar navbar-expand-md navbar-dark">
+         <!--class navbar-expand-md-->
+         <div class="container-fluid">
+           <a class="navbar-brand pt-0 pb-0" href="#">
+             <img class="navbar-items-logo" src="../../../img/Neon_triangle.png" height="80" alt="">
+           </a>
+     
+           <button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse"
+             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+             aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+     
+           <div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
+               <ul class="navbar-nav ml-auto style">
+                 <li class="nav-item">
+                   <a class="nav-link font-weight-bold" href="../../../events/" style="margin-left:12px">EVENTS</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link font-weight-bold" href="../../../schedule/" style="margin-left:12px;">SCHEDULE</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link font-weight-bold" href="../../../sponsors/" style="margin-left:12px;">SPONSORS</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link font-weight-bold" href="../../../team/" style="margin-left:12px;">TEAM</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link font-weight-bold" href="../../../faq/"
+                     style="margin-left:12px;margin-right:12px;">FAQ</a>
+                 </li>
+               </ul>
+             
+             <!--login div container-->
+             <div id="login">
+                 <ul class="navbar-nav ml-auto">
+                     <li class="nav-item dropdown">
+                         <a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
+                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
+                             <img class="navbar-items-logo" src="../../../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
+                         </a>
+                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
+                         </div>
+                     </li>
+                     <li class="nav-item dropdown">
+                         <a class="nav-link" href="#" id="navbarDropdown" role="button"
+                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             <img class="navbar-items-logo" src="../../../img/person.svg">
+                         </a>
+                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                             <a class="dropdown-item" href="../../../profile/index.html">Profile</a>
+                             <div class="dropdown-divider"></div>
+                             <a class="dropdown-item" href="../../../create team/createteam.html">Create Team</a>
+                             <div class="dropdown-divider"></div>
+                             <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                         </div>
+                     </li>
+                 </ul>
+             </div>
+     
+             <div id="notlogin" style="display: none;">
+               <ul class="navbar-nav ml-auto style">
+                 <li class="nav-item">
+                   <a class="nav-link font-weight-bold" href="../../../register/login.html">Login/Register</a>
+                 </li>
+               </ul>
+             </div>
+           </div>
+         </div>
+       </nav>
 	
 
 	
@@ -867,9 +873,13 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                   </h3>
                </div>
                <div class="bb-custom-side page-layout-1">
-                  <div class="d-flex justify-content-center" style="position:absolute;top:60%;left:50%;margin:0;max-width:400px;width:100%;transform:translateY(-50%) translateX(-50%)">
-                     <button type="button" id="softathalonButtonId" style="background-color: darkslategrey; color:white" onclick="registerForEvent(event)" class="btn">Register</button>
+                  <div class="d-flex justify-content-center" style="position:absolute;top:95%;left:10%;margin:0;max-width:400px;width:100%;transform:translateY(-50%) translateX(-50%)" >
+                     <button type="button" id="softathalonButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
                   </div>
+                  <div class="d-flex justify-content-center" style="position:absolute;top:95%;left:85%;margin:0;width:100%;transform:translateY(-50%) translateX(-50%)" >
+                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="https://www.google.com" target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>  
+                  </div>
+                  
                   <p>Get ready to amaze us with your prowess as a Computer Science Major</p>
                </div>
             </div>
@@ -1245,11 +1255,9 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
       <script src="../js/bookblock.min.js"></script>
       <script src="../js/classie.js"></script>
       <script src="../js/bookshelf.js"></script>
-      <script src="../../../js/navbar/main.js"></script> <!-- Resource jQuery -->
       <script type="text/javascript">
          $("header").append("<div class='glitch-window'></div>");
          $( "h1.glitched" ).clone().appendTo( ".glitch-window" );
       </script>
-      <script src="cyberquest.js"></script>
    </body>
 </html>

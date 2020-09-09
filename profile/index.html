@@ -15,16 +15,17 @@
   <!-- <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> -->
 
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../css/navbar/navbar.css">
   <title>Avishkar: User Profile</title>
 </head>
 
 <body class="bodyStyle">
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark">
     <!--class navbar-expand-md-->
-    <div class="container">
+    <div class="container-fluid">
       <a class="navbar-brand pt-0 pb-0" href="#">
-        <img class="navbar-items-logo" src="../images/whitelogo.png" height="80" alt="">
+        <img class="navbar-items-logo" src="../img/Neon_triangle.png" height="80" alt="">
       </a>
 
       <button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse"
@@ -34,31 +35,31 @@
       </button>
 
       <div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="../events/" style="color:white; margin-left:12px;">Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="../schedule/" style="color:white; margin-left:12px;">Schedule</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="../sponsors/" style="color:white; margin-left:12px;">Sponsors</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="../team/" style="color:white; margin-left:12px;">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="../faq/"
-              style="color:white;margin-left:12px;margin-right:12px;">FAQ</a>
-          </li>
-        </ul>
-
+          <ul class="navbar-nav ml-auto style">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../events/" style="margin-left:12px">EVENTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../schedule/" style="margin-left:12px;">SCHEDULE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../sponsors/" style="margin-left:12px;">SPONSORS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../team/" style="margin-left:12px;">TEAM</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../faq/"
+                style="margin-left:12px;margin-right:12px;">FAQ</a>
+            </li>
+          </ul>
+        
         <!--login div container-->
         <div id="login">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;margin-right:12px">
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
                         <img class="navbar-items-logo" src="../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
@@ -66,7 +67,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="navbar-items-logo" src="../img/person.svg">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -81,17 +82,15 @@
         </div>
 
         <div id="notlogin" style="display: none;">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto style">
             <li class="nav-item">
-              <a class="nav-link font-weight-bold" href="../register/login.html"
-                style="color:white;outline-style:solid; outline-color:white;">Login/Register</a>
+              <a class="nav-link font-weight-bold" href="../register/login.html">Login/Register</a>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </nav>
-
 
 
   <!-- Modal -->
@@ -121,9 +120,10 @@
   <div class="container prompt" id="prompt-login">
     <h3 class="h3">You first have to <a href="../register/login.html">Login</a>/ <a
         href="../register/register.html">Register</a> to see your Profile Section</h3>
+    <div style="height:450px"></div>
   </div>
 
-  <div class="container profileSection mt-5" id="profile">
+  <div class="container profileSection mt-5 mb-5" id="profile">
     <div class="row d-flex justify-content-between">
       <div class="col-md-6 col-lg-4 col-sm-8 col-12 mt-3 border rounded" style="background-color: white;">
         <ul class="nav nav-pills flex-column flex-sm-row listTab" id="profile-tab" role="tablist">
@@ -195,14 +195,16 @@
       </div>
       <div class="col-md-7 col-lg-6 col-sm-8 mt-3 border rounded" style="background-color: white; padding-top: 10px;">
         <div id="eventList">
-          <h4 style="text-align: center;color: blue;"><strong>Registered Events</strong></h4>
-             
+          <h4 style="text-align: center;color: blue;"><strong>Registered Events</strong></h4>             
           </table>
         </div>
       </div>
-    </div>
+    </div>   
   </div>
-
+  <div class="footer">
+    <p class="footer_text">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
+  </div>  
+  
 
   <!-- Optional JavaScript -->
   <script src="../js/navbar/main.js"></script>
