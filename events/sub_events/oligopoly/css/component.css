@@ -3,6 +3,16 @@
 
 /* Custom book covers */
 
+
+#btn-1-Oligopoly {
+    margin-left: 180px;
+}
+
+#btn-2-Oligopoly {
+    margin-right: 180px;
+}
+
+
 .no-csstransforms3d .book[data-book="book-1"],
 .no-js .book[data-book="book-1"],
 .book[data-book="book-1"] .front {

@@ -3,6 +3,19 @@
 
 /* Custom book covers */
 
+
+#btn-1-Nirmaan {
+    margin-left: 180px;
+}
+
+#btn-2-Nirmaan {
+    margin-right: 180px;
+}
+
+#btn-bottom-exception-component-css-file {
+    padding: 0;
+}
+
 .no-csstransforms3d .book[data-book="book-1"],
 .no-js .book[data-book="book-1"],
 .book[data-book="book-1"] .front {
@@ -99,6 +112,7 @@
 .no-js .book[data-book="book-6"],
 .book[data-book="book-6"] .front {
     background: url(../img/6.png);
+    background-size: cover;
    /* background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/codotron.svg), #a1cae5;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/codotron.svg), #a1cae5;
     background-repeat: no-repeat;*/
