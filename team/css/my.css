@@ -84,8 +84,11 @@ body{
     margin-bottom: 20px;
     text-align: center;
     font-family: 'Orbitron',sans-serif;
+    color: white;
     font-size: 30px;
     text-transform: uppercase;
+    display: block;
+    width: 100%;
 }
 
 
