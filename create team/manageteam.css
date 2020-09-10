@@ -5,24 +5,32 @@
 }
 body{
     background-image:url('../img/f.jpg');
-    background-repeat:no-repeat;
-    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 body ,.card, .modal-content{
     background-color: var(--bgcolor) !important;
     
     color: white;
 }
+h1 {
+    display: inline-block;
+}
 #main-container {
     font-family: 'Orbitron', sans-serif;
 }
-#create-team , .add-member{
+.add-member{
     display: block;
     margin-bottom: 10px;
 }
+.create-team {
+    margin-bottom: 10px;
+}
 #create-team-wrapper {
-    width: 100%;
-    display: flex;
+    /* width: 100%; */
+    display: inline-block;
+    float: right;
 }
 #create-team {
     margin-left: auto;
@@ -31,6 +39,9 @@ body ,.card, .modal-content{
     text-align: center;
     margin-top: 100px;
     display: none;
+}
+.card {
+    width: 100%;
 }
 .card-header {
     border-width: 2px;
