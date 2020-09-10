@@ -27,7 +27,7 @@ function getUserDetails() {
 
 	token = localStorage.getItem("authtoken");
 
-	if (token === null) {
+	if (token == null) {
 		var childNodes = document.getElementById("login");
 		if(childNodes)
 			childNodes.remove();
@@ -63,7 +63,7 @@ function getUserDetails() {
 				var childNodes = document.getElementById("login");
 				childNodes.remove();
 				document.getElementById("notlogin").style.display = "block";
-				alert(error);
+				
 			});
 	}
 
@@ -176,7 +176,7 @@ function logout(){
 			window.location = "../index.html";
 		}
 		else{
-			alert(result);
+			console.log(result);
 		}
 	})
 	.catch(error => console.log('error', error));

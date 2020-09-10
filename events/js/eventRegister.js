@@ -1,4 +1,4 @@
-let authtoken;
+let authtoken;                      
 let userDetails;
 let createdTeams = [];
 let registeredEvents = [];
@@ -205,7 +205,9 @@ function registerForEvent(event) {
 }
 
 function disableButton() { //add all button to disable
-    //document.getElementById("insomniaButtonId").disabled = true;
+    if(document.getElementById("insomniaButtonId"))
+        document.getElementById("insomniaButtonId").disabled = true;
+    
 }
 
 function registerAfterSelectingTeam(event) {

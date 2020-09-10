@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 :root {
-    --bgcolor:#262626;
-    --accent-color:orange;
+    
+    --accent-color:white;
+}
+body{
+    background-image:url('../img/f.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 body ,.card, .modal-content{
     background-color: var(--bgcolor) !important;
+    
     color: white;
 }
 #main-container {
@@ -36,6 +42,7 @@ body ,.card, .modal-content{
 }
 .card-body {
     font-size: 0.9rem;
+    background-color:rgba(0, 0, 0, 0.5);
 }
 .options-btn {
     background: transparent;

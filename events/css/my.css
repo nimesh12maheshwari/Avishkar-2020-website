@@ -45,6 +45,7 @@ header.header{
 }
 header.header h1{
     font-size: 6rem;
+    margin-bottom: 6rem;
     color: #00E3EF;
     text-align: center;
     text-shadow: 5px 5px 2px purple;
