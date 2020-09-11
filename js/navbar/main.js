@@ -32,6 +32,7 @@ function getUserDetails() {
 		if(childNodes)
 			childNodes.remove();
 		document.getElementById("notlogin").style.display = "block";
+		
 	}
 	else {
 		var myHeaders = new Headers();
@@ -79,7 +80,7 @@ function showPendingRequests() {
 		return;
 	}
 	if (pendingRequest.length > 0) document.getElementById("pendingRequests").style.display = "block";
-
+	console.log(pendingRequest);
 	for (let i = 0; i < pendingRequest.length; i++) {
 		let req = pendingRequest[i];
 		var option = document.createElement("a");

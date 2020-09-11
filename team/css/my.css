@@ -2,6 +2,7 @@ body{
     background: url("../../img/f.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }    
    .footer{
       width: 100%;
