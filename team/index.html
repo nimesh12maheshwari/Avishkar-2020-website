@@ -30,7 +30,6 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <link rel="stylesheet" href="css/my.css">
-    <script src="../js/navbar/main.js"></script>
     <!-- Resource style -->
     <style>
 
@@ -79,7 +78,7 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
                             <img class="navbar-items-logo" src="../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -87,7 +86,7 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="navbar-items-logo" src="../img/person.svg">
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="../profile/index.html">Profile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../create team/createteam.html">Create Team</a>
@@ -371,6 +370,7 @@
         $window.on('scroll resize', check_if_in_view);
         $window.trigger('scroll');
     </script>
+    <script src="../js/navbar/main.js"></script>
 </body>
 
 </html>
