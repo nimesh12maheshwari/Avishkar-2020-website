@@ -94,7 +94,9 @@ function setAllFields(details) {
 function createTable(){
 
     let table = document.createElement("table");
-    table.setAttribute("class","table table-striped mt-3 table-responsive");
+    table.setAttribute("class","table table-striped mt-3");
+    table.style.wordWrap = 'break-word';
+    table.style.wordBreak = 'break-word';
     return table;
 }
 
@@ -124,6 +126,7 @@ function createRows(fields){
 
     for(var i=1;i<fields.length;i++){
         let td = document.createElement("td");
+        td.style.maxWidth = '250px';
         td.appendChild(document.createTextNode(fields[i]));
         tr.appendChild(td);
     }
