@@ -35,50 +35,51 @@
       </button>
 
       <div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto style">
-            <li class="nav-item">
-              <a class="nav-link font-weight-bold" href="../events/" style="margin-left:12px">EVENTS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link font-weight-bold" href="../schedule/" style="margin-left:12px;">SCHEDULE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link font-weight-bold" href="../sponsors/" style="margin-left:12px;">SPONSORS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link font-weight-bold" href="../team/" style="margin-left:12px;">TEAM</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link font-weight-bold" href="../faq/"
-                style="margin-left:12px;margin-right:12px;">FAQ</a>
-            </li>
-          </ul>
-        
+        <ul class="navbar-nav ml-auto style">
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../events/" style="margin-left:12px">EVENTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../schedule/" style="margin-left:12px;">SCHEDULE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../sponsors/" style="margin-left:12px;">SPONSORS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../team/" style="margin-left:12px;">TEAM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../faq/" style="margin-left:12px;margin-right:12px;">FAQ</a>
+          </li>
+        </ul>
+
         <!--login div container-->
         <div id="login">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
-                        <img class="navbar-items-logo" src="../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="navbar-items-logo" src="../img/person.svg">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../profile/index.html">Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../create team/createteam.html">Create Team</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
-                    </div>
-                </li>
-            </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
+                <img class="navbar-items-logo" src="../img/notification.svg"><span class="badge badge-warning"
+                  id="notificationCount"></span></a>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="pendingRequests"
+                style="display: none;">
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <img class="navbar-items-logo" src="../img/person.svg">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="../profile/index.html">Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="../create team/createteam.html">Create Team</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+              </div>
+            </li>
+          </ul>
         </div>
 
         <div id="notlogin" style="display: none;">
@@ -160,7 +161,7 @@
               </div>
             </form>
           </div>
-          
+
           <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
             <form>
               <div class="form-group">
@@ -194,17 +195,17 @@
         </div>
       </div>
       <div class="col-md-7 col-lg-6 col-sm-8 mt-3 border rounded" style="background-color: white; padding-top: 10px;">
-        <div id="eventList">
-          <h4 style="text-align: center;color: blue;"><strong>Registered Events</strong></h4>             
+        <div id="eventList" class="table-responsive" style="overflow: auto;">
+          <h4 style="text-align: center;color: blue;"><strong>Registered Events</strong></h4>
           </table>
         </div>
       </div>
-    </div>   
+    </div>
   </div>
   <div class="footer">
     <p class="footer_text">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
-  </div>  
-  
+  </div>
+
 
   <!-- Optional JavaScript -->
   <script src="../js/navbar/main.js"></script>

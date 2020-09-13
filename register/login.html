@@ -1,274 +1,298 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <meta name="description" content="Login - Register Template">
-    <meta name="author" content="Lorenzo Angelino aka MrLolok">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <meta name="description" content="Login - Register Template">
+  <meta name="author" content="Lorenzo Angelino aka MrLolok">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/bs4.pop.css">
-    <script src="../js/bs4.pop.js"></script>
-    <script src="../jquery/jquery.js"></script>
-    <script src="../js/bootstrap.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/bs4.pop.css">
+  <script src="../js/bs4.pop.js"></script>
+  <script src="../jquery/jquery.js"></script>
+  <script src="../js/bootstrap.js"></script>
 
 
-    <link rel="stylesheet" href="../css/register-login.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/elements.css" rel="stylesheet">
-    <link href="register.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../css/navbar/navbar.css">
-    
-    <script src="../js/my_js.js"></script>
-    <style>
-        body {
-            background-color: #303641;
-        }
-    </style>
-    
+  <link rel="stylesheet" href="../css/register-login.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/elements.css" rel="stylesheet">
+  <link href="register.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/navbar/navbar.css">
+
+  <script src="../js/my_js.js"></script>
+  <style>
+    body {
+      background-color: #303641;
+    }
+  </style>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark">
-		<!--class navbar-expand-md-->
-		<div class="container-fluid">
-		  <a class="navbar-brand pt-0 pb-0" href="#">
-			<img class="navbar-items-logo" src="../img/Neon_triangle.png" height="80" alt="">
-		  </a>
-	
-		  <button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-	
-		  <div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
-			  <ul class="navbar-nav ml-auto style">
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../events/" style="margin-left:12px">EVENTS</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../schedule/" style="margin-left:12px;">SCHEDULE</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../sponsors/" style="margin-left:12px;">SPONSORS</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../team/" style="margin-left:12px;">TEAM</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../faq/"
-					style="margin-left:12px;margin-right:12px;">FAQ</a>
-				</li>
-			  </ul>
-			
-			<!--login div container-->
-			<div id="login">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
-							<img class="navbar-items-logo" src="../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
-						</div>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="navbar-items-logo" src="../img/person.svg">
-						</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="../profile/index.html">Profile</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="../create team/createteam.html">Create Team</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#" onclick="logout()">Logout</a>
-						</div>
-					</li>
-				</ul>
-			</div>
-	
-			<div id="notlogin" style="display: none;">
-			  <ul class="navbar-nav ml-auto style">
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../register/login.html">Login/Register</a>
-				</li>
-			  </ul>
-			</div>
-		  </div>
-		</div>
-	  </nav>
-	
-	
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLabel" style="color:black">Confirmation</h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			  </button>
-			</div>
-			<div class="modal-body">
-				<div>
-			  		<h5 style="color:black"><small>Do you want to accept or reject the request?</small></h5>
-				</div>
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-success" onclick="acceptRequest()">Accept</button>
-			  <button type="button" class="btn btn-primary" onclick="rejectRequest()">Reject</button>
-			</div>
-		  </div>
-		</div>
-	  </div>
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <!--class navbar-expand-md-->
+    <div class="container-fluid">
+      <a class="navbar-brand pt-0 pb-0" href="#">
+        <img class="navbar-items-logo" src="../img/Neon_triangle.png" height="80" alt="">
+      </a>
 
-    <div id="abc">
-        <div id="popupContact">
-            <form id="form-popup">
-                <h2 id="h2-popup">Contact anyone mentioned below :</h2>
-                <ul id="text-popup">
-                    <p id="p-popup"><font color="black"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Whatsapp Number</b></font></p>
-                    <p><font color="black">Abhishek Kumar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;imabhishekad7@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8218806878</font></p>
-                    <p><font color="black">&nbsp;&nbsp;&nbsp;Sahaj Bamba&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sahajbamba1999@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8476896757</font></p>
-                </ul>
-                <button id="submit-popup" onclick="div_hide()">Close</button>
-            </form>
+      <button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto style">
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../events/" style="margin-left:12px">EVENTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../schedule/" style="margin-left:12px;">SCHEDULE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../sponsors/" style="margin-left:12px;">SPONSORS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../team/" style="margin-left:12px;">TEAM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="../faq/" style="margin-left:12px;margin-right:12px;">FAQ</a>
+          </li>
+        </ul>
+
+        <!--login div container-->
+        <div id="login">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
+                <img class="navbar-items-logo" src="../img/notification.svg"><span class="badge badge-warning"
+                  id="notificationCount"></span></a>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="pendingRequests"
+                style="display: none;">
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <img class="navbar-items-logo" src="../img/person.svg">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="../profile/index.html">Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="../create team/createteam.html">Create Team</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+              </div>
+            </li>
+          </ul>
         </div>
+
+        <div id="notlogin" style="display: none;">
+          <ul class="navbar-nav ml-auto style">
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="../register/login.html">Login/Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    
-        
-    <div id="container-login" style="top: 6%;">
-        <div id="title">
-            <i class="material-icons lock">lock</i> Login
-        </div>
+  </nav>
 
-        <form id="login-form">
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color:black">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <h5 style="color:black"><small>Do you want to accept or reject the request?</small></h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" onclick="acceptRequest()">Accept</button>
+          <button type="button" class="btn btn-primary" onclick="rejectRequest()">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="abc">
+    <div id="popupContact">
+      <form id="form-popup">
+        <h2 id="h2-popup">Contact anyone mentioned below :</h2>
+        <ul id="text-popup">
+          <p id="p-popup">
+            <font color="black">
+              <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Whatsapp
+                Number</b></font>
+          </p>
+          <p>
+            <font color="black">Abhishek
+              Kumar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;imabhishekad7@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8218806878
+            </font>
+          </p>
+          <p>
+            <font color="black">&nbsp;&nbsp;&nbsp;Sahaj
+              Bamba&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sahajbamba1999@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8476896757
+            </font>
+          </p>
+        </ul>
+        <button id="submit-popup" onclick="div_hide()">Close</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="container mb-5">
+    <div class="row d-flex justify-content-between">
+      <div class="col-sm-4 d-flex align-items-center" style="background: none;">
+        <img src="../img/Triangle_white_no_bg-02.png" class="img-thumbnail" alt="Failed to Load Image" style="background: none;border: 0px;">
+      </div>
+      <div class="col-sm-4">
+        <div id="container-login" style="top: 6%;">
+          <div id="title">
+            <i class="material-icons lock">lock</i> Login
+          </div>
+
+          <form id="login-form">
             <div class="input">
-                <div class="input-addon">
-                    <i class="material-icons">face</i>
-                </div>
-                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+              <div class="input-addon">
+                <i class="material-icons">face</i>
+              </div>
+              <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
             </div>
 
             <div class="clearfix"></div>
 
             <div class="input">
-                <div class="input-addon">
-                    <i class="material-icons">vpn_key</i>
-                </div>
-                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
-                <span class="login-eye" onclick="myFunction()">
-                    <i id="hide1" class="fa fa-eye"></i>
-                    <i id="hide2" class="fa fa-eye-slash"></i>
-                </span>
+              <div class="input-addon">
+                <i class="material-icons">vpn_key</i>
+              </div>
+              <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+              <span class="login-eye" onclick="myFunction()">
+                <i id="hide1" class="fa fa-eye"></i>
+                <i id="hide2" class="fa fa-eye-slash"></i>
+              </span>
             </div>
 
             <!-- <div class="remember-me">
-                <input type="checkbox">
-                <span style="color: #DDD">Remember Me</span>
-            </div> -->
+                      <input type="checkbox">
+                      <span style="color: #DDD">Remember Me</span>
+                  </div> -->
 
             <input class="Log-In-Btn" type="submit" value="Log In" />
-        </form>
+          </form>
 
-        <div class="forgot-password">
+          <div class="forgot-password">
             <a href="javascript:div_show()"><u>Forgot your password?</u></a>
-        </div>
-        <div class="privacy">
+          </div>
+          <div class="privacy">
             <!-- <a href="#">Privacy Policy</a> -->
-        </div>
+          </div>
 
-        <div class="register">
+          <div class="register">
             Don't have an account yet?
             <a href="register.html"><button id="register-link">Register here</button></a>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="footer">
-		<p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
-	</div>
-    <script>
-        function myFunction() {
-            var x = document.getElementById('password');
-            var y = document.getElementById('hide1');
-            var z = document.getElementById('hide2');
+  </div>
 
-            if(x.type === 'password') {
-                x.type = 'text';
-                y.style.display = 'block';
-                z.style.display = 'none';
-            } else {
-                x.type = 'password';
-                y.style.display = 'none';
-                z.style.display = 'block';
-            }
-        }
-        const myForm = document.getElementById('login-form');
-        console.log("Going to addEventListener 1");
-        myForm.addEventListener('submit', async (e) => {
-            console.log("Going to addEventListener 2");
-            e.preventDefault();
-            // var formdata = new FormData();
-            console.log("Going to addEventListener 3");
-            let formdata = new FormData();
-            let UserName = document.getElementById("login-form").elements[0].value;
-            console.log("UserName : " + UserName);
-            let Password = document.getElementById("login-form").elements[1].value;
-            console.log("Password : " + Password);
-            let res = null;
+  <div class="footer">
+    <p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById('password');
+      var y = document.getElementById('hide1');
+      var z = document.getElementById('hide2');
 
-            formdata.append("username", UserName);
-            formdata.append("password", Password);
+      if (x.type === 'password') {
+        x.type = 'text';
+        y.style.display = 'block';
+        z.style.display = 'none';
+      } else {
+        x.type = 'password';
+        y.style.display = 'none';
+        z.style.display = 'block';
+      }
+    }
+    const myForm = document.getElementById('login-form');
+    console.log("Going to addEventListener 1");
+    myForm.addEventListener('submit', async (e) => {
+      console.log("Going to addEventListener 2");
+      e.preventDefault();
+      // var formdata = new FormData();
+      console.log("Going to addEventListener 3");
+      let formdata = new FormData();
+      let UserName = document.getElementById("login-form").elements[0].value;
+      console.log("UserName : " + UserName);
+      let Password = document.getElementById("login-form").elements[1].value;
+      console.log("Password : " + Password);
+      let res = null;
 
-            var requestOptions = {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow'
-            };
+      formdata.append("username", UserName);
+      formdata.append("password", Password);
 
-            await fetch("https://avishkarapi.sahajbamba.me/auth/api-token-auth/", requestOptions)
-            .then( (response) => {
-                return response.text();
-            })
-            .then( (result) => {
-                res = JSON.parse(result);
-                console.log(res.token);
-                if(res.token) {
-                    localStorage.setItem("authtoken", res.token);
-                    console.log(localStorage);
-                    // bs4pop.notice('Login Successful', {type: 'success'})
-                    bs4pop.alert("Login Successful", function (e) {
-                        window.location = "../events/";
-                    });
-                    // alert("logined successful");
-                    // window.location = "../events/";
-                } else {
-                    // alert("Either username or password is wrong.");
-                    // location.reload(true);
-                    bs4pop.alert("Either username or password is wrong.", function (e) {
-                        location.reload(true);
-                    });
-                    // bs4pop.notice('Either username or password is wrong', {type: 'warning'});
-                    // location.reload(true);
-                }
-            })
-            .catch( (error) => {
-                // alert("error : " + error);
-                // console.log('error : ', error);
-                    bs4pop.alert("" + error, function (e) {
-                        console.log('error : ', error);
-                    });
-                    // bs4pop.notice('error : ' + error, {type: 'danger'})
+      var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+      };
+
+      await fetch("https://avishkarapi.sahajbamba.me/auth/api-token-auth/", requestOptions)
+        .then((response) => {
+          return response.text();
+        })
+        .then((result) => {
+          res = JSON.parse(result);
+          console.log(res.token);
+          if (res.token) {
+            localStorage.setItem("authtoken", res.token);
+            console.log(localStorage);
+            // bs4pop.notice('Login Successful', {type: 'success'})
+            bs4pop.alert("Login Successful", function (e) {
+              window.location = "../events/";
             });
-            console.log("Going to addEventListener 4");
+            // alert("logined successful");
+            // window.location = "../events/";
+          } else {
+            // alert("Either username or password is wrong.");
+            // location.reload(true);
+            bs4pop.alert("Either username or password is wrong.", function (e) {
+              location.reload(true);
+            });
+            // bs4pop.notice('Either username or password is wrong', {type: 'warning'});
+            // location.reload(true);
+          }
+        })
+        .catch((error) => {
+          // alert("error : " + error);
+          // console.log('error : ', error);
+          bs4pop.alert("" + error, function (e) {
+            console.log('error : ', error);
+          });
+          // bs4pop.notice('error : ' + error, {type: 'danger'})
         });
-        console.log("Going to addEventListener 5");
-    </script>
-    <script src="../js/navbar/main.js"></script>
+      console.log("Going to addEventListener 4");
+    });
+    console.log("Going to addEventListener 5");
+  </script>
+  <script src="../js/navbar/main.js"></script>
 </body>
 
 </html>

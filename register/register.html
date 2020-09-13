@@ -126,57 +126,66 @@
 	  </div>
 
 
-    <div id="container-register" style="top:6%">
-        <div id="title">
-            <i class="material-icons lock"> lock </i> Register
+    <div class="container mb-5">
+      <div class="rows d-flex justify-content-between">
+        <div class="col-sm-4 d-flex align-items-center" style="background: none;">
+          <img src="../img/Triangle_white_no_bg-02.png" class="img-thumbnail" alt="Failed to Load Image" style="background: none;border: 0px;">
         </div>
-
-        <form id="register-form">
-            <div class="input">
-                <div class="input-addon">
-                    <i class="material-icons">email</i>
+        <div class="col-sm-4">
+          <div id="container-register" style="top:6%">
+            <div id="title">
+                <i class="material-icons lock"> lock </i> Register
+            </div>
+    
+            <form id="register-form">
+                <div class="input">
+                    <div class="input-addon">
+                        <i class="material-icons">email</i>
+                    </div>
+                    <input id="email" placeholder="Email" type="email" required class="validate" autocomplete="off">
                 </div>
-                <input id="email" placeholder="Email" type="email" required class="validate" autocomplete="off">
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="input">
-                <div class="input-addon">
-                    <i class="material-icons">face</i>
+    
+                <div class="clearfix"></div>
+    
+                <div class="input">
+                    <div class="input-addon">
+                        <i class="material-icons">face</i>
+                    </div>
+                    <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off" pattern="[a-z][a-z0-9$_]{1,14}" title="Username length should be between 2 to 15. It should start with small english alphabets(a-z), followed by characters : small english alphabets(a-z), numbers(0-9), special symbols($ (Dollar) and _ (Underscore))">
                 </div>
-                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off" pattern="[a-z][a-z0-9$_]{1,14}" title="Username length should be between 2 to 15. It should start with small english alphabets(a-z), followed by characters : small english alphabets(a-z), numbers(0-9), special symbols($ (Dollar) and _ (Underscore))">
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="input">
-                <div class="input-addon">
-                    <i class="material-icons">vpn_key</i>
+    
+                <div class="clearfix"></div>
+    
+                <div class="input">
+                    <div class="input-addon">
+                        <i class="material-icons">vpn_key</i>
+                    </div>
+                    <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off"pattern=".{7,}" title="Minimum password length should be 7 characters long">
+                    <span class="register-eye" onclick="myFunction()">
+                        <i id="hide1" class="fa fa-eye"></i>
+                        <i id="hide2" class="fa fa-eye-slash"></i>
+                    </span>
                 </div>
-                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off"pattern=".{7,}" title="Minimum password length should be 7 characters long">
-                <span class="register-eye" onclick="myFunction()">
-                    <i id="hide1" class="fa fa-eye"></i>
-                    <i id="hide2" class="fa fa-eye-slash"></i>
-                </span>
+    
+                <div class="remember-me">
+                    <input type="checkbox">
+                    <span style="color: #DDD">Are you from MNNIT</span>
+                </div>
+    
+                <input type="submit" value="Register" />
+            </form>
+    
+            <div class="privacy">
+                <!-- <a href="#">Privacy Policy</a> -->
             </div>
-
-            <div class="remember-me">
-                <input type="checkbox">
-                <span style="color: #DDD">Are you from MNNIT</span>
+    
+            <div class="register">
+                Do you already have an account?
+                <a href="login.html"><button id="register-link">Log In here</button></a>
             </div>
-
-            <input type="submit" value="Register" />
-        </form>
-
-        <div class="privacy">
-            <!-- <a href="#">Privacy Policy</a> -->
         </div>
-
-        <div class="register">
-            Do you already have an account?
-            <a href="login.html"><button id="register-link">Log In here</button></a>
         </div>
+      </div>
     </div>
     <script>
         function myFunction() {
