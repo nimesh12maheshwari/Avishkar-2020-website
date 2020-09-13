@@ -219,7 +219,7 @@ function registerAfterSelectingTeam(event) {
         .then(result => {
             if (result['success']) {
                 console.log(result['success']);
-                toastr.success(result['success'],'Success!',{
+                toastr.success('Successfully Registered for the Event','Success!',{
                     closeButton: true
                 });
                 changeStateOfButtonToRegistered(eventID);

@@ -253,6 +253,17 @@ body {
     transform: rotate(45deg);
 }
 
+.register-button {
+    position:absolute;top:95%;left:10%;margin:0;max-width:400px;width:50%;transform:translateY(-50%) translateX(-50%);z-index:200;
+}
+
+.download-problem-statement {
+    position:absolute;top:95%;left:85%;margin:0;width:100%;transform:translateY(-50%) translateX(-50%);
+}
+
+.download-list{
+    position:absolute;top:20%;left:45%;margin:0;max-width:400px;width:80%;transform:translateY(-50%) translateX(-50%);
+}
 /* Custom BookBlock */
 
 .bb-custom-wrapper {
