@@ -11,8 +11,9 @@
   </script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+      
   <link rel="stylesheet" href="../css/register-login.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -275,7 +276,6 @@
       let UserName = document.getElementById("login-form").elements[0].value;
       console.log("UserName : " + UserName);
       let Password = document.getElementById("login-form").elements[1].value;
-      console.log("Password : " + Password);
       let res = null;
 
       formdata.append("username", UserName);
@@ -296,30 +296,27 @@
           console.log(res.token);
           if (res.token) {
             localStorage.setItem("authtoken", res.token);
-            console.log(localStorage);
+            window.location = "../events/";
             // bs4pop.notice('Login Successful', {type: 'success'})
-            bs4pop.alert("Login Successful", function (e) {
-              window.location = "../events/";
-            });
+            
             // alert("logined successful");
             // window.location = "../events/";
           } else {
-            // alert("Either username or password is wrong.");
-            // location.reload(true);
-            bs4pop.alert("Either username or password is wrong.", function (e) {
-              location.reload(true);
+            // bs4pop.alert("Either username or password is wrong.", function (e) {
+            //   location.reload(true);
+            // });
+            toastr.error('Either username or password is wrong.','Error!', {
+              closeButton: true
             });
-            // bs4pop.notice('Either username or password is wrong', {type: 'warning'});
-            // location.reload(true);
           }
         })
         .catch((error) => {
-          // alert("error : " + error);
-          // console.log('error : ', error);
-          bs4pop.alert("" + error, function (e) {
-            console.log('error : ', error);
-          });
-          // bs4pop.notice('error : ' + error, {type: 'danger'})
+          // bs4pop.alert("" + error, function (e) {
+          //   console.log('error : ', error);
+          // });
+          toastr.error(error,'Error!', {
+              closeButton: true
+            });
         });
       console.log("Going to addEventListener 4");
     });

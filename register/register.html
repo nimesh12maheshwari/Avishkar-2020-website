@@ -13,7 +13,9 @@
     </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  
   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -255,23 +257,25 @@
                 let res = JSON.parse(result);
                 console.log(res);
                 if(res.success) {
-                    // alert("registered successful");
-                    // window.location = "../events/";
-                    bs4pop.alert("Registered successful", function (e) {
-                        window.location = "../events/";
-                    });
+                    window.location = "../events/";
+                    // bs4pop.alert("Registered successful", function (e) {
+                    //     window.location = "../events/";
+                    // });
                 } else {
-                    // alert("Something went wrong." + res.errors);
-                    bs4pop.alert(res.errors + "", function (e) {
-                        console.log(res.errors);
+                    // bs4pop.alert(res.errors + "", function (e) {
+                    //     console.log(res.errors);
+                    // });
+                    toastr.error(res.errors,'Error!', {
+                      closeButton: true
                     });
                 }
             })
             .catch((error) => {
-                // alert("error : " + error);
-                // console.log('error : ', error);
-                bs4pop.alert("" + error, function (e) {
-                        console.log('error : ', error);
+                      // bs4pop.alert("" + error, function (e) {
+                      //         console.log('error : ', error);
+                      //     });
+                    toastr.error(error,'Error!', {
+                      closeButton: true
                     });
             });
         });
