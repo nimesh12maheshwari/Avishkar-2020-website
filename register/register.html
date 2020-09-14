@@ -212,7 +212,7 @@
             let password = document.getElementById("register-form").elements[2].value;
             let is_mnnit = document.getElementById("register-form").elements[3].value;
 
-            if(is_mnnit === "on") {
+            if(is_mnnit.checked === true) {
                 is_mnnit = "true";
             } else {
                 is_mnnit = "false";

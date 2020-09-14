@@ -21,7 +21,11 @@
   <link href="../css/elements.css" rel="stylesheet">
   <link href="register.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/navbar/navbar.css">
-
+  <script>
+    if(localStorage.getItem("authtoken")) {
+      windows.location = "../";
+    }
+  </script>
   <script src="../js/my_js.js"></script>
   <style>
     body {
