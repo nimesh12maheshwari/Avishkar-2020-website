@@ -385,7 +385,7 @@ function sendRequestBtnClicked() {
             toastr.error('Unable to send request');
         });
     } else {
-        $('#modal-alert-add-member').text("Team name should be of length more than 5 and should contain lowercase characters or '_' or numbers");
+        $('#modal-alert-add-member').text("Name should be of length more than 5 and should contain lowercase characters or '_' or numbers");
         $('#modal-alert-add-member').show();
     }
 
