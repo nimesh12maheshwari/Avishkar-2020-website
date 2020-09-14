@@ -58,6 +58,7 @@ function getUserDetails() {
 			.then((result) => {
 				var userDetails = JSON.parse(result);
 				if (!userDetails["success"]) throw result;
+				console.log(userDetails);
 				initialize(userDetails);
 			})
 			.catch((error) => {
