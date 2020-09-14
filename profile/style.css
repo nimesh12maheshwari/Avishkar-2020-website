@@ -4,6 +4,9 @@
     background-image: url('../img/f.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bodyStyle label,.listTab, h4, .btn-lg{
     font-family: 'Orbitron', sans-serif;
 }
 
