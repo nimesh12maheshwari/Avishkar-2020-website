@@ -265,6 +265,7 @@
                     // bs4pop.alert(res.errors + "", function (e) {
                     //     console.log(res.errors);
                     // });
+                    console.log(res.errors);
                     toastr.error(res.errors,'Error!', {
                       closeButton: true
                     });
@@ -274,7 +275,8 @@
                       // bs4pop.alert("" + error, function (e) {
                       //         console.log('error : ', error);
                       //     });
-                    toastr.error(error,'Error!', {
+                      console.log(error);
+                    toastr.error('Failed to register','Error!', {
                       closeButton: true
                     });
             });
