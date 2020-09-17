@@ -1,6 +1,7 @@
 var tokenId;
-init();
 var details;
+var isLocked = false;
+init();
 
 function init() {
     var token = localStorage.getItem('authtoken');
@@ -40,8 +41,20 @@ function getUserDetails(tokenId) {
     xhr.send(data);
 }
 
-
 function setAllFields(details) {
+
+    if(details.confirmed){
+        document.getElementById('fnameProfile').readOnly = true;
+        document.getElementById('lnameProfile').readOnly = true;
+        document.getElementById('emailProfile').readOnly = true;
+        document.getElementById('resumeProfile').readOnly = true;
+        document.getElementById('msteamidProfile').readOnly = true;
+        document.getElementById('collegeProfile').readOnly = true;
+        document.getElementById('lockBtn').disabled = true;
+        document.getElementById('lockBtn').value = 'Profile Locked';
+        $('#lockBtn').removeClass('btn-primary').addClass('btn-secondary');
+        isLocked = true;
+    }
 
     document.getElementById('usernameProfile').value = details.userName;
     document.getElementById('fnameProfile').value = details.firstName;
@@ -57,31 +70,31 @@ function setAllFields(details) {
 
     var cnt = 1;
     let table = createTable();
-    let thead = createHead(['#','Event','Team Name','Team Id']);
+    let thead = createHead(['#', 'Event', 'Team Name', 'Team Id']);
     let tbody = document.createElement("tbody");
     let teams = details.teams;
 
-    for(var teamId in teams){
+    for (var teamId in teams) {
 
         let events = teams[teamId].registeredEvents;
         var teamName = teams[teamId].teamName;
 
-        for(var eventId in events){
+        for (var eventId in events) {
 
             var eventName = events[eventId].eventName;
-            let tr = createRows([cnt.toString(),eventName,teamName,teamId]);
+            let tr = createRows([cnt.toString(), eventName, teamName, teamId]);
             tbody.appendChild(tr);
             cnt++;
         }
     }
 
     console.log(cnt);
-    if(cnt>1){
+    if (cnt > 1) {
         table.appendChild(thead);
         table.appendChild(tbody);
         document.getElementById('eventList').appendChild(table);
     }
-    else{
+    else {
         let hr = document.createElement("hr");
         let span = document.createElement("span");
         span.appendChild(document.createTextNode("You have not registered for any event yet."));
@@ -91,23 +104,23 @@ function setAllFields(details) {
     return details;
 }
 
-function createTable(){
+function createTable() {
 
     let table = document.createElement("table");
-    table.setAttribute("class","table table-striped mt-3");
+    table.setAttribute("class", "table table-striped mt-3");
     table.style.wordWrap = 'break-word';
     table.style.wordBreak = 'break-word';
     return table;
 }
 
-function createHead(fields){
+function createHead(fields) {
 
     let thead = document.createElement("thead");
     let tr = document.createElement("tr");
 
-    for (var i=0;i<fields.length;i++){
+    for (var i = 0; i < fields.length; i++) {
         let th = document.createElement("th");
-        th.setAttribute("scope","col");
+        th.setAttribute("scope", "col");
         th.appendChild(document.createTextNode(fields[i]));
 
         tr.appendChild(th);
@@ -116,15 +129,15 @@ function createHead(fields){
     return thead;
 }
 
-function createRows(fields){
+function createRows(fields) {
 
     let tr = document.createElement("tr");
     let th = document.createElement("th");
-    th.setAttribute("scope","row");
+    th.setAttribute("scope", "row");
     th.appendChild(document.createTextNode(fields[0]));
     tr.appendChild(th);
 
-    for(var i=1;i<fields.length;i++){
+    for (var i = 1; i < fields.length; i++) {
         let td = document.createElement("td");
         td.style.maxWidth = '250px';
         td.appendChild(document.createTextNode(fields[i]));
@@ -250,25 +263,58 @@ function updateNameEmail(details, tokenId) {
     return false;
 }
 
+function lockProfile(tokenId) {
+
+    var flag = false;
+    var data = new FormData();
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.open('POST', 'https://avishkarapi.sahajbamba.me/auth/lock/', false);
+    xhr.setRequestHeader('authorization', tokenId);
+
+    xhr.onload = function () {
+        var tmp = JSON.parse(this.response);
+        console.log(tmp);
+        if (tmp.success == true) {
+            flag = true;
+        }
+        else {
+            swal({
+                title: "Error!",
+                text: "" + tmp.errors,
+                icon: "error",
+                button: "close",
+            });
+            flag = false;
+        }
+    };
+    xhr.send(data);
+    return flag;
+}
+
 document.getElementById('saveBtn').addEventListener('click', function () {
 
     var flag1 = true;
     var flag2 = true;
-    let activeTab  = $('.listTab .active').text();
+    let activeTab = $('.listTab .active').text();
     console.log($('.listTab .active').text());
-    if(activeTab === 'About'){
+    if (activeTab === 'About') {
         flag1 = updateNameEmail(details, tokenId);
     }
-    else{
+    else {
         flag2 = updateOtherDetails(details, tokenId);
     }
-        
+
     if (flag1 && flag2) {
         swal({
             title: "Success!",
             text: "All changes are successfully saved.",
             icon: "success",
             button: "close",
+        }).then((value) => {
+            document.getElementById('saveBtn').disabled = true;
         });
     }
 
@@ -276,4 +322,35 @@ document.getElementById('saveBtn').addEventListener('click', function () {
 
 document.querySelector('.profileSection').addEventListener('input', function () {
     document.getElementById('saveBtn').disabled = false;
+});
+
+document.getElementById('lockBtn').addEventListener('click', function () {
+
+    var flag = false;
+
+    swal({
+        title: "Are you sure?",
+        text: "Once locked, you will not be able to update your details except contact No.",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            flag = lockProfile(tokenId);
+            if(flag){
+      
+                swal({
+                    title: "Success!",
+                    text: "Your Profile has been successfully locked.",
+                    icon: "success",
+                    button: "close",
+                }).then((value) => {
+                    location.reload();
+                });
+            
+            }
+        }
+      });
+
 });
