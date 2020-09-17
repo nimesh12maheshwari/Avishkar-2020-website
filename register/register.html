@@ -34,8 +34,35 @@
     </style>
     <script>
       if(localStorage.getItem("authtoken")) {
-        window.location = "../";
-      }
+      var myHeaders = new Headers();
+      myHeaders.append(
+        "Authorization",
+        "Token " + localStorage.getItem("authtoken")
+		  );
+
+      var formdata = new FormData();
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow",
+      };
+
+      fetch(
+        "https://avishkarapi.sahajbamba.me/auth/getuserdetails/",
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => {
+          var userDetails = JSON.parse(result);
+          if (!userDetails["success"]) throw result;
+          window.location = "../index.html";
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
     </script>
 </head>
 
@@ -257,7 +284,7 @@
                 let res = JSON.parse(result);
                 console.log(res);
                 if(res.success) {
-                    window.location = "../events/";
+                    window.location = "./login.html";
                     // bs4pop.alert("Registered successful", function (e) {
                     //     window.location = "../events/";
                     // });
