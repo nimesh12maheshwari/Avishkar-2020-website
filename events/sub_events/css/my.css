@@ -305,6 +305,7 @@ body {
 }
 
 .bb-custom-side {
+    overflow-y: auto;
     position: relative;
     float: left;
     overflow: hidden;
@@ -377,6 +378,7 @@ body {
 .page-layout-2 div {
     position: absolute;
     bottom: 0;
+    max-height:100%;
     left: 50%;
     padding: 0 10% 10%;
     width: 50%;
