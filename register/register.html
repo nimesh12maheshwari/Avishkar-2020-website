@@ -276,37 +276,40 @@
             redirect: 'follow'
             };
 
-            // await fetch("https://avishkarapi.sahajbamba.me/auth/register/", requestOptions)
-            // .then((response) => {
-            //     return response.text();
-            // })
-            // .then((result) => {
-            //     let res = JSON.parse(result);
-            //     console.log(res);
-            //     if(res.success) {
-            //         window.location = "./login.html";
-            //         // bs4pop.alert("Registered successful", function (e) {
-            //         //     window.location = "../events/";
-            //         // });
-            //     } else {
-            //         // bs4pop.alert(res.errors + "", function (e) {
-            //         //     console.log(res.errors);
-            //         // });
-            //         console.log(res.errors);
-            //         toastr.error(res.errors,'Error!', {
-            //           closeButton: true
-            //         });
-            //     }
-            // })
-            // .catch((error) => {
-            //           // bs4pop.alert("" + error, function (e) {
-            //           //         console.log('error : ', error);
-            //           //     });
-            //           console.log(error);
-            //         toastr.error('Failed to register','Error!', {
-            //           closeButton: true
-            //         });
-            // });
+            await fetch("https://avishkarapi.sahajbamba.me/auth/register/", requestOptions)
+            .then((response) => {
+                return response.text();
+            })
+            .then((result) => {
+                let res = JSON.parse(result);
+                console.log(res);
+                if(res.success) {
+                  console.log(res.token);
+                  localStorage.setItem("authtoken", res.token);
+                  window.location = "../events/";
+                    //window.location = "./login.html";
+                    // bs4pop.alert("Registered successful", function (e) {
+                    //     window.location = "../events/";
+                    // });
+                } else {
+                    // bs4pop.alert(res.errors + "", function (e) {
+                    //     console.log(res.errors);
+                    // });
+                    console.log(res.errors);
+                    toastr.error(res.errors,'Error!', {
+                      closeButton: true
+                    });
+                }
+            })
+            .catch((error) => {
+                      // bs4pop.alert("" + error, function (e) {
+                      //         console.log('error : ', error);
+                      //     });
+                      console.log(error);
+                    toastr.error('Failed to register','Error!', {
+                      closeButton: true
+                    });
+            });
         });
     </script>
     <script src="../js/navbar/main.js"></script>
