@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
+#heading{
+   font-size:2em;
+   font-weight:bolder;
+   animation: type 3s steps(7);
+   overflow:hidden;
+   white-space:nowrap;
+   font-family:consolas;
+   border-right: 4px solid black;
+   width: 7ch;
+}
+@keyframes type{
+  0% {
+    width:0ch;
+  }
+  100% {
+    width:7ch;
+  }
+}
+
 @media only screen and (max-width: 768px) {
 
     .style li a{
