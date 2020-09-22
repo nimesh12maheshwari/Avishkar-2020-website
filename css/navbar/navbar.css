@@ -36,6 +36,11 @@
     .nav-link{
         margin-left:12px;
     }
+    
+    #faq-link{
+        margin-right:12px;
+    }
+    
 }
 .navbar-dark{
     background-color:black;
