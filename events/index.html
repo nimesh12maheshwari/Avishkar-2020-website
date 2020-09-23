@@ -54,7 +54,7 @@ typeWriter();
 	
 function typeWriter() {
   if (i < txt.length) {
-    document.getElementById("heading").innerHTML += txt.charAt(i);
+    document.getElementById("title_heading").innerHTML += txt.charAt(i);
     i++;
     setTimeout(typeWriter, speed);
   }
@@ -162,7 +162,7 @@ function typeWriter() {
 
 			<header class="header" style="position: relative; top:100px;">
 				<!-- <h1 class="glitched">Events</h1> -->
-				<h1 id = "heading">
+				<h1 id = "title_heading">
 					Events
 					<!-- <font color="#61bb46">E</font>
 					<font color="#fdb827">v</font>
