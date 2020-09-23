@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="css/my.css" />
 	<link rel="stylesheet" type="text/css" href="../css/navbar/navbar.css">
 	<style>
-		#heading {
+/* 		#heading {
 			   animation: type 3s steps(20);
 			   overflow:hidden;
 			   white-space:nowrap;
@@ -37,14 +37,28 @@
 			  100% {
 			    width:20ch;
 			  }
-		}
+		} */
 		
 		.glitched {
 			font-family: 'Orbitron', sans-serif;
 		}
 	</style>
 </head>
+<script>
+	
+var i = 0;
+var txt = 'EVENTS';
+var speed = 50;
 
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("heading").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+	
+</script>
 <body>
 	
 	<nav class="navbar navbar-expand-md navbar-dark">
