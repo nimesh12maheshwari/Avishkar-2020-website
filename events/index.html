@@ -22,46 +22,23 @@
 	<link rel="stylesheet" type="text/css" href="css/my.css" />
 	<link rel="stylesheet" type="text/css" href="../css/navbar/navbar.css">
 	<style>
-/* 		#heading {
-			   animation: type 3s steps(20);
-			   overflow:hidden;
-			   white-space:nowrap;
-			   font-family:consolas;
-			   border-right: 4px solid black;
+		#myVideo {
+		  	position: relative;
+		  	right: 0;
+		  	bottom: 0;
+		  	min-width: 100%; 
+		  	min-height: 100%;
 		}
-		
-		@keyframes type{
-			  0% {
-			    width:0ch;
-			  }
-			  100% {
-			    width:20ch;
-			  }
-		} */
-		
+
 		.glitched {
 			font-family: 'Orbitron', sans-serif;
 		}
 	</style>
 </head>
-<script>
-	
-var i = 0;
-var txt = 'EVENTS';
-var speed = 50;
-	
-typeWriter();
-	
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("title_heading").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
-	
-</script>
 <body>
+	<video autoplay muted loop id="myVideo">
+  		<source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4">
+	</video>
 	
 	<nav class="navbar navbar-expand-md navbar-dark">
 		<!--class navbar-expand-md-->
