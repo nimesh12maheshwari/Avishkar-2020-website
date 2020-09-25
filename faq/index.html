@@ -32,16 +32,29 @@
 
   <link rel="stylesheet" href="css/my.css"> <!-- Resource style -->
   <style>
+    .accordion {
+      width: 100%;
+    }
     .accordion .card {
       background-color: transparent;
+      color: white;
     }
 
     .accordion .card h2 {
       font-size: large;
     }
+
     .accordion .card .card-body {
       padding-left: 2rem;
+      background-color:rgba(0, 0, 0, 0.5);
     }
+
+    .card-header {
+      border-width: 2px;
+      border-color: white;
+      cursor: pointer;
+    }
+    
   </style>
 </head>
 
@@ -153,133 +166,133 @@
     </center>
     <div class="container">
       <div class="row">
-          <div class="accordion" id="accordionExample">
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    <h2>What is Avishkar?</h2>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                  Avishkar is the annual techno-management fest organized by National Institute of Technology, Allahabad
-                  (MNNIT) instituted for the enrichment of Engineering and Science with the aim of providing a platform
-                  for a multitude of students to showcase their technical ingenuity and prowess. Serving as a platform
-                  for providing an opportunity to ‘ Ideate, Innovate & Create ' , Avishkar is an experience, full of
-                  amusement and learning opportunities.
-                </div>
-              </div>
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne">
+              <h2 class="mb-0">
+                <a class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  aria-controls="collapseOne">
+                  <h2>What is Avishkar?</h2>
+                </a>
+              </h2>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="false" aria-controls="collapseTwo">
-                    <h2>What does Avishkar include?</h2>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                  Avishkar includes:<br>
-                  Innovative events to test the technical and general knowhow of the participant.
-                  Inceptive initiatives to make society a better place to live in.
-                  Inspiring speakers to know about the eminent personalities and their life stories.
-                  Illustrative exhibits to update the participant about the ever ending development taking place in the
-                  engineering industry.
-
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <h2>When and where is Avishkar going to be scheduled?</h2>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">
-                  Avishkar ‘20 will be a grandiose 4-days festival to be held from 31st October to 3rd November, 2020 in
-                  online mode amidst the Covid19 outbreak.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingFour">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    <h2>How can a participant register for Avishkar?</h2>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                <div class="card-body">
-                  All the interested participants can register themselves via the register option available at the home
-                  page. The registration charges are ₹350 per student for all the events of Avishkar 2020 except
-                  Gnosiomania.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingFive">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    <h2>What is the registration fee for Gnosiomania and Gnotalks?</h2>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                <div class="card-body">
-                  The participation fee is ₹250 for Gnotalks + Gnosiomania quizzes and ₹200 for only the Gnosiomania
-                  quizzes.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingSix">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix"
-                    aria-expanded="false" aria-controls="collapseSix">
-                    <h2>How will a participant pay the registration fee?</h2>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
-                <div class="card-body">
-                  The participants will be contacted via mail with the payment link attached to it. All the participants
-                  are requested to pay the fee within 48 hours of receiving the mail.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingSeven">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                    <h2>How can a participant register for a team event?</h2>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
-                <div class="card-body">
-                  All the interested participants can register themselves by following the steps mentioned:
-                  <ul>
-                    <li>Login to your avishkar account and lock your profile after updating the details.</li>
-                    <li>Head to the manage teams sub-section and create a team.</li>
-                  </ul>
-
-                </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                Avishkar is the annual techno-management fest organized by National Institute of Technology, Allahabad
+                (MNNIT) instituted for the enrichment of Engineering and Science with the aim of providing a platform
+                for a multitude of students to showcase their technical ingenuity and prowess. Serving as a platform
+                for providing an opportunity to ‘ Ideate, Innovate & Create ' , Avishkar is an experience, full of
+                amusement and learning opportunities.
               </div>
             </div>
           </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo" type="button" data-toggle="collapse" data-target="#collapseTwo">
+              <h2 class="mb-0">
+                <a class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  <h2>What does Avishkar include?</h2>
+                </a>
+              </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                Avishkar includes:<br>
+                Innovative events to test the technical and general knowhow of the participant.
+                Inceptive initiatives to make society a better place to live in.
+                Inspiring speakers to know about the eminent personalities and their life stories.
+                Illustrative exhibits to update the participant about the ever ending development taking place in the
+                engineering industry.
+
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree" type="button" data-toggle="collapse" data-target="#collapseThree">
+              <h2 class="mb-0">
+                <a class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseThree">
+                  <h2>When and where is Avishkar going to be scheduled?</h2>
+                </a>
+              </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                Avishkar ‘20 will be a grandiose 4-days festival to be held from 31st October to 3rd November, 2020 in
+                online mode amidst the Covid19 outbreak.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingFour" type="button" data-toggle="collapse" data-target="#collapseFour">
+              <h2 class="mb-0">
+                <a class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+                  aria-expanded="false" aria-controls="collapseFour">
+                  <h2>How can a participant register for Avishkar?</h2>
+                </a>
+              </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div class="card-body">
+                All the interested participants can register themselves via the register option available at the home
+                page. The registration charges are ₹350 per student for all the events of Avishkar 2020 except
+                Gnosiomania.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingFive" type="button" data-toggle="collapse" data-target="#collapseFive">
+              <h2 class="mb-0">
+                <a class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
+                  aria-expanded="false" aria-controls="collapseFive">
+                  <h2>What is the registration fee for Gnosiomania and Gnotalks?</h2>
+                </a>
+              </h2>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+              <div class="card-body">
+                The participation fee is ₹250 for Gnotalks + Gnosiomania quizzes and ₹200 for only the Gnosiomania
+                quizzes.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingSix" type="button" data-toggle="collapse" data-target="#collapseSix">
+              <h2 class="mb-0">
+                <a class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix"
+                  aria-expanded="false" aria-controls="collapseSix">
+                  <h2>How will a participant pay the registration fee?</h2>
+                </a>
+              </h2>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+              <div class="card-body">
+                The participants will be contacted via mail with the payment link attached to it. All the participants
+                are requested to pay the fee within 48 hours of receiving the mail.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingSeven" type="button" data-toggle="collapse" data-target="#collapseSeven">
+              <h2 class="mb-0">
+                <a class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven"
+                  aria-expanded="false" aria-controls="collapseSeven">
+                  <h2>How can a participant register for a team event?</h2>
+                </a>
+              </h2>
+            </div>
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+              <div class="card-body">
+                All the interested participants can register themselves by following the steps mentioned:
+                <ul>
+                  <li>Login to your avishkar account and lock your profile after updating the details.</li>
+                  <li>Head to the manage teams sub-section and create a team.</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
 

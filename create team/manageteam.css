@@ -26,6 +26,7 @@ h1 {
 .add-member{
     display: block;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .create-team {
     margin-bottom: 10px;
