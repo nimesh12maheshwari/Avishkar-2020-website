@@ -46,3 +46,20 @@
     line-height: 150px;
     text-align: center;
 }
+
+.border {
+    border:0px !important;
+}
+
+.btn-color{
+    background-color: #00e3ef;
+    color:white;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color:#00e3ef;
+}
+
+.nav-link{
+    color:#00e3ef;
+}
