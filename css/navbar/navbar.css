@@ -17,6 +17,16 @@
         margin-bottom:12px;
         text-align: center;
     }
+    
+    .navbar-dark{
+        background-color:black;
+        margin-bottom: 2.5rem;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+
+    
 }
 
 @media only screen and (min-width: 768px) {
@@ -42,12 +52,11 @@
         margin-right:12px;
     }
     
-}
-.navbar-dark{
-    background-color:rgba(0,0,0,0.5);
-    border-bottom: 1px solid #d500fb;
-    margin-bottom: 2.5rem;
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
+    .navbar-dark{
+        margin-bottom: 2.5rem;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
 
+
+}

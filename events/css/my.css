@@ -3,7 +3,7 @@
 
 body{
     /* background: url("../../img/demo3/bg11.jpg"); */
-    background-image: url("../../img/ezgif.com-video-to-gif.gif");
+    background-image: url("../../img/4.gif");
     /* background: url("../../img/demo3/background.jpg"); */
     color:white;
     background-position: center;
@@ -44,11 +44,12 @@ header.header{
     transform: translateY(-50%);
 }
 header.header h1{
-    font-size: 6rem;
+    font-family: Allerta;
+    font-size: 7.5rem;
     margin-bottom: 6rem;
-    color: #00E3EF;
+    color: #e3e9f7;
     text-align: center;
-    text-shadow: 5px 5px 2px purple;
+    text-shadow: 5px 8px 5px #000080;
     text-transform: uppercase;
     font-weight: 900;
 }
