@@ -41,6 +41,19 @@ function getUserDetails(tokenId) {
     xhr.send(data);
 }
 
+function setInfoAlert(details){
+
+    var str1 = 'not paid.';
+    var str2 = 'not locked';
+    if(details.confirmed)
+       str2 = 'locked';
+    if(details.feesPaid)
+       str1 = 'paid';
+
+    document.getElementById('infoProfile').innerHTML = 'Your fee is <strong>'+str1+'</strong>.' +
+                                ' Your profile is <strong>'+str2+'</strong>.';
+}
+
 function setAllFields(details) {
 
     if(details.confirmed){
@@ -68,6 +81,7 @@ function setAllFields(details) {
     document.getElementById('phonenoProfile').value = details.phone;
     document.getElementById('whatsappnoProfile').value = details.whatsapp;
 
+    setInfoAlert(details);
     var cnt = 1;
     let table = createTable();
     let thead = createHead(['#', 'Event', 'Team Name', 'Team Id']);
@@ -294,20 +308,77 @@ function lockProfile(tokenId) {
     return flag;
 }
 
+function updatePassword(tokenId){
+
+    var newPassword = document.getElementById('newPasswordProfile').value.trim();
+    var confPassword = document.getElementById('confPasswordProfile').value.trim();
+    var flag = false;
+    if(newPassword == '' || confPassword == ''){
+        swal({
+            title: "Error!",
+            text: "All fields are mandatory. Please fill all required fields.",
+            icon: "error",
+            button: "close",
+        });
+        return flag;
+    }
+
+    if(newPassword !== confPassword){
+        swal({
+            title: "Error!",
+            text: "New Password and Confirm Password are not same.",
+            icon: "error",
+            button: "close",
+        });
+        return flag;
+    }
+
+    var data = new FormData();
+    data.append("password",newPassword);
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.open("POST", "https://avishkarapi.sahajbamba.me/auth/changepassword",false);
+    xhr.setRequestHeader("authorization", tokenId);
+
+    xhr.onload = function(){
+        var tmp = JSON.parse(this.response);
+    
+        if (tmp.success == true) {
+            flag = true;
+        }
+        else {
+            swal({
+                title: "Error!",
+                text: "" + tmp.errors,
+                icon: "error",
+                button: "close",
+            });
+            flag = false;
+        }
+    };
+
+    xhr.send(data);
+    return flag;
+}
+
 document.getElementById('saveBtn').addEventListener('click', function () {
 
-    var flag1 = true;
-    var flag2 = true;
+    var flag = true;
     let activeTab = $('.listTab .active').text();
     console.log($('.listTab .active').text());
     if (activeTab === 'About') {
-        flag1 = updateNameEmail(details, tokenId);
+        flag = updateNameEmail(details, tokenId);
     }
-    else {
-        flag2 = updateOtherDetails(details, tokenId);
+    else if (activeTab === 'Contact') {
+        flag = updateOtherDetails(details, tokenId);
+    }
+    else{
+        flag = updatePassword(tokenId);
     }
 
-    if (flag1 && flag2) {
+    if (flag) {
         swal({
             title: "Success!",
             text: "All changes are successfully saved.",
