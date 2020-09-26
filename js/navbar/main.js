@@ -84,10 +84,11 @@ function showPendingRequests() {
 	console.log(pendingRequest);
 	for (let i = 0; i < pendingRequest.length; i++) {
 		let req = pendingRequest[i];
-		var option = document.createElement("a");
+		var option = document.createElement("p");
 		option.setAttribute('href', "#");
 		option.className = "dropdown-item";
-		option.classList.add("text-primary");
+		//option.classList.add("text-primary");
+		option.style.color = "#00e3ef";
 		option.innerText = req.teamAdmin + " has sent request\nfor team " + req.teamName;
 		option.id = req.teamID;
 		option.addEventListener("click", showModal);
