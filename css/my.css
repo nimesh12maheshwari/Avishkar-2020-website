@@ -1,75 +1,106 @@
 @import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display');
 
-body{
+body {
     overflow-x: none;
 }
-.no-p-m{
+html,body {
+    width:100vw;
+    height: 100vh;
+    margin: 0;
+}
+#videoBG {
+    position:fixed;
+    object-fit: cover;
+    z-index: -1;
+}
+@media (min-aspect-ratio: 16/9) {
+    #videoBG {
+        width:100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    #videoBG { 
+        width:100%;
+        height: 100%;
+    }
+}
+.no-p-m {
     padding: 0;
-    margin:0;
-}
-.form-control{
-    border-radius: 0;
-    margin:2%;
-}
-.regbtn{
-    background:white;
-    border:1px solid #222222;
-    color:#222222;
-    border-radius: 0;
-}
-.regbtn:hover{
-    background: #222222;
-    color: white;
-    transition: .5s;
-}
-.mybtn{
-    background:#222222;
-    border:1px solid #222222;
-    color:white;
-    border-radius: 0;
-}
-.mybtn:hover{
-    background: #222222;
-    color: white;
-    transition: .5s;
-}
-.container-fluid{
-    padding: 0;
-    margin:0; 
-}
-.overlay
-{
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	opacity: 0.5;
-	background: url('./img/demo3/pattern2.png');
-	z-index: -1;
-}
-#scene{
-	position: fixed;
-	z-index: -10;
-}
-.slogan1{
-	font-family: 'Orbitron',sans-serif;
-	font-size: 35px;
-	letter-spacing: 20px;
-	color: #222222;
-}
-.slogan2{
-    font-family: 'Orbitron',sans-serif;
-    font-size: 22px;
-    letter-spacing: 2px;
-    color: #222222;
+    margin: 0;
 }
 
-.mylogo{
+.form-control {
+    border-radius: 0;
+    margin: 2%;
+}
+
+.regbtn {
+    background: white;
+    border: 1px solid #222222;
+    color: #222222;
+    border-radius: 0;
+}
+
+.regbtn:hover {
+    background: #222222;
+    color: white;
+    transition: .5s;
+}
+
+.mybtn {
+    background: #222222;
+    border: 1px solid #222222;
+    color: white;
+    border-radius: 0;
+}
+
+.mybtn:hover {
+    background: #222222;
+    color: white;
+    transition: .5s;
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    background: url('./img/demo3/pattern2.png');
+    z-index: -1;
+}
+
+#scene {
+    position: fixed;
+    z-index: -10;
+}
+
+.slogan1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 35px;
+    letter-spacing: 20px;
+    /* color: #222222; */
+}
+
+.slogan2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    /* color: #222222; */
+}
+
+.mylogo {
     height: 250px;
 }
 
-.bottom-left{
+.bottom-left {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -77,11 +108,13 @@ body{
     height: 0;
     border-style: solid;
     border-width: 200px 0 0 200px;
-    border-color: transparent transparent transparent #222222;
+    /* border-color: transparent transparent transparent #222222; */
+    border-color: transparent transparent transparent transparent;
     transition: 0.5s;
     z-index: 2;
 }
-.bottom-right{
+
+.bottom-right {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -89,169 +122,194 @@ body{
     height: 0;
     border-style: solid;
     border-width: 0 0 200px 200px;
-    border-color: transparent transparent #222222 transparent;
+    border-color: transparent transparent transparent transparent;
+    /* border-color: transparent transparent #222222 transparent; */
     transition: 0.5s;
     z-index: 2;
 }
-#bottom-left-p{
+
+#bottom-left-p {
     position: absolute;
     left: -185px;
     top: -75px;
-    font-family: 'Orbitron',sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: white;
-    text-decoration: none;
-}
-#bottom-right-p{
-    position: absolute;
-    left: -115px;
-    bottom: -175px;
-    font-family: 'Orbitron',sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-}
-#bottom-left-p a{
-    text-decoration: none;
-}
-#bottom-right-p a{
     text-decoration: none;
 }
 
-.header{
+#bottom-right-p {
+    position: absolute;
+    left: -115px;
+    bottom: -175px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+#bottom-left-p a {
+    text-decoration: none;
+}
+
+#bottom-right-p a {
+    text-decoration: none;
+}
+
+.header {
     margin-top: 70px;
 }
-header.header{
+
+header.header {
     /*font-family: 'Raleway', sans-serif; */
-    font-family:  verdana, 'trebuchet MS' 'Sedgwick Ave Display';   
+    font-family: verdana, 'trebuchet MS''Sedgwick Ave Display';
     transform: translateY(-50%);
 }
-header.header h1{
+
+header.header h1 {
     font-size: 6rem;
-    color: #111111;
+    /* color: #111111; */
     text-align: center;
     margin-top: 0;
     text-transform: uppercase;
     font-weight: 900;
 }
 
-.glitch-window{
+.glitch-window {
     position: absolute;
     top: 0;
     left: -2px;
     width: 100%;
-    color: #222222;
+    /* color: #222222; */
     text-shadow: 2px 0 #F9F8F8, -1px 0 yellow, -2px 0 green;
     overflow: hidden;
     animation: crt-me 2500ms infinite linear alternate-reverse;
 }
 
 @keyframes crt-me {
-     0% {
+    0% {
         clip: rect(31px, 9999px, 94px, 0)
     }
+
     10% {
         clip: rect(112px, 9999px, 76px, 0)
     }
+
     20% {
         clip: rect(85px, 9999px, 77px, 0)
     }
+
     30% {
         clip: rect(27px, 9999px, 97px, 0)
     }
+
     40% {
         clip: rect(64px, 9999px, 98px, 0)
     }
+
     50% {
         clip: rect(61px, 9999px, 85px, 0)
     }
+
     60% {
         clip: rect(99px, 9999px, 114px, 0)
     }
+
     70% {
         clip: rect(34px, 9999px, 115px, 0)
     }
+
     80% {
         clip: rect(98px, 9999px, 129px, 0)
     }
+
     90% {
         clip: rect(43px, 9999px, 96px, 0)
     }
+
     100% {
         clip: rect(82px, 9999px, 64px, 0)
     }
 }
 
 
-@media only screen and (max-width: 600px) and (min-width: 200px)  {
+@media only screen and (max-width: 600px) and (min-width: 200px) {
 
-    .header{
+    .header {
         margin-top: 20px;
     }
 
-    header.header h1{
+    header.header h1 {
         font-size: 1.8rem;
-        color: #222222;
+        /* color: #222222; */
         text-align: center;
         margin-top: 0;
         text-transform: uppercase;
         font-weight: 900;
     }
 
-    .slogan1{
+    .slogan1 {
         font-size: 15px;
         letter-spacing: 2px;
     }
 
-    .mylogo{
+    .mylogo {
         height: 150px;
     }
 
 
-    .bottom-left{
+    .bottom-left {
         border-width: 120px 0 0 120px;
-        border-color: transparent transparent transparent #222222;
+        border-color: transparent transparent transparent transparent;
+        /* border-color: transparent transparent transparent #222222; */
     }
-    .bottom-right{
+
+    .bottom-right {
         border-width: 0 0 120px 120px;
-        border-color: transparent transparent #222222 transparent;
+        border-color: transparent transparent transparent transparent;
+        /* border-color: transparent transparent #222222 transparent; */
     }
 
 
-    #bottom-left-p{
+    #bottom-left-p {
         position: absolute;
         left: -110px;
         top: -35px;
         font-size: 12px;
     }
-    #bottom-right-p{
+
+    #bottom-right-p {
         position: absolute;
         left: -70px;
         bottom: -110px;
         font-size: 12px;
     }
 
+    #logo {
+        margin-top: 30%;
+    }
+
 
 }
 
 
 
-@media only screen and (max-width: 1023px) and (min-width: 768px)  {
-    header.header h1{
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+    header.header h1 {
         font-size: 4.4rem;
-        color: #222222;
+        /* color: #222222; */
         text-align: center;
         margin-top: 0;
         text-transform: uppercase;
         font-weight: 900;
     }
 
-    .slogan1{
-    font-family: 'Orbitron',sans-serif;
-    font-size: 24px;
-    letter-spacing: 15px;
-    color: #222222;
-}
+    .slogan1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 24px;
+        letter-spacing: 15px;
+        /* color: #222222; */
+    }
 }
