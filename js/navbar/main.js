@@ -180,7 +180,7 @@ function logout(){
 		console.log(result);
 		if(result['success']){
 			localStorage.removeItem("authtoken");
-			window.location = "../index.html";
+			window.location = location.origin;
 		}
 		else{
 			console.log(result);
