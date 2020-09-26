@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 body{
     background: url("../../img/4.gif");
     overflow: visible;
@@ -6,6 +7,34 @@ body{
     background-repeat: no-repeat; 
     color:white;
 }
+.accordion {
+  width: 95%;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+}
+.accordion .card {
+  background-color: transparent;
+  color: white;
+}
+
+.accordion .card h2 {
+  font-size: large;
+}
+
+.accordion .card .card-body {
+  padding-left: 2rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color:rgba(0, 0, 0, 1);
+  font-size: 1.4rem;
+}
+
+.card-header {
+  border-width: 2px;
+  border-color: white;
+  cursor: pointer;
+}
+
 
 .footer{
   width: 100%;
