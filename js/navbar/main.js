@@ -108,6 +108,7 @@ function showModal(event) {
 }
 
 function acceptRequest() {
+	toastr.warning('Waiting for response!  .....  ');
 	var myHeaders = new Headers();
 	myHeaders.append("Authorization", "Token " + token);
 
@@ -130,6 +131,7 @@ function acceptRequest() {
 			console.log(result)						//to be removed later
 		})
 		.catch(error => {
+			toastr.remove();
 			$('#exampleModal').modal('hide');
 			console.log('error', error);			//to be removed later
 		});
@@ -138,6 +140,7 @@ function acceptRequest() {
 
 function rejectRequest() {
 	console.log(teamID);
+	toastr.warning('Waiting for response!  .....  ');
 	var myHeaders = new Headers();
 	myHeaders.append("Authorization", "Token " + token);
 
@@ -161,6 +164,7 @@ function rejectRequest() {
 		})
 		.catch(error => {
 			$('#exampleModal').modal('hide');
+			toastr.remove();
 			console.log('error', error);			//to be removed later
 		});
 
