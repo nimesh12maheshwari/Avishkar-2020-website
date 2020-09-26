@@ -177,7 +177,7 @@ function updateOtherDetails(details, tokenId) {
     if(college == 'MNNIT' && ((regno == 'NA') || (regno == '') || (regno.length != 8))){
         swal({
             title: "Error!",
-            text: "Invalid Registration Number. MNNITs are required to fill their valid Registration Number.",
+            text: "Invalid Registration Number. MNNITians are required to fill their valid Registration Number.",
             icon: "error",
             button: "close",
         });
