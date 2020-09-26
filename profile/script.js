@@ -226,6 +226,7 @@ function updateOtherDetails(details, tokenId) {
 
             xhr.onload = function () {
                 var tmp = JSON.parse(this.response);
+                toastr.remove();
                 if (tmp.success == true) {
                     flag = true;
                 }
@@ -272,6 +273,7 @@ function updateNameEmail(details, tokenId) {
 
         xhr.onload = function () {
             var tmp = JSON.parse(this.response);
+            toastr.remove();
             if (tmp.success == true) {
                 flag = true;
             }
@@ -306,6 +308,7 @@ function lockProfile(tokenId) {
     xhr.onload = function () {
         var tmp = JSON.parse(this.response);
         console.log(tmp);
+        toastr.remove();
         if (tmp.success == true) {
             flag = true;
         }
@@ -359,7 +362,7 @@ function updatePassword(tokenId){
 
     xhr.onload = function(){
         var tmp = JSON.parse(this.response);
-    
+        toastr.remove();
         if (tmp.success == true) {
             flag = true;
         }
@@ -383,6 +386,7 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     var flag = true;
     let activeTab = $('.listTab .active').text();
     console.log($('.listTab .active').text());
+    toastr.warning('Waiting for response!  .....  ');
     if (activeTab === 'About') {
         flag = updateNameEmail(details, tokenId);
     }
@@ -392,7 +396,7 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     else{
         flag = updatePassword(tokenId);
     }
-
+    
     if (flag) {
         swal({
             title: "Success!",
@@ -423,6 +427,7 @@ document.getElementById('lockBtn').addEventListener('click', function () {
       })
       .then((willDelete) => {
         if (willDelete) {
+            toastr.warning('Waiting for response!  .....  ');
             flag = lockProfile(tokenId);
             if(flag){
       
