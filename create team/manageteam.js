@@ -48,6 +48,7 @@ $(document).ready(function () {
                         toastr.remove();
                         fillAccordion();
                     } else {
+                        toastr.remove();
                         toastr.error(data['errors'][0]);
                     }
                 }).catch(() => {
@@ -357,6 +358,7 @@ function createTeamBtnClicked() {
                 addAccordionCard(card, team);
             } else {
                 // toastr.warning(data['errors'][0]);
+                toastr.remove();
                 $('#modal-alert-create-team').text(data['errors'][0]);
                 $('#modal-alert-create-team').show();
             }
@@ -385,6 +387,7 @@ function sendRequestBtnClicked() {
                 fillAccordion();
             } else {
                 // toastr.error(data['errors'][0]);
+                toastr.remove();
                 $('#modal-alert-add-member').text(data['errors'][0]);
                 $('#modal-alert-add-member').show();
             }
