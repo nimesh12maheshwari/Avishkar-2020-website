@@ -253,7 +253,7 @@
         const myForm = document.getElementById('register-form');
         myForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            toastr.warning('Waiting for response!  .....  ');
+            toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
             let formdata = new FormData();
             let Email = document.getElementById("register-form").elements[0].value;
             let userName = document.getElementById("register-form").elements[1].value;

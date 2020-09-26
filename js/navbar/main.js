@@ -108,7 +108,7 @@ function showModal(event) {
 }
 
 function acceptRequest() {
-	toastr.warning('Waiting for response!  .....  ');
+	toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
 	var myHeaders = new Headers();
 	myHeaders.append("Authorization", "Token " + token);
 
@@ -140,7 +140,7 @@ function acceptRequest() {
 
 function rejectRequest() {
 	console.log(teamID);
-	toastr.warning('Waiting for response!  .....  ');
+	toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
 	var myHeaders = new Headers();
 	myHeaders.append("Authorization", "Token " + token);
 

@@ -40,7 +40,7 @@ $(document).ready(function () {
         });
         $('#remove-member-confirm').on('click', (e) => {
             $('#modal-remove-member').modal('hide');
-            toastr.warning('Waiting for response!  .....  ');
+            toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
             sendRemoveMemberRequest(removeMemberTeamId, removeMemberUsername)
                 .then((data) => {
                     // console.log(data);
@@ -335,7 +335,7 @@ function makeNewRow(rowIndex, username, status, teamId) {
 
 function createTeamBtnClicked() {
     let teamName = $('#team-name').val();
-    toastr.warning('Waiting for response!  .....  ');
+    toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
     if (teamNameValidate()) {
         sendCreateTeamRequest(teamName).then((data) => {
             // console.log(data);
@@ -374,7 +374,7 @@ function createTeamBtnClicked() {
 
 function sendRequestBtnClicked() {
     let username = $('#username').val();
-    toastr.warning('Waiting for response!  .....  ');
+    toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
     if (usernameValidate()) {
         sendAddMemberRequest(currentTeamSelected['teamID'], username).then((data) => {
             // console.log(data);

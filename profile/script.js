@@ -386,7 +386,7 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     var flag = true;
     let activeTab = $('.listTab .active').text();
     console.log($('.listTab .active').text());
-    toastr.warning('Waiting for response!  .....  ');
+    toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
     if (activeTab === 'About') {
         flag = updateNameEmail(details, tokenId);
     }
@@ -427,7 +427,7 @@ document.getElementById('lockBtn').addEventListener('click', function () {
       })
       .then((willDelete) => {
         if (willDelete) {
-            toastr.warning('Waiting for response!  .....  ');
+            toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
             flag = lockProfile(tokenId);
             if(flag){
       

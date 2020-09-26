@@ -278,7 +278,7 @@
     $(document).ready(function () {
       $('#resetPassword').click(function(){
         let username = $('#inputUsername').val();
-        toastr.warning('Waiting for response!  .....  ');
+        toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
         $('#modalReset').modal('hide');
         console.log(username);
         let formdata = new FormData();
@@ -331,7 +331,7 @@
     const myForm = document.getElementById('login-form');
     myForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      toastr.warning('Waiting for response!  .....  ');
+      toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
       // var formdata = new FormData();
       let formdata = new FormData();
       let UserName = document.getElementById("login-form").elements[0].value;
