@@ -8,6 +8,7 @@
 
 .bodyStyle label,.listTab, h4, .btn-lg{
     font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
 }
 
 .prompt {
@@ -44,4 +45,21 @@
     font-weight: 400;
     line-height: 150px;
     text-align: center;
+}
+
+.border {
+    border:0px !important;
+}
+
+.btn-color{
+    background-color: #00e3ef;
+    color:white;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color:#00e3ef;
+}
+
+.nav-link{
+    color:#00e3ef;
 }

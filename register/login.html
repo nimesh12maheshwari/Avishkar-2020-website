@@ -226,7 +226,7 @@
           </form>
 
           <div class="forgot-password">
-            <a href="javascript:void(0)" data-toggle="modal" data-target="#abc"><u>Forgot your password?</u></a>
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#modalReset"><u>Forgot your password?</u></a>
           </div>
           <div class="privacy">
             <!-- <a href="#">Privacy Policy</a> -->
@@ -241,23 +241,22 @@
     </div>
   </div>
   <!-- Modal -->
-<div class="modal fade" id="abc" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
+<div class="modal fade" id="modalReset" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="forgotPasswordLabel" style="color:black">Contact anyone mentioned below:</h4>
+        <h4 class="modal-title" id="forgotPasswordLabel" style="color:black">Reset your password</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body" style="color:black">
-        <p class="mb-0"><strong>1. Abhishek Kumar</strong></p>
-        <p><strong>Contact No. : </strong>8218806878&nbsp;&nbsp;<strong>Email: </strong>imabhishekad7@gmail.com</p>
-        <p class="mb-0 mt-5"><strong>2. Sahaj Bamba</strong></p>
-        <p><strong>Contact No. : </strong>8476896757&nbsp;&nbsp;<strong>Email: </strong>sahajbamba1999@gmail.com</p>
+        <p style="text-align: left;"><b>Enter userName and we will send you a temporary password to your registered email.</b></p>
+        <input type="email" class="form-control" id="inputUsername" placeholder="Enter username">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="resetPassword">Send</button>
       </div>
     </div>
   </div>
@@ -276,6 +275,42 @@
   </script>
 
   <script>
+    $(document).ready(function () {
+      $('#resetPassword').click(function(){
+        let username = $('#inputUsername').val();
+        console.log(username);
+        let formdata = new FormData();
+
+        formdata.append("username", username);
+
+        var requestOptions = {
+          method: 'POST',
+          body: formdata,
+          redirect: 'follow'
+        };
+
+      fetch("https://avishkarapi.sahajbamba.me/auth/reset-password/", requestOptions)
+        .then((response) => {
+          return response.text();
+        })
+        .then((result) => {
+          var res = JSON.parse(result);
+          console.log(res);
+          if (res["errors"]) throw res["errors"][0];
+          toastr.success(res['message'],'Success!', {
+              closeButton: true
+            });
+          $('#modalReset').modal('hide');
+        })
+        .catch((error) => {
+          $('#modalReset').modal('hide');
+          toastr.error(error,'Error!', {
+              closeButton: true
+            });
+        });
+      })
+    })
+
     function myFunction() {
       var x = document.getElementById('password');
       var y = document.getElementById('hide1');
@@ -292,12 +327,9 @@
       }
     }
     const myForm = document.getElementById('login-form');
-    console.log("Going to addEventListener 1");
     myForm.addEventListener('submit', async (e) => {
-      console.log("Going to addEventListener 2");
       e.preventDefault();
       // var formdata = new FormData();
-      console.log("Going to addEventListener 3");
       let formdata = new FormData();
       let UserName = document.getElementById("login-form").elements[0].value;
       console.log("UserName : " + UserName);
@@ -313,7 +345,7 @@
         redirect: 'follow'
       };
 
-      await fetch("https://avishkarapi.sahajbamba.me/auth/api-token-auth/", requestOptions)
+      await fetch("https://avishkarapi.sahajbamba.me/auth/login/", requestOptions)
         .then((response) => {
           return response.text();
         })
@@ -344,9 +376,7 @@
               closeButton: true
             });
         });
-      console.log("Going to addEventListener 4");
     });
-    console.log("Going to addEventListener 5");
   </script>
   <script src="../js/navbar/main.js"></script>
 </body>

@@ -8,17 +8,18 @@
         padding: .8em;
         line-height: 1;
         border-bottom: none;
-        border: 3px solid #00E3EF;
+        text-align:center;
         font-size: 12px;
         font-family: 'Orbitron', sans-serif;
     }
     
     .nav-link{
         margin-bottom:12px;
+        text-align: center;
     }
     
     .navbar-dark{
-        background-color:black;
+        background-color: rgba(0,0,0,0.6);
         margin-bottom: 2.5rem;
         padding-top: 0px;
         padding-bottom: 0px;

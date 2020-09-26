@@ -176,7 +176,7 @@ function registerForEvent(event) {
     console.log(eventID);
 
     if(createdTeams.length === 0){
-        toastr.error('Create team to register for event','Error!', {
+        toastr.error('Create team or ask team admin to register for event','Error!', {
             closeButton: true
         });
         return; 
