@@ -26,6 +26,7 @@ h1 {
 .add-member{
     display: block;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .create-team {
     margin-bottom: 10px;
@@ -98,7 +99,6 @@ h1 {
  	font-size: 18px;
  	color:white;
  	font-weight: 400;
- 	line-height: 150px;
     text-align: center;
  }
 

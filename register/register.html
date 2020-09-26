@@ -253,6 +253,7 @@
         const myForm = document.getElementById('register-form');
         myForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            toastr.warning('Waiting for response!  .....  ');
             let formdata = new FormData();
             let Email = document.getElementById("register-form").elements[0].value;
             let userName = document.getElementById("register-form").elements[1].value;
@@ -286,6 +287,7 @@
                 if(res.success) {
                   console.log(res.token);
                   localStorage.setItem("authtoken", res.token);
+                  toastr.remove();
                   window.location = "../events/";
                     //window.location = "./login.html";
                     // bs4pop.alert("Registered successful", function (e) {
@@ -296,6 +298,7 @@
                     //     console.log(res.errors);
                     // });
                     console.log(res.errors);
+                    toastr.remove();
                     toastr.error(res.errors,'Error!', {
                       closeButton: true
                     });
@@ -313,7 +316,7 @@
         });
     </script>
     <script src="../js/navbar/main.js"></script>
-    <div class="footer">
+    <div class="footer d-flex align-items-center justify-content-center">
 		<p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
 	</div>
 </body>

@@ -53,7 +53,7 @@ function setInfoAlert(details){
 
     document.getElementById('alertProfile').style.display = "block";
     document.getElementById('infoProfile').innerHTML = 'Your fee is <strong>'+str1+'</strong>.' +
-                                ' Your profile is <strong>'+str2+'</strong>.';
+                                ' Your profile is <strong>'+str2+'</strong>.'+' Fill "NA" in fields which is not applicable.';
 }
 
 function setAllFields(details) {

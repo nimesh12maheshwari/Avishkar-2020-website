@@ -17,11 +17,16 @@ main{
   font-size: 18px;
   color:white;
   font-weight: 400;
-  line-height: 150px;
     text-align: center;
+ }
+
+ .header{
+  position:relative;
+  left:40%;
  }
  .container{
   min-height:400px;
+  text-align:center;
  }
  
  .slogo{
@@ -47,10 +52,12 @@ main{
     header.header h1{
         font-size: 3rem;
         color: #222222;
-        text-align: center;
         
         text-transform: uppercase;
         font-weight: 900;
+    }
+    .header{
+      left:2%
     }
     .glitch-window{
         display: none;
