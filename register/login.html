@@ -278,6 +278,8 @@
     $(document).ready(function () {
       $('#resetPassword').click(function(){
         let username = $('#inputUsername').val();
+        toastr.warning('Waiting for response!  .....  ');
+        $('#modalReset').modal('hide');
         console.log(username);
         let formdata = new FormData();
 
@@ -297,13 +299,13 @@
           var res = JSON.parse(result);
           console.log(res);
           if (res["errors"]) throw res["errors"][0];
+          toastr.remove();
           toastr.success(res['message'],'Success!', {
               closeButton: true
             });
-          $('#modalReset').modal('hide');
         })
         .catch((error) => {
-          $('#modalReset').modal('hide');
+          toastr.remove();
           toastr.error(error,'Error!', {
               closeButton: true
             });
@@ -329,6 +331,7 @@
     const myForm = document.getElementById('login-form');
     myForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      toastr.warning('Waiting for response!  .....  ');
       // var formdata = new FormData();
       let formdata = new FormData();
       let UserName = document.getElementById("login-form").elements[0].value;
@@ -354,6 +357,7 @@
           console.log(res.token);
           if (res.token) {
             localStorage.setItem("authtoken", res.token);
+            toastr.remove();
             window.location = "../events/";
             // bs4pop.notice('Login Successful', {type: 'success'})
             
@@ -363,6 +367,7 @@
             // bs4pop.alert("Either username or password is wrong.", function (e) {
             //   location.reload(true);
             // });
+            toastr.remove();
             toastr.error('Either username or password is wrong.','Error!', {
               closeButton: true
             });

@@ -51,7 +51,7 @@ function setInfoAlert(details){
        str1 = 'paid';
 
     document.getElementById('infoProfile').innerHTML = 'Your fee is <strong>'+str1+'</strong>.' +
-                                ' Your profile is <strong>'+str2+'</strong>.';
+                                ' Your profile is <strong>'+str2+'</strong>.'+' Fill "NA" in fields which is not applicable.';
 }
 
 function setAllFields(details) {
@@ -339,7 +339,7 @@ function updatePassword(tokenId){
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
-    xhr.open("POST", "https://avishkarapi.sahajbamba.me/auth/changepassword",false);
+    xhr.open("POST", "https://avishkarapi.sahajbamba.me/auth/changepassword/",false);
     xhr.setRequestHeader("authorization", tokenId);
 
     xhr.onload = function(){

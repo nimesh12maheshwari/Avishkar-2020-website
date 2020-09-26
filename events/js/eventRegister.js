@@ -212,6 +212,7 @@ function disableButton() { //add all button to disable
 
 function registerAfterSelectingTeam(event) {
     select = document.getElementById('teamDropdownMenu');
+    toastr.warning('Waiting for response!  .....  ');
     console.log(select.options[select.selectedIndex].value);
     let teamID = select.options[select.selectedIndex].value;
     $('#selectTeamModal').modal('hide');
@@ -219,12 +220,14 @@ function registerAfterSelectingTeam(event) {
         .then(result => {
             if (result['success']) {
                 console.log(result['success']);
+                toastr.remove();
                 toastr.success('Successfully Registered for the Event','Success!',{
                     closeButton: true
                 });
                 changeStateOfButtonToRegistered(eventID);
             } else {
                 console.log(result['errors'][0]);
+                toastr.remove();
                 toastr.error(result['errors'][0],'Error!', {
                     closeButton: true
                 });
