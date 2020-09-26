@@ -9,9 +9,8 @@ function init() {
         document.getElementById('prompt-login').style.display = "block";
     }
     else {
-        document.getElementById('profile').style.display = "block";
         tokenId = 'Token ' + token.toString();
-        details = getUserDetails(tokenId);
+        details = getUserDetails(tokenId);  
     }
 }
 
@@ -27,15 +26,17 @@ function getUserDetails(tokenId) {
     xhr.onload = function () {
         details = JSON.parse(this.response);
         if (details.success == true) {
-            return setAllFields(details);
+            setAllFields(details);
+            document.getElementById('profile').style.display = "block";
         }
         else {
-            swal({
-                title: "Error!",
-                text: "" + details.errors,
-                icon: "error",
-                button: "close",
-            });
+            document.getElementById('prompt-login').style.display = "block";
+            // swal({
+            //     title: "Error!",
+            //     text: "" + details.errors,
+            //     icon: "error",
+            //     button: "close",
+            // });
         }
     }
     xhr.send(data);
@@ -50,6 +51,7 @@ function setInfoAlert(details){
     if(details.feesPaid)
        str1 = 'paid';
 
+    document.getElementById('alertProfile').style.display = "block";
     document.getElementById('infoProfile').innerHTML = 'Your fee is <strong>'+str1+'</strong>.' +
                                 ' Your profile is <strong>'+str2+'</strong>.';
 }
