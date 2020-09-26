@@ -242,4 +242,9 @@
 
 /****** Transitions ******/
 
-
+/* Instruction Modal */
+#instructionModal{
+    color:black;
+    text-align:left;
+    font-family:'Allerta', sans-serif;
+}
