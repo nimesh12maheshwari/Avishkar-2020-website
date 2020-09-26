@@ -40,15 +40,18 @@ $(document).ready(function () {
         });
         $('#remove-member-confirm').on('click', (e) => {
             $('#modal-remove-member').modal('hide');
+            toastr.warning('Waiting for response!  .....  ');
             sendRemoveMemberRequest(removeMemberTeamId, removeMemberUsername)
                 .then((data) => {
                     // console.log(data);
                     if (data['success'] == true) {
+                        toastr.remove();
                         fillAccordion();
                     } else {
                         toastr.error(data['errors'][0]);
                     }
                 }).catch(() => {
+                    toastr.remove();
                     toastr.error('Unable to remove Member');
                 });
         });
@@ -332,12 +335,14 @@ function makeNewRow(rowIndex, username, status, teamId) {
 
 function createTeamBtnClicked() {
     let teamName = $('#team-name').val();
+    toastr.warning('Waiting for response!  .....  ');
     if (teamNameValidate()) {
         sendCreateTeamRequest(teamName).then((data) => {
             // console.log(data);
             if (data['success']) {
                 $('#modal-create-team').modal('hide');
                 hideNoTeamPrompt();
+                toastr.remove();
                 toastr.success('Team Created');
 
                 let team = {
@@ -357,6 +362,7 @@ function createTeamBtnClicked() {
             }
 
         }).catch(() => {
+            toastr.remove();
             $('#modal-create-team').modal('hide');
             toastr.error('Error in creating team');
         });
@@ -368,11 +374,13 @@ function createTeamBtnClicked() {
 
 function sendRequestBtnClicked() {
     let username = $('#username').val();
+    toastr.warning('Waiting for response!  .....  ');
     if (usernameValidate()) {
         sendAddMemberRequest(currentTeamSelected['teamID'], username).then((data) => {
             // console.log(data);
             if (data['success']) {
                 $('#modal-add-member').modal('hide');
+                toastr.remove();
                 toastr.success('Request Sent');
                 fillAccordion();
             } else {
@@ -381,6 +389,7 @@ function sendRequestBtnClicked() {
                 $('#modal-alert-add-member').show();
             }
         }).catch(() => {
+            toastr.remove();
             $('#modal-add-member').modal('hide');
             toastr.error('Unable to send request');
         });
