@@ -138,3 +138,19 @@ header.header h1 {
         height: 50px;
     }
 }
+
+/*Toaster color*/
+#toast-container > .toast-success {
+    background-color: green;
+    color:white;
+}
+#toast-container > .toast-error {
+    background-color: red;
+    color:white;
+}
+
+#toast-container > .toast-warning {
+    background-color:yellow;
+    color: white;
+}
+

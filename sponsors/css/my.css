@@ -21,8 +21,9 @@ main{
  }
 
  .header{
-  position:relative;
-  left:40%;
+  /* position:relative;
+  left:30%; */
+  margin:auto;
  }
  .container{
   min-height:400px;
@@ -71,3 +72,19 @@ main{
     width: 200px;
    }
 }
+
+/*Toaster color*/
+#toast-container > .toast-success {
+  background-color: green;
+  color:white;
+}
+#toast-container > .toast-error {
+  background-color: red;
+  color:white;
+}
+
+#toast-container > .toast-warning {
+  background-color:yellow;
+  color: white;
+}
+
