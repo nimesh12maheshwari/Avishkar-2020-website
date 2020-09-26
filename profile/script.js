@@ -64,6 +64,7 @@ function setAllFields(details) {
         document.getElementById('emailProfile').readOnly = true;
         document.getElementById('resumeProfile').readOnly = true;
         document.getElementById('msteamidProfile').readOnly = true;
+        document.getElementById('regnoProfile').readOnly = true;
         document.getElementById('collegeProfile').readOnly = true;
         document.getElementById('lockBtn').disabled = true;
         document.getElementById('lockBtn').value = 'Profile Locked';
@@ -79,6 +80,7 @@ function setAllFields(details) {
     document.getElementById('collegeProfile').value = details.college;
     document.getElementById('resumeProfile').value = details.resume;
     document.getElementById('emailProfile').value = details.email;
+    document.getElementById('regnoProfile').value = details.regno;
     document.getElementById('msteamidProfile').value = details.msteamsID;
     document.getElementById('phonenoProfile').value = details.phone;
     document.getElementById('whatsappnoProfile').value = details.whatsapp;
@@ -169,10 +171,20 @@ function updateOtherDetails(details, tokenId) {
     var phone = document.getElementById('phonenoProfile').value.trim();
     var whatsapp = document.getElementById('whatsappnoProfile').value.trim();
     var resume = document.getElementById('resumeProfile').value.trim();
-
+    var regno = document.getElementById('regnoProfile').value.trim();
     var flag = true;
 
-    if ((college != details.college) || (msteamid != details.msteamsID) || (phone != details.phone) || (whatsapp != details.whatsapp) || (resume != details.resume)) {
+    if(college == 'MNNIT' && ((regno == 'NA') || (regno == '') || (regno.length != 8))){
+        swal({
+            title: "Error!",
+            text: "Invalid Registration Number. MNNITs are required to fill their valid Registration Number.",
+            icon: "error",
+            button: "close",
+        });
+        return false;
+    }
+
+    if ((college != details.college) || (msteamid != details.msteamsID) || (phone != details.phone) || (whatsapp != details.whatsapp) || (resume != details.resume) || (regno != details.regno)) {
 
         if (college == 'MNNIT')
             college = '';
@@ -204,6 +216,7 @@ function updateOtherDetails(details, tokenId) {
             data.append('whatsapp', whatsapp.toString());
             data.append('msteams', msteamid);
             data.append('resume', resume);
+            data.append("regno",regno);
 
             var xhr = new XMLHttpRequest();
             xhr.withCredentials = true;
