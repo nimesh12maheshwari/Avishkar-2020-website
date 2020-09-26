@@ -339,7 +339,7 @@ function updatePassword(tokenId){
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
-    xhr.open("POST", "https://avishkarapi.sahajbamba.me/auth/changepassword",false);
+    xhr.open("POST", "https://avishkarapi.sahajbamba.me/auth/changepassword/",false);
     xhr.setRequestHeader("authorization", tokenId);
 
     xhr.onload = function(){
