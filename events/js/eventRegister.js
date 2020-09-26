@@ -58,7 +58,7 @@ $(document).ready(function () {
     }
 
     // to download csv
-    $('.download-list').on('click', function (e) {
+    $('button.download-list').on('click', function (e) {
         if (!isStaff || authtoken == null) return;
         let eventid = $(this).attr('data-event-id');
         console.log(authtoken + " " + eventid);
@@ -69,29 +69,67 @@ $(document).ready(function () {
                 return;
             }
             let teams = [];
+            // for (let team of obj['teams']) {
+            //     for (let student of team['team_members']) {
+            //         let temp = {};
+            //         temp['team_admin'] = team['team_admin'];
+            //         temp['team_id'] = team['team_id'];
+            //         //temp['team_size'] = team['team_size'];
+            //         temp['username'] = student['userName'];
+            //         temp['email'] = student['email'];
+            //         temp['firstName'] = student['firstName'];
+            //         temp['lastName'] = student['lastName'];
+            //         temp['confirmed'] = student['confirmed'];
+            //         temp['feesPaid'] = student['feesPaid'];
+            //         temp['whatsapp'] = student['whatsapp'];
+            //         temp['phone'] = student['phone'];
+            //         temp['college'] = student['college'];
+            //         temp['resume'] = student['resume'];
+            //         temp['msteamsID'] = student['msteamsID'];
+            //         teams.push(temp);
+            //     }
+            // }
+            let maxMembers = -1;
             for (let team of obj['teams']) {
+                let temp = {};
+                temp['team_name'] = team['team_name'];
+                temp['team_id'] = team['team_id'];
+                temp['team_admin'] = team['team_admin'];
+                let index = 1;
                 for (let student of team['team_members']) {
-                    let temp = {};
-                    temp['team_admin'] = team['team_admin'];
-                    temp['team_id'] = team['team_id'];
-                    //temp['team_size'] = team['team_size'];
-                    temp['username'] = student['userName'];
-                    temp['email'] = student['email'];
-                    temp['firstName'] = student['firstName'];
-                    temp['lastName'] = student['lastName'];
-                    temp['confirmed'] = student['confirmed'];
-                    temp['feesPaid'] = student['feesPaid'];
-                    temp['whatsapp'] = student['whatsapp'];
-                    temp['phone'] = student['phone'];
-                    temp['college'] = student['college'];
-                    temp['resume'] = student['resume'];
-                    temp['msteamsID'] = student['msteamsID'];
-                    teams.push(temp);
+                    temp['username' + index.toString()] = student['userName'];
+                    temp['email' + index.toString()] = student['email'];
+                    temp['firstName' + index.toString()] = student['firstName'];
+                    temp['lastName' + index.toString()] = student['lastName'];
+                    temp['confirmed' + index.toString()] = student['confirmed'];
+                    temp['feesPaid' + index.toString()] = student['feesPaid'];
+                    temp['whatsapp' + index.toString()] = student['whatsapp'];
+                    temp['phone' + index.toString()] = student['phone'];
+                    temp['college' + index.toString()] = student['college'];
+                    temp['resume' + index.toString()] = student['resume'];
+                    temp['msteamsID' + index.toString()] = student['msteamsID'];
+                    index++;
+                    maxMembers = Math.max(index,maxMembers);
                 }
+                teams.push(temp);
             }
             console.log(teams);
-            let headers = ['team_id','team_admin','username','email','firstName','lastName','confirmed','feesPaid','whatsapp','phone','college','resume','msteamsID'];
-            JSONToCSVConvertor(teams, "Registered_Students", true,headers);
+            let headers = ['team_name','team_id','team_admin'];
+            for(let i=1;i<maxMembers;i++) {
+                headers.push('username' + i.toString());
+                headers.push('email' + i.toString());
+                headers.push('firstName' + i.toString());
+                headers.push('lastName' + i.toString());
+                headers.push('confirmed' + i.toString());
+                headers.push('feesPaid' + i.toString());
+                headers.push('whatsapp' + i.toString());
+                headers.push('phone' + i.toString());
+                headers.push('college' + i.toString());
+                headers.push('resume' + i.toString());
+                headers.push('msteamsID' + i.toString());
+            }
+            //let headers = ['team_name','team_id','team_admin','username','email','firstName','lastName','confirmed','feesPaid','whatsapp','phone','college','resume','msteamsID'];
+            JSONToCSVConvertor(teams, "Registered_Students", true, headers);
         });
     });
 });
@@ -144,7 +182,7 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel,headers) {
     }   
     
     //Generate a file name
-    var fileName = "MyReport_";
+    var fileName = "";
     //this will remove the blank-spaces from the title and replace it with an underscore
     fileName += ReportTitle.replace(/ /g,"_");   
     
