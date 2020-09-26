@@ -1040,8 +1040,16 @@ header.header h1{
 }
 /*Toaster color*/
 #toast-container > .toast-success {
-    color: green;
+    background-color: green;
+    color:white;
 }
 #toast-container > .toast-error {
-    color: red;
+    background-color: red;
+    color:white;
 }
+
+#toast-container > .toast-warning {
+    background-color:yellow;
+    color: white;
+}
+
