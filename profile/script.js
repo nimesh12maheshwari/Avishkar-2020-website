@@ -59,13 +59,17 @@ function setInfoAlert(details) {
 function setAllFields(details) {
 
     if (details.confirmed) {
-        document.getElementById('fnameProfile').readOnly = true;
-        document.getElementById('lnameProfile').readOnly = true;
-        document.getElementById('emailProfile').readOnly = true;
-        document.getElementById('resumeProfile').readOnly = true;
-        document.getElementById('msteamidProfile').readOnly = true;
-        document.getElementById('regnoProfile').readOnly = true;
-        document.getElementById('collegeProfile').readOnly = true;
+
+        var fields = ['fnameProfile', 'lnameProfile', 'emailProfile', 'regnoProfile', 'collegeProfile', 'usernameProfile']
+
+        for(i=0; i<fields.length; i++){
+            document.getElementById(fields[i]).readOnly = true;
+            document.getElementById(fields[i]).style.background = "transparent";
+            document.getElementById(fields[i]).style.border = "none";
+            document.getElementById(fields[i]).style.color = "white";
+            document.getElementById(fields[i]).style.outline = "none";
+        }
+        
         document.getElementById('lockBtn').disabled = true;
         document.getElementById('lockBtn').value = 'Profile Locked';
         $('#lockBtn').removeClass('btn-primary').addClass('btn-secondary');
@@ -174,7 +178,7 @@ function updateOtherDetails(details, tokenId) {
     var regno = document.getElementById('regnoProfile').value.trim();
     var flag = true;
 
-    if (college == 'MNNIT' && ((regno == 'NA') || (regno == '') || (regno.length != 8))) {
+    if (college == 'MNNIT' && ((regno == 'NA') || (regno == '') )) {
         swal({
             title: "Error!",
             text: "Invalid Registration Number. MNNITians are required to fill their valid Registration Number.",
@@ -386,7 +390,7 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     var flag = true;
     let activeTab = $('.listTab .active').text();
     console.log($('.listTab .active').text());
-    toastr.warning('Waiting for response!  .....  ');
+    toastr.warning('Waiting for response!  .....  ', '', { timeOut: 0, extendedTimeOut: 0 });
     if (activeTab === 'About') {
         flag = updateNameEmail(details, tokenId);
     }
@@ -420,14 +424,14 @@ document.getElementById('lockBtn').addEventListener('click', function () {
 
     swal({
         title: "Are you sure?",
-        text: "Once locked, you will not be able to update your details except contact No.",
+        text: "Once locked, you will not be able to update your details except contact No, MSTeam Id and Resume.",
         icon: "warning",
         buttons: true,
         dangerMode: true,
     })
         .then((willDelete) => {
             if (willDelete) {
-                toastr.warning('Waiting for response!  .....  ');
+                toastr.warning('Waiting for response!  .....  ', '', { timeOut: 0, extendedTimeOut: 0 });
                 flag = lockProfile(tokenId);
                 if (flag) {
 
@@ -439,9 +443,7 @@ document.getElementById('lockBtn').addEventListener('click', function () {
                     }).then((value) => {
                         location.reload();
                     });
-
                 }
             }
         });
-
 });

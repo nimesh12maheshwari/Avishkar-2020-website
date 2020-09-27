@@ -84,10 +84,11 @@ function showPendingRequests() {
 	console.log(pendingRequest);
 	for (let i = 0; i < pendingRequest.length; i++) {
 		let req = pendingRequest[i];
-		var option = document.createElement("a");
+		var option = document.createElement("p");
 		option.setAttribute('href', "#");
 		option.className = "dropdown-item";
-		option.classList.add("text-primary");
+		//option.classList.add("text-primary");
+		option.style.color = "#00e3ef";
 		option.innerText = req.teamAdmin + " has sent request\nfor team " + req.teamName;
 		option.id = req.teamID;
 		option.addEventListener("click", showModal);
@@ -108,7 +109,7 @@ function showModal(event) {
 }
 
 function acceptRequest() {
-	toastr.warning('Waiting for response!  .....  ');
+	toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
 	var myHeaders = new Headers();
 	myHeaders.append("Authorization", "Token " + token);
 
@@ -140,7 +141,7 @@ function acceptRequest() {
 
 function rejectRequest() {
 	console.log(teamID);
-	toastr.warning('Waiting for response!  .....  ');
+	toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
 	var myHeaders = new Headers();
 	myHeaders.append("Authorization", "Token " + token);
 
@@ -179,7 +180,7 @@ function logout(){
 		console.log(result);
 		if(result['success']){
 			localStorage.removeItem("authtoken");
-			window.location = "../index.html";
+			window.location = location.origin;
 		}
 		else{
 			console.log(result);

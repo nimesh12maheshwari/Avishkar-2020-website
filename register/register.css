@@ -21,3 +21,14 @@ body{
     font-weight: 400;
     text-align: center;
 }
+
+#instructionModal{
+    color:black;
+    text-align:left;
+    font-family:'Allerta Stencil';
+}
+
+/* .modal-ku {
+    width: 750px;
+    margin: auto;
+  } */

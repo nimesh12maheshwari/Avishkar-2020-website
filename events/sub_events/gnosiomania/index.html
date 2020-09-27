@@ -6,7 +6,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Gnosiomania - Avishkar 2020</title>
       <link rel="shortcut icon" href="../favicon.ico">
-      
+
+      <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -19,7 +20,7 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
       </script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+      
       <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
       <link rel="stylesheet" type="text/css" href="../css/demo.css" />
       <link rel="stylesheet" type="text/css" href="../css/bookblock.css" />
@@ -74,7 +75,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
                         <img class="navbar-items-logo" src="../../../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
                      </a>
-                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none;">
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none; background-color: black;">
                      </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -601,6 +602,33 @@
       <div class="footer d-flex align-items-center justify-content-center">
          <p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
        </div>
+
+       <!--Instruction Modal -->
+    <div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="instructionModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" style=" width:100%;max-width:1000px;">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h4 class="modal-title" id="instructionModalLabel">Instructions to participate in Gnosiomania:</h4>
+          </div> -->
+          <div class="modal-body">
+            <img src="./past_speakers.bmp" alt="Past Speakers" width="60%" height="50%" style="margin:auto;display:block;margin-bottom:1rem;">
+            <p>
+               The Gnosiomania team is geared up with doubled enthusiasm to make this year a success: gnoTalks'20 and interesting brainstorming quizzes- all lined up!<br>
+
+We are back to put your knowledge to test, be it India, General, TALC (Travel Arts Literature Culture), Business, Pop-Culture or Sports. Brush up your facts and figures because the gnosiomania team is all set for another year of knowledge quest. Hosted by some of the most revered quizmasters of India such as Major Chandrakant Nair, Somnath Chanda, Aditya Nath Mubayi and many more, it is one of the largest inter college quizzing events in North India.
+<br>
+GnoTalks will take you on an astounding and stimulating journey where you'll be introduced to passionate minds who have brought revolutionary changes in their work fields through their determination and relentless efforts. We are going to carry forward the legacy that was established by our former speakers like Yogendra Singh Yadav, Prabhu Chawla, TVF, Amish Tripathi, Abhayanand, The Indian Jam Project, Chetan Bhagat, The Robin Hood Army and many others. 
+<br><br>
+More to come. Stay tuned!
+
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="proceedBtn">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
       <script src="../js/bookblock.min.js"></script>
       <script src="../js/classie.js"></script>
       <script src="../js/bookshelf.js"></script>
@@ -610,5 +638,16 @@
       </script>
       <script src="../../../js/navbar/main.js"></script> <!-- Resource jQuery -->
       <script src="../../js/eventRegister.js"></script>
+      <script>
+         $(document).ready(function () {
+            $('#instructionModal').modal({
+                      backdrop: 'static',
+                      keyboard: false
+                  })
+          $('#proceedBtn').click(function(){
+              $('#instructionModal').modal('hide');
+          })       
+        })
+      </script>
    </body>
 </html>

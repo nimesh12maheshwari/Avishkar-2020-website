@@ -40,7 +40,7 @@ $(document).ready(function () {
         });
         $('#remove-member-confirm').on('click', (e) => {
             $('#modal-remove-member').modal('hide');
-            toastr.warning('Waiting for response!  .....  ');
+            toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
             sendRemoveMemberRequest(removeMemberTeamId, removeMemberUsername)
                 .then((data) => {
                     // console.log(data);
@@ -48,6 +48,7 @@ $(document).ready(function () {
                         toastr.remove();
                         fillAccordion();
                     } else {
+                        toastr.remove();
                         toastr.error(data['errors'][0]);
                     }
                 }).catch(() => {
@@ -335,7 +336,7 @@ function makeNewRow(rowIndex, username, status, teamId) {
 
 function createTeamBtnClicked() {
     let teamName = $('#team-name').val();
-    toastr.warning('Waiting for response!  .....  ');
+    toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
     if (teamNameValidate()) {
         sendCreateTeamRequest(teamName).then((data) => {
             // console.log(data);
@@ -357,6 +358,7 @@ function createTeamBtnClicked() {
                 addAccordionCard(card, team);
             } else {
                 // toastr.warning(data['errors'][0]);
+                toastr.remove();
                 $('#modal-alert-create-team').text(data['errors'][0]);
                 $('#modal-alert-create-team').show();
             }
@@ -374,7 +376,7 @@ function createTeamBtnClicked() {
 
 function sendRequestBtnClicked() {
     let username = $('#username').val();
-    toastr.warning('Waiting for response!  .....  ');
+    toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
     if (usernameValidate()) {
         sendAddMemberRequest(currentTeamSelected['teamID'], username).then((data) => {
             // console.log(data);
@@ -385,6 +387,7 @@ function sendRequestBtnClicked() {
                 fillAccordion();
             } else {
                 // toastr.error(data['errors'][0]);
+                toastr.remove();
                 $('#modal-alert-add-member').text(data['errors'][0]);
                 $('#modal-alert-add-member').show();
             }

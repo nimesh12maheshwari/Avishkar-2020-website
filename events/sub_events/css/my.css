@@ -862,6 +862,7 @@ header.header h1{
         font-size: 10px;
     }
     .page-layout-2 li{
+        margin-left: -20%;
         font-size: 10px;
     }
     .page-layout-2 li li{
@@ -1049,7 +1050,7 @@ header.header h1{
 }
 
 #toast-container > .toast-warning {
-    background-color:yellow;
+    background-color:"#fbec5d";
     color: white;
 }
 
