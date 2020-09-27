@@ -28,6 +28,15 @@ body{
     font-family:'Allerta Stencil';
 }
 
+@media (max-width: 768px) {
+    #register-img {
+      display: none !important;
+    }
+    #container-register {
+        left: -20px;
+    }
+  }
+
 /* .modal-ku {
     width: 750px;
     margin: auto;
