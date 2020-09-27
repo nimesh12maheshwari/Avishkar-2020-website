@@ -10,7 +10,7 @@ function init() {
     }
     else {
         tokenId = 'Token ' + token.toString();
-        details = getUserDetails(tokenId);  
+        details = getUserDetails(tokenId);
     }
 }
 
@@ -42,23 +42,23 @@ function getUserDetails(tokenId) {
     xhr.send(data);
 }
 
-function setInfoAlert(details){
+function setInfoAlert(details) {
 
     var str1 = 'not paid.';
     var str2 = 'not locked';
-    if(details.confirmed)
-       str2 = 'locked';
-    if(details.feesPaid)
-       str1 = 'paid';
+    if (details.confirmed)
+        str2 = 'locked';
+    if (details.feesPaid)
+        str1 = 'paid';
 
     document.getElementById('alertProfile').style.display = "block";
-    document.getElementById('infoProfile').innerHTML = 'Your fee is <strong>'+str1+'</strong>.' +
-                                ' Your profile is <strong>'+str2+'</strong>.'+' Fill "NA" in fields which is not applicable.';
+    document.getElementById('infoProfile').innerHTML = 'Your fee is <strong>' + str1 + '</strong>.' +
+        ' Your profile is <strong>' + str2 + '</strong>.' + ' Fill "NA" in fields which is not applicable.';
 }
 
 function setAllFields(details) {
 
-    if(details.confirmed){
+    if (details.confirmed) {
         document.getElementById('fnameProfile').readOnly = true;
         document.getElementById('lnameProfile').readOnly = true;
         document.getElementById('emailProfile').readOnly = true;
@@ -174,7 +174,7 @@ function updateOtherDetails(details, tokenId) {
     var regno = document.getElementById('regnoProfile').value.trim();
     var flag = true;
 
-    if(college == 'MNNIT' && ((regno == 'NA') || (regno == '') || (regno.length != 8))){
+    if (college == 'MNNIT' && ((regno == 'NA') || (regno == '') || (regno.length != 8))) {
         swal({
             title: "Error!",
             text: "Invalid Registration Number. MNNITians are required to fill their valid Registration Number.",
@@ -216,7 +216,7 @@ function updateOtherDetails(details, tokenId) {
             data.append('whatsapp', whatsapp.toString());
             data.append('msteams', msteamid);
             data.append('resume', resume);
-            data.append("regno",regno);
+            data.append("regno", regno);
 
             var xhr = new XMLHttpRequest();
             xhr.withCredentials = true;
@@ -326,12 +326,12 @@ function lockProfile(tokenId) {
     return flag;
 }
 
-function updatePassword(tokenId){
+function updatePassword(tokenId) {
 
     var newPassword = document.getElementById('newPasswordProfile').value.trim();
     var confPassword = document.getElementById('confPasswordProfile').value.trim();
     var flag = false;
-    if(newPassword == '' || confPassword == ''){
+    if (newPassword == '' || confPassword == '') {
         swal({
             title: "Error!",
             text: "All fields are mandatory. Please fill all required fields.",
@@ -341,7 +341,7 @@ function updatePassword(tokenId){
         return flag;
     }
 
-    if(newPassword !== confPassword){
+    if (newPassword !== confPassword) {
         swal({
             title: "Error!",
             text: "New Password and Confirm Password are not same.",
@@ -352,15 +352,15 @@ function updatePassword(tokenId){
     }
 
     var data = new FormData();
-    data.append("password",newPassword);
+    data.append("password", newPassword);
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
-    xhr.open("POST", "https://avishkarapi.sahajbamba.me/auth/changepassword/",false);
+    xhr.open("POST", "https://avishkarapi.sahajbamba.me/auth/changepassword/", false);
     xhr.setRequestHeader("authorization", tokenId);
 
-    xhr.onload = function(){
+    xhr.onload = function () {
         var tmp = JSON.parse(this.response);
         toastr.remove();
         if (tmp.success == true) {
@@ -393,10 +393,10 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     else if (activeTab === 'Contact') {
         flag = updateOtherDetails(details, tokenId);
     }
-    else{
+    else {
         flag = updatePassword(tokenId);
     }
-    
+
     if (flag) {
         swal({
             title: "Success!",
@@ -424,24 +424,24 @@ document.getElementById('lockBtn').addEventListener('click', function () {
         icon: "warning",
         buttons: true,
         dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-            toastr.warning('Waiting for response!  .....  ');
-            flag = lockProfile(tokenId);
-            if(flag){
-      
-                swal({
-                    title: "Success!",
-                    text: "Your Profile has been successfully locked.",
-                    icon: "success",
-                    button: "close",
-                }).then((value) => {
-                    location.reload();
-                });
-            
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                toastr.warning('Waiting for response!  .....  ');
+                flag = lockProfile(tokenId);
+                if (flag) {
+
+                    swal({
+                        title: "Success!",
+                        text: "Your Profile has been successfully locked.",
+                        icon: "success",
+                        button: "close",
+                    }).then((value) => {
+                        location.reload();
+                    });
+
+                }
             }
-        }
-      });
+        });
 
 });
