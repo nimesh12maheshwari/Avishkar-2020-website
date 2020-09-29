@@ -368,7 +368,7 @@
             //   location.reload(true);
             // });
             toastr.remove();
-            toastr.error('Either username or password is wrong.','Error!', {
+            toastr.error(res.errors,'Error!', {
               closeButton: true
             });
           }
