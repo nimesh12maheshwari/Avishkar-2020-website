@@ -57,6 +57,28 @@ $(document).ready(function () {
                 });
         });
 
+        $('.accordion').on('click','.unregister-team',function(e) {
+            let eventId = $(this).attr('data-event-id');
+            let teamId = $(this).attr('data-team-id');
+            toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
+            sendUnregisterTeamRequest(eventId, teamId)
+                .then((data) => {
+                    console.log(data);
+                    if (data['success'] == true) {
+                        toastr.remove();
+                        toastr.success('Successfully Unregistered')
+                        fillAccordion();
+                    } else {
+                        toastr.remove();
+                        toastr.error(data['errors'][0]);
+                    }
+                })
+                .catch(() => {
+                    toastr.remove();
+                    toastr.error('Unable to Unregister Team');
+                })
+        });
+
     }
 });
 function showNoTeamPrompt() {
@@ -187,13 +209,26 @@ function makeRegisteredEventsBody(team, index) {
 }
 
 function makeRegisteredEventsTableBody(team) {
+    let threeDots = $(`<div class="dropdown"><button class="options-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+    </svg></button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item unregister-team" href="#">Unregister</a>
+    </div>
+  </div>`);
     let tbody = $('<tbody>');
     let rowIndex = 1;
+    let teamId = team['teamID'];
     $.each(team['registeredEvents'], (key, val) => {
         let tr = $('<tr>').append($('<th>', {
             'scope': 'row'
         }).text(rowIndex));
         tr.append($('<td>').text(val['eventName']));
+        let dots = threeDots.clone();
+        let eventId = val['eventID'];
+        dots.find('.unregister-team').attr('data-event-id',eventId).attr('data-team-id',teamId);
+        tr.append($('<td>').append(dots));
         tbody.append(tr);
         rowIndex++;
     });
@@ -223,7 +258,8 @@ function makeRegisteredEventsTableHeader() {
         }).text('#'))
         .append($('<th>', {
             'scope': 'col'
-        }).text('Event Name'));
+        }).text('Event Name'))
+        .append($('<th>', {'scope':'col'}).text('Options'));
     tableHeader.append(tr);
     return tableHeader;
 }
@@ -496,5 +532,22 @@ async function sendRemoveMemberRequest(teamid, username) {
     };
 
     let response = await fetch("https://avishkarapi.sahajbamba.me/event/removeteammember/", requestOptions);
+    return response.json();
+}
+
+async function sendUnregisterTeamRequest(eventid, teamid) {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Token " + authtoken);
+
+    var formdata = new FormData();
+    formdata.append('teamid', teamid);
+    formdata.append('eventid', eventid);
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formdata,
+    };
+
+    let response = await fetch("https://avishkarapi.sahajbamba.me/event/unregistertoevent/", requestOptions);
     return response.json();
 }
