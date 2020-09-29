@@ -28,6 +28,13 @@ body{
     font-family:'Allerta Stencil';
 }
 
+#nonMnnitModal{
+    color:black;
+    text-align:left;
+    font-family:'Allerta Stencil';
+}
+
+
 @media (max-width: 768px) {
     #register-img {
       display: none !important;

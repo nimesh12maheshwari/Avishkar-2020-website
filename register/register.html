@@ -256,6 +256,39 @@
         </div>
       </div>
     </div>
+    <!--Non-mnnit modal-->
+    <div class="modal fade" id="nonMnnitModal" tabindex="-1" role="dialog" aria-labelledby="nonMnnitModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" style=" width:100%;max-width:1000px;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="nonMnnitModalLabel">Instructions to participate in Techfest Avishkar:</h4>
+          </div>
+          <div class="modal-body">
+           <p>Congratulations for registering for Avishkar 2020.<br>
+
+To continue your registration for the events, you are requested to drop a mail to avishkar@mnnit.ac.in requesting the payment link for participation. As mentioned in the FAQs, the registration fee for the events are as follows:-
+</p>
+<ol>
+<li>For all events of Avishkar - Rs. 400</li>
+<li>For Gnosiomania quizzes - Rs. 200</li>
+<li>For Gnotalks and Gnosiomania - Rs. 250</li>
+</ol>
+<p>
+The above three categories are independent of each other and in order to register for multiple categories, you are requested to add up the amount and pay the respective added fee.
+<br>
+As stated earlier, dropping the mail is necessary failing which you won't be able to register for the events and will be debarred in further rounds. 
+<br>
+After receiving the mail, pay the fee within 72 hours and send the payment receipt in response to the payment link mail. 
+<br>
+Thank you for your cooperation. Keep Innovating.
+</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="nonMnnitproceedBtn">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous">
@@ -270,6 +303,13 @@
         $(document).ready(function () {
           $('#proceedBtn').click(function(){
               window.location = "../profile/";
+          })
+          $('#nonMnnitModal').click(function(){
+            $('#nonMnnitModal').modal('hide');
+            $('#instructionModal').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    })
           })       
         })
 
@@ -326,10 +366,18 @@
                   console.log(res.token);
                   localStorage.setItem("authtoken", res.token);
                   toastr.remove();
-                  $('#instructionModal').modal({
-                      backdrop: 'static',
-                      keyboard: false
-                  })
+                  if(is_mnnit === 'false'){
+                    $('#nonMnnitModal').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    })
+                  }
+                  else{
+                    $('#instructionModal').modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    })
+                  }
                     //window.location = "./login.html";
                     // bs4pop.alert("Registered successful", function (e) {
                     //     window.location = "../events/";
