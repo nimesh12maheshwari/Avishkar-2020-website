@@ -1,155 +1,164 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Cyberquest - Avishkar 2020</title>
-      <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-      <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
-      <link rel="stylesheet" type="text/css" href="../css/demo.css" />
-      <link rel="stylesheet" type="text/css" href="../css/bookblock.css" />
-      <link rel="stylesheet" type="text/css" href="css/component.css" />
 
-      <link rel="stylesheet" href="../../css/my.css"> <!-- Resource style -->
-      <link rel="stylesheet" href="../css/my.css"> <!-- Resource style -->
-      <link rel="stylesheet" href="../../../css/navbar/navbar.css">
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cyberquest - Avishkar 2020</title>
+   <link rel="shortcut icon" href="../favicon.ico">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous">
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+   <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+   <link rel="stylesheet" type="text/css" href="../css/bookblock.css" />
+   <link rel="stylesheet" type="text/css" href="css/component.css" />
 
-      <script src="../js/modernizr.custom.js"></script>
-   </head>
-   <body>
+   <link rel="stylesheet" href="../../css/my.css"> <!-- Resource style -->
+   <link rel="stylesheet" href="../css/my.css"> <!-- Resource style -->
+   <link rel="stylesheet" href="../../../css/navbar/navbar.css">
 
-      
-	<nav class="navbar navbar-expand-md navbar-dark">
-		<!--class navbar-expand-md-->
-		<div class="container-fluid">
-		  <a class="navbar-brand pt-0 pb-0" href="../../../index.html">
-			<img class="navbar-items-logo" src="../../../img/Neon_triangle.png" height="80" alt="">
-		  </a>
-	
-		  <button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-	
-		  <div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
-			  <ul class="navbar-nav ml-auto style">
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../../../events/">EVENTS</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../../../schedule/">SCHEDULE</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../../../sponsors/">SPONSORS</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../../../team/">TEAM</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" id="faq-link" href="../../../faq/">FAQ</a>
-				</li>
-			  </ul>
-			
-			<!--login div container-->
-			<div id="login">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
-							<img class="navbar-items-logo" src="../../../img/notification.svg"><span class="badge badge-warning" id="notificationCount"></span></a>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="pendingRequests" style="display: none; background-color: black;">
-						</div>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="navbar-items-logo" src="../../../img/person.svg">
-						</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="background-color: black;">
-							<a class="dropdown-item" href="../../../profile/index.html" style = "color:#00E3EF;">Profile</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="../../../create team/createteam.html" style = "color:#00E3EF;">Manage Teams</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#" onclick="logout()" style = "color:#00E3EF;">Logout</a>
-						</div>
-					</li>
-				</ul>
-			</div>
-	
-			<div id="notlogin" style="display: none;">
-			  <ul class="navbar-nav ml-auto style">
-				<li class="nav-item">
-				  <a class="nav-link font-weight-bold" href="../../../register/login.html">Login</a>
-				</li>
-			  </ul>
-			</div>
-		  </div>
-		</div>
-	  </nav>
-	
-	
+   <script src="../js/modernizr.custom.js"></script>
+</head>
 
-	
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLabel" style="color:black">Confirmation</h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			  </button>
-			</div>
-			<div class="modal-body">
-				<div>
-			  		<h5 style="color:black"><small>Do you want to accept or reject the request?</small></h5>
-				</div>
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-success" onclick="acceptRequest()">Accept</button>
-			  <button type="button" class="btn btn-primary" onclick="rejectRequest()">Reject</button>
-			</div>
-		  </div>
-		</div>
-	</div>
-<!--Modal ends here-->
-<!--select team modal start here-->
-<div class="modal" id="selectTeamModal" tabindex="-1" role="dialog" aria-labelledby="selectTeamModalLabel" aria-hidden="true" style="z-index: 5000;">
-   <div class="modal-dialog" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title" id="selectTeamModalLabel" style="color:black">Select Team to Register</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
+<body>
+
+
+   <nav class="navbar navbar-expand-md navbar-dark">
+      <!--class navbar-expand-md-->
+      <div class="container-fluid">
+         <a class="navbar-brand pt-0 pb-0" href="../../../index.html">
+            <img class="navbar-items-logo" src="../../../img/Neon_triangle.png" height="80" alt="">
+         </a>
+
+         <button class="navbar-toggler ml-auto pt-0 pb-0" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
          </button>
-       </div>
-       <div class="modal-body">
-         <select id="teamDropdownMenu">
-          </select>
-       </div>
-       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary" onclick="registerAfterSelectingTeam(event)">Register</button>
-       </div>
-     </div>
+
+         <div class="collapse navbar-collapse pt-0 pb-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto style">
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="../../../events/">EVENTS</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="../../../schedule/">SCHEDULE</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="../../../sponsors/">SPONSORS</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="../../../team/">TEAM</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link font-weight-bold" id="faq-link" href="../../../faq/">FAQ</a>
+               </li>
+            </ul>
+
+            <!--login div container-->
+            <div id="login">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                     <a class="nav-link" href="#" id="navbarDropdown" role="button" onclick="showPendingRequests()"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:12px">
+                        <img class="navbar-items-logo" src="../../../img/notification.svg"><span
+                           class="badge badge-warning" id="notificationCount"></span></a>
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
+                        id="pendingRequests" style="display: none; background-color: black;">
+                     </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img class="navbar-items-logo" src="../../../img/person.svg">
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
+                        style="background-color: black;">
+                        <a class="dropdown-item" href="../../../profile/index.html" style="color:#00E3EF;">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../../../create team/createteam.html"
+                           style="color:#00E3EF;">Manage Teams</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" onclick="logout()" style="color:#00E3EF;">Logout</a>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+
+            <div id="notlogin" style="display: none;">
+               <ul class="navbar-nav ml-auto style">
+                  <li class="nav-item">
+                     <a class="nav-link font-weight-bold" href="../../../register/login.html">Login</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </nav>
+
+
+
+
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel" style="color:black">Confirmation</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <div>
+                  <h5 style="color:black"><small>Do you want to accept or reject the request?</small></h5>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-success" onclick="acceptRequest()">Accept</button>
+               <button type="button" class="btn btn-primary" onclick="rejectRequest()">Reject</button>
+            </div>
+         </div>
+      </div>
    </div>
- </div>
- <!--select team modal ends here-->
+   <!--Modal ends here-->
+   <!--select team modal start here-->
+   <div class="modal" id="selectTeamModal" tabindex="-1" role="dialog" aria-labelledby="selectTeamModalLabel"
+      aria-hidden="true" style="z-index: 5000;">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="selectTeamModalLabel" style="color:black">Select Team to Register</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <select id="teamDropdownMenu">
+               </select>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary"
+                  onclick="registerAfterSelectingTeam(event)">Register</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--select team modal ends here-->
 
-<main class="cd-main-content">
+   <main class="cd-main-content">
 
-   <header class="header" style="position: relative;">
-      <!-- <h1 class="glitched">CyberQuest</h1> -->               
-      <h1>CYBERQUEST</h1>
+      <header class="header" style="position: relative;">
+         <!-- <h1 class="glitched">CyberQuest</h1> -->
+         <h1>CYBERQUEST</h1>
       </header>
       <div id="scroll-wrap" class="container mybookcont">
          <div class="main">
@@ -190,7 +199,7 @@
                   <div class="details">
                   </div>
                </figure>
-               
+
                <figure>
                   <div class="book" data-book="book-3"></div>
                   <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
@@ -200,7 +209,7 @@
                   <div class="details">
                   </div>
                </figure>
-               
+
                <figure>
                   <div class="book" data-book="book-5"></div>
                   <div class="buttons"><a href="#">View More</a><a href="#"></a></div>
@@ -276,81 +285,81 @@
             </div>
          </div>
          <!-- /main -->
-         
+
       </div>
 
       <div>
-            <h3 style="text-align:center;font-family: 'Orbitron',sans-serif;font-size: 2.3em;margin-top: 2%;color:white;">
-               Branch Coordinator's
-            </h3>
-            <!-- Button Container -->
+         <h3 style="text-align:center;font-family: 'Orbitron',sans-serif;font-size: 2.3em;margin-top: 2%;color:white;">
+            Branch Coordinator's
+         </h3>
+         <!-- Button Container -->
          <div id="btns">
-           <!-- Start Button 1 -->
-           <div class="btn">
-             <div class="btn-inner">
-               <div class="btn-top">
-                 <!-- Icon -->
-                 <!-- Title -->
-                 <h4>Anuj Modi</h4>
+            <!-- Start Button 1 -->
+            <div class="btn">
+               <div class="btn-inner">
+                  <div class="btn-top">
+                     <!-- Icon -->
+                     <!-- Title -->
+                     <h4>Anuj Modi</h4>
+                  </div>
+                  <!-- End ButtonTop -->
+                  <div class="btn-bottom">
+                     <!-- Icon -->
+                     <!-- Title -->
+                     <h4>Anuj Modi</h4>
+                     <!-- Text -->
+                     <p>9711523327<br>anujmodi2011@gmail.com</p>
+                     <!-- End Button Bottom -->
+                  </div>
+                  <!-- End Button Inner -->
                </div>
-               <!-- End ButtonTop -->
-               <div class="btn-bottom">
-                 <!-- Icon -->
-                 <!-- Title -->
-                 <h4>Anuj Modi</h4>
-                 <!-- Text -->
-                 <p>9711523327<br>anujmodi2011@gmail.com</p>
-                 <!-- End Button Bottom -->
+               <!-- End Button 1 -->
+            </div>
+            <!-- Start Button 2 -->
+            <div class="btn">
+               <div class="btn-inner">
+                  <div class="btn-top">
+                     <!-- Icon -->
+                     <!-- Title -->
+                     <h4>Arsh Singh</h4>
+                  </div>
+                  <!-- End ButtonTop -->
+                  <div class="btn-bottom">
+                     <!-- Icon -->
+                     <!-- Title -->
+                     <h4>Arsh Singh</h4>
+                     <!-- Text -->
+                     <p>9599325474<br>arsh2300singh@gmail.com</p>
+                     <!-- End Button Bottom -->
+                  </div>
+                  <!-- End Button Inner -->
                </div>
-               <!-- End Button Inner -->
-             </div>
-             <!-- End Button 1 -->
-           </div>
-           <!-- Start Button 2 -->
-           <div class="btn">
-             <div class="btn-inner">
-               <div class="btn-top">
-                 <!-- Icon -->
-                 <!-- Title -->
-                 <h4>Arsh Singh</h4>
+               <!-- End Button 2 -->
+            </div>
+            <!-- Start Button 3 -->
+            <div class="btn">
+               <div class="btn-inner">
+                  <div class="btn-top">
+                     <!-- Icon -->
+                     <i class="fa fa-ship"></i>
+                     <!-- Title -->
+                     <h4>Gaurav Katare</h4>
+                  </div>
+                  <!-- End ButtonTop -->
+                  <div class="btn-bottom">
+                     <!-- Icon -->
+                     <i class="fa fa-shipe"></i>
+                     <!-- Title -->
+                     <h4>Gaurav Katare</h4>
+                     <!-- Text -->
+                     <p>7905436190<br>kataregaurav1501@gmail.com</p>
+                     <!-- End Button Bottom -->
+                  </div>
+                  <!-- End Button Inner -->
                </div>
-               <!-- End ButtonTop -->
-               <div class="btn-bottom">
-                 <!-- Icon -->
-                 <!-- Title -->
-                 <h4>Arsh Singh</h4>
-                 <!-- Text -->
-                  <p>9599325474<br>arsh2300singh@gmail.com</p>
-                 <!-- End Button Bottom -->
-               </div>
-               <!-- End Button Inner -->
-             </div>
-             <!-- End Button 2 -->
-           </div>
-           <!-- Start Button 3 -->
-           <div class="btn">
-             <div class="btn-inner">
-               <div class="btn-top">
-                 <!-- Icon -->
-                 <i class="fa fa-ship"></i>
-                 <!-- Title -->
-                 <h4>Gaurav Katare</h4>
-               </div>
-               <!-- End ButtonTop -->
-               <div class="btn-bottom">
-                 <!-- Icon -->
-                 <i class="fa fa-shipe"></i>
-                 <!-- Title -->
-                 <h4>Gaurav Katare</h4>
-                 <!-- Text -->
-                 <p>7905436190<br>kataregaurav1501@gmail.com</p>
-                 <!-- End Button Bottom -->
-               </div>
-               <!-- End Button Inner -->
-             </div>
-             <!-- End Button 3 -->
-           </div>
-           <!-- End Button Container -->
+               <!-- End Button 3 -->
+            </div>
+            <!-- End Button Container -->
          </div>
       </div>
 
@@ -369,15 +378,17 @@
                <div class="bb-custom-side page-layout-1">
                   <p>Step into the world of software development, by building your own software!</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="softablitz" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="softablitz"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="softablitzButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="softablitzButtonId" style="background-color: darkslategrey; color:white;"
+                        onclick="registerForEvent(event)" class="btn">Register</button>
                   </div>
                   <div class="d-flex justify-content-center download-problem-statement">
                      <button type="button" style="background-color: darkslategrey; color:white;" class="btn">
                         <a href="#" target="_blank" style="text-transform: capitalize;">Problem Statements</a>
-                     </button>  
+                     </button>
                   </div>
                </div>
             </div>
@@ -385,16 +396,22 @@
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>A software development event which targets building solutions for problem statements using Java. 
-                      This event not only evaluates the participants on the implementation of features of the application but also
-                      innovation, code modularity and overall efficiency of the application.
+                     <p>A software development event which targets building solutions for problem statements using Java.
+                        This event not only evaluates the participants on the implementation of features of the
+                        application but also
+                        innovation, code modularity and overall efficiency of the application.
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : 3</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-II year</li></ul></p>
+                     <ul>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p>Outside participation is allowed</p>
                      <p>Open to all branches</p>
                   </div>
@@ -402,21 +419,36 @@
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Shrey Pandey<ul><li>shreypandey1509@gmail.com</li><li>7408921252</li></ul></li>
-                     <li>Suraj Goel<ul><li>surajgoel.1225@gmail.com</li><li>8901435825</li></ul></li>
-                     <li>Shashwat Pandey<ul><li>shashwat.pandey.1901@gmail.com</li><li>9455851989</li></ul></li>
-                     </ul></p>
+                     <p>
+                     <ul>
+                        <li>Shrey Pandey<ul>
+                              <li>shreypandey1509@gmail.com</li>
+                              <li>7408921252</li>
+                           </ul>
+                        </li>
+                        <li>Suraj Goel<ul>
+                              <li>surajgoel.1225@gmail.com</li>
+                              <li>8901435825</li>
+                           </ul>
+                        </li>
+                        <li>Shashwat Pandey<ul>
+                              <li>shashwat.pandey.1901@gmail.com</li>
+                              <li>9455851989</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                        <ul>
-                           <li>Directions for making software will be listed in the problem statements itself.</li>
-                           <li>Max. one problem statement can be attempted.</li>
-                           <li>Team Size will be of a maximum of 3 members and at least one member should be from CS/IT branch.</li>
-                           <li>It is mandatory to attempt every round.</li>
-                        </ul>
+                     <ul>
+                        <li>Directions for making software will be listed in the problem statements itself.</li>
+                        <li>Max. one problem statement can be attempted.</li>
+                        <li>Team Size will be of a maximum of 3 members and at least one member should be from CS/IT
+                           branch.</li>
+                        <li>It is mandatory to attempt every round.</li>
+                     </ul>
                      </p>
                   </div>
                </div>
@@ -439,13 +471,16 @@
                   </h3>
                </div>
                <div class="bb-custom-side page-layout-1">
-      
-                  <p style="margin-top:2px;">The Algorithmic Extravaganza where you get to quench your thirst for solving real life problems</p>
+
+                  <p style="margin-top:2px;">The Algorithmic Extravaganza where you get to quench your thirst for
+                     solving real life problems</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="insomnia" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="insomnia"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="insomniaButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="insomniaButtonId" style="background-color: darkslategrey; color:white;"
+                        onclick="registerForEvent(event)" class="btn">Register</button>
                   </div>
                </div>
             </div>
@@ -453,36 +488,60 @@
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>The flagship event of Cyberquest which records participation from the brightest brains across the country. 
-                      It is a competitive coding event with problems of varying difficulty levels. 
-                      Young coding enthusiasts participate with vigour each year to satiate their programming appetite.
+                     <p>The flagship event of Cyberquest which records participation from the brightest brains across
+                        the country.
+                        It is a competitive coding event with problems of varying difficulty levels.
+                        Young coding enthusiasts participate with vigour each year to satiate their programming
+                        appetite.
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : 3</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-II year</li></ul></p>
+                     <ul>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p><u>Outside Participation</u>: Allowed</p>
                   </div>
                </div>
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Abhishek Kumar<ul><li>imabhishekad7@gmail.com</li><li>8218806878</li></ul></li>
-                     <li>Keshav<ul><li>keshavsharma1857@gmail.com</li><li>7889468247</li></ul></li>
-                     <li>Vivek Rathi<ul><li>vivekrathi53@gmail.com</li><li>7748843519</li></ul></li>
-                     </ul></p>
+                     <p>
+                     <ul>
+                        <li>Abhishek Kumar<ul>
+                              <li>imabhishekad7@gmail.com</li>
+                              <li>8218806878</li>
+                           </ul>
+                        </li>
+                        <li>Keshav<ul>
+                              <li>keshavsharma1857@gmail.com</li>
+                              <li>7889468247</li>
+                           </ul>
+                        </li>
+                        <li>Vivek Rathi<ul>
+                              <li>vivekrathi53@gmail.com</li>
+                              <li>7748843519</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p style="font-size: 12px">
-                        <u>Round 1:</u><br><br>This will be an online round to be held on codechef from which top teams will be selected for next round.
-<br><br>
-                        <u>Round 2:</u><br><br>This will be the final round with long duration of 5 hours with challenging problem set and exciting prizes.<br><br>
+                        <u>Round 1:</u><br><br>This will be an online round to be held on codechef from which top teams
+                        will be selected for next round.
+                        <br><br>
+                        <u>Round 2:</u><br><br>This will be the final round with long duration of 5 hours with
+                        challenging problem set and exciting prizes.<br><br>
 
-                        Team can comprise of students belonging to same college otherwise they won't be applicable for final round.
+                        Team can comprise of students belonging to same college otherwise they won't be applicable for
+                        final round.
                      </p>
                   </div>
                </div>
@@ -506,13 +565,16 @@
                <div class="bb-custom-side page-layout-1">
                   <p>What is that an app can’t do?</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="droidrush" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="droidrush"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="droidrushButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="droidrushButtonId" style="background-color: darkslategrey; color:white;"
+                        onclick="registerForEvent(event)" class="btn">Register</button>
                   </div>
                   <div class="d-flex justify-content-center download-problem-statement">
-                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#" target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>  
+                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#"
+                           target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>
                   </div>
                </div>
             </div>
@@ -521,8 +583,12 @@
                   <div>
                      <h3>About</h3>
                      <p style="font-size: 1em;">
-                     	Android is one of the mostly used OS worldwide. Starting fron smartphones, tablets to TVs and wearables. Even many leading organisations have separate teams for android development. Being in touch with this in demand technology definitely stands out. 
-Droidrush provides an excellent opportunity to learn basics of app development and build up some great projects that will help you to poliah your resume. And of course - you can even get your app published on Google Playstore for free, if judged done of the best.
+                        Android is one of the mostly used OS worldwide. Starting fron smartphones, tablets to TVs and
+                        wearables. Even many leading organisations have separate teams for android development. Being in
+                        touch with this in demand technology definitely stands out.
+                        Droidrush provides an excellent opportunity to learn basics of app development and build up some
+                        great projects that will help you to poliah your resume. And of course - you can even get your
+                        app published on Google Playstore for free, if judged done of the best.
 
                      </p>
                   </div>
@@ -530,7 +596,13 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : 3</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <ul>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-I year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p><u>Outside Participation</u>: Allowed</p>
                      <p>All branches allowed</p>
                   </div>
@@ -538,20 +610,39 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Kunal Sevkani<ul><li>ksevkani495@gmail.com</li><li>7976127003</li></ul></li>
-                     <li>Harshit Agarwall<ul><li>harshitagr98@gmail.com</li><li>9957058681</li></ul></li>
-                     <li>Shubham Damani<ul><li>damani.shubham4@gmail.com</li><li>8947913485</li></ul></li>
-                     </ul></p>
+                     <p>
+                     <ul>
+                        <li>Kunal Sevkani<ul>
+                              <li>ksevkani495@gmail.com</li>
+                              <li>7976127003</li>
+                           </ul>
+                        </li>
+                        <li>Harshit Agarwall<ul>
+                              <li>harshitagr98@gmail.com</li>
+                              <li>9957058681</li>
+                           </ul>
+                        </li>
+                        <li>Shubham Damani<ul>
+                              <li>damani.shubham4@gmail.com</li>
+                              <li>8947913485</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p style="font-size: 0.8em;">
-                        <u>Abstract submission round:</u><br>All the registered teams need to submit abstracts for their projects  failing which will result in disqualification.
-<br><br>
-                        <u>Mid Term Code Review :</u><br>Teams need to show their code and explain the working. They also need to share the source code of their projects for evaluations.<br><br>
-                        <u>Pitch Round :</u><br>Teams need to pitch their build as a product. It would be 5 min max. They can mention extra features they want to add for the final build.<br><br>
-                        <u>Final Round :</u><br>Application would be tested on available devices and code quality would be checked followed by interviews.<br><br>Few Selected teams will present their final build of the application followed by Q&A round.
+                        <u>Abstract submission round:</u><br>All the registered teams need to submit abstracts for their
+                        projects failing which will result in disqualification.
+                        <br><br>
+                        <u>Mid Term Code Review :</u><br>Teams need to show their code and explain the working. They
+                        also need to share the source code of their projects for evaluations.<br><br>
+                        <u>Pitch Round :</u><br>Teams need to pitch their build as a product. It would be 5 min max.
+                        They can mention extra features they want to add for the final build.<br><br>
+                        <u>Final Round :</u><br>Application would be tested on available devices and code quality would
+                        be checked followed by interviews.<br><br>Few Selected teams will present their final build of
+                        the application followed by Q&A round.
                      </p>
                   </div>
                </div>
@@ -581,14 +672,26 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                </div>
                <div class="bb-custom-side page-layout-1">
                   <p>Change the web, Change the world!!</p>
+                  <div class="d-flex justify-content-center" style="position:absolute; top:70%; left:35%">
+                     <button id="devfolio-apply-now"><svg class="logo" xmlns="http://www.w3.org/2000/svg" fill="#fff"
+                           viewBox="0 0 115.46 123.46" style="height:24px;width:24px;margin-right:8px">
+                           <path
+                              d="M115.46 68a55.43 55.43 0 0 1-50.85 55.11S28.12 124 16 123a12.6 12.6 0 0 1-10.09-7.5 15.85 15.85 0 0 0 5.36 1.5c4 .34 10.72.51 20.13.51 13.82 0 28.84-.38 29-.38h.26a60.14 60.14 0 0 0 54.72-52.47c.05 1.05.08 2.18.08 3.34z" />
+                           <path
+                              d="M110.93 55.87A55.43 55.43 0 0 1 60.08 111s-36.48.92-48.58-.12C5 110.29.15 104.22 0 97.52l.2-83.84C.38 7 5.26.94 11.76.41c12.11-1 48.59.12 48.59.12a55.41 55.41 0 0 1 50.58 55.34z" />
+                           </svg>Apply with Devfolio</button>
+                  </div>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="webster" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="webster"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="websterButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="websterButtonId" style="background-color: darkslategrey; color:white;"
+                        onclick="registerForEvent(event)" class="btn">Register</button>
                   </div>
                   <div class="d-flex justify-content-center download-problem-statement">
-                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#" target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>  
+                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#"
+                           target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>
                   </div>
                </div>
             </div>
@@ -597,15 +700,31 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p style="font-size: 0.8em">The Web isn’t just about the Web anymore. Artificial Intelligence and Machine Learning are popular technologies that allow web applications to learn and observe from a user's preferences and habits. The success of blockchain in keeping data safe and in the processing of faster transactions makes the technology quite useful for web developers to deploy in web development.  When companies think about their websites today, they think about mobile technology and social media at the same time. Web development, in reality, has a lot of facets — the front end, the back end, the mobile Web, content management systems, and e-commerce, to just name a few.<br>
-                        This event is a virtual hackathon that allows you to solve technical problems and create new solutions by showcasing your skills in the field of web development so that your app feels good and works well at the same time. This event will check how good you are when it comes to talking with databases and also how well you can integrate the latest technologies like AI, blockchain, etc. to your website.
+                     <p style="font-size: 0.8em">The Web isn’t just about the Web anymore. Artificial Intelligence and
+                        Machine Learning are popular technologies that allow web applications to learn and observe from
+                        a user's preferences and habits. The success of blockchain in keeping data safe and in the
+                        processing of faster transactions makes the technology quite useful for web developers to deploy
+                        in web development. When companies think about their websites today, they think about mobile
+                        technology and social media at the same time. Web development, in reality, has a lot of facets —
+                        the front end, the back end, the mobile Web, content management systems, and e-commerce, to just
+                        name a few.<br>
+                        This event is a virtual hackathon that allows you to solve technical problems and create new
+                        solutions by showcasing your skills in the field of web development so that your app feels good
+                        and works well at the same time. This event will check how good you are when it comes to talking
+                        with databases and also how well you can integrate the latest technologies like AI, blockchain,
+                        etc. to your website.
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : 3</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-II year</li></ul></p>
+                     <ul>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p><u>Outside Participation</u>:Allowed</p>
                      <p>Interyear participation allowed</p>
                      <p>All branches allowed</p>
@@ -614,24 +733,121 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Nitin Doodhiya<ul><li>nitindoodhiya@gmail.com</li><li>8224828079</li></ul></li>
-                     <li>Tanisha Kumbhakar<ul><li>tanishakumb@gmail.com</li><li>7699101959</li></ul></li>
-                     <li>Mohit Dogra<ul><li>mohit2598@gmail.com</li><li>9882413530</li></ul></li>
-                     <li>Anuj Modi<ul><li>anujmodi2011@gmail.com</li><li>9711523327</li></ul></li>
-                     </ul></p>
+                     <p>
+                     <ul>
+                        <li>Nitin Doodhiya<ul>
+                              <li>nitindoodhiya@gmail.com</li>
+                              <li>8224828079</li>
+                           </ul>
+                        </li>
+                        <li>Tanisha Kumbhakar<ul>
+                              <li>tanishakumb@gmail.com</li>
+                              <li>7699101959</li>
+                           </ul>
+                        </li>
+                        <li>Mohit Dogra<ul>
+                              <li>mohit2598@gmail.com</li>
+                              <li>9882413530</li>
+                           </ul>
+                        </li>
+                        <li>Anuj Modi<ul>
+                              <li>anujmodi2011@gmail.com</li>
+                              <li>9711523327</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p style="font-size: 0.9em;">
-                        <u>Progress Round:</u><br>The participants will be evaluated based on their progress, their approach to solving the problem statement and suggestions will be given in this round.<br><br>
-                        <u>Online Round :</u><br>The participants will be evaluated on their web development skills in this round. There will be a variety of questions including debugging questions, multiple choice questions as well as small frontend and backend development tasks.<br><br>
-                        <u>Final Round:</u><br>In the final round, the paticipants are required to give a presentation of the hack/product, followed by Q&A session and interviews.<br><br>
-                        No Elimination 
+                        <u>Progress Round:</u><br>The participants will be evaluated based on their progress, their
+                        approach to solving the problem statement and suggestions will be given in this round.<br><br>
+                        <u>Online Round :</u><br>The participants will be evaluated on their web development skills in
+                        this round. There will be a variety of questions including debugging questions, multiple choice
+                        questions as well as small frontend and backend development tasks.<br><br>
+                        <u>Final Round:</u><br>In the final round, the paticipants are required to give a presentation
+                        of the hack/product, followed by Q&A session and interviews.<br><br>
+                        No Elimination
                      </p>
                   </div>
                </div>
             </div>
+
+            <div class="bb-item">
+               <div class="bb-custom-side page-layout-3">
+
+
+                  <h3 style="margin-top:3%">Title Sponsor</h3>
+                  <div class="container" style="padding: 0;">
+                     <div class="row" style="padding: 0;">
+                        <span><a href="https://devfolio.co/" target="_blank"><img
+                                 src="../../../sponsors/logos/2019/devfolio.png"
+                                 style="width: 35%;height: 3.8em;margin-left: 35%;"></a></span>
+                     </div>
+                  </div>
+
+                  <h3 style="margin-top:3%">Giga Sponsor</h3>
+                  <div class="container" style="padding: 0;">
+                     <div class="row" style="padding: 0;">
+                        <span style="margin:auto;padding-left:30%"><a href="https://matic.network/" target="_blank"><img src="../../../sponsors/logos/2019/matic.png"
+                                 style="width: 40%;margin-left:auto;height:3.5em"></a></span>
+                     </div>
+                  </div>                  
+
+                  <!-- <h3 style="margin-top: 5%;">Platform Sponsor</h3>
+                  <a href="https://www.hackerearth.com" target="_blank"><img src="../../../sponsors/logos/2019/hackerearth.png"></a>
+
+                  <h3 style="margin-top: 30px;margin-bottom: 0px;">Community Sponsor</h3>
+                  <div class="row" style="padding: 0;">
+                     <span><a href="https://www.paytm.com" target="_blank"><img src="../../../sponsors/logos/2019/paytm.png"></a></span>
+                  </div> -->
+                  <!-- <h3 style="margin-top: 30px;margin-bottom: 20px;">Event Sponsors</h3>
+                  <div class="row" style="padding: 0;margin-top:20px;">
+                     <span><a href="https://www.sketch.com" target="_blank"><img src="../../../sponsors/logos/2019/sketch.svg"
+                              style="height:100px;width:35%;margin-left:10%;"></a></span>
+                     <span><a href="https://proto.io/?utm_source=Avishkar19" target="_blank"><img
+                              src="../../../sponsors/logos/2019/intbudd.png"
+                              style="width: 40%;height: 80px;margin-left: 50px;"></a></span>
+                  </div> -->
+
+               </div>
+               <div class="bb-custom-side page-layout-3">
+                  <!-- <h3 style="margin-top: 30px;margin-bottom: 20px;">Event Sponsors</h3>
+                  <div class="row" style="padding: 0;margin-top:20px;">
+                     <span><a href="https://www.sketch.com" target="_blank"><img src="../../../sponsors/logos/2019/sketch.svg"
+                              style="height:100px;width:35%;margin-left:10%;"></a></span>
+                     <span><a href="https://proto.io/?utm_source=Avishkar19" target="_blank"><img
+                              src="../../../sponsors/logos/2019/intbudd.png"
+                              style="width: 40%;height: 80px;margin-left: 50px;"></a></span>
+                  </div>
+                  <div class="row" style="padding: 0;margin-top:20px;">
+                     <span><a href="https://www.jetbrains.com" target="_blank"><img src="../../../images/sponsors/webster/jetbrains.svg"
+                                                style="width:40%; height:140px;margin-left: 10%;"></a></span>
+                     <span><a href="https://www.jetbrains.com" target="_blank"><img src="../../../images/sponsors/webster/jetbrains.svg"
+                              style="height:70px;width:25%;margin-left:10%;"></a></span>
+                     <span><a href="https://proto.io/?utm_source=Avishkar19" target="_blank"><img
+                              src="../../../images/sponsors/webster/proto.png" style="width: 25%;height: 50px;margin-left: 50px;"></a></span>
+                  </div>
+                  <div class="container" style="padding: 0;margin-top:20px;">
+                     <div class="row" style="padding: 0;">
+                        <span><a href="https://www.bugsee.com" target="_blank"><img src="../../../images/sponsors/webster/bugsee.png"
+                                 style="width:30%; height:80px;float: left;margin-left: 10%;"></a></span>
+                        <span><a href="https://www.creative-tim.com/" target="_blank"><img src="../../../images/sponsors/webster/ctim.png"
+                                 style="width:25%; height:120px;float: left;margin-left: 10%;"></a></span>
+                     </div>
+                  </div>
+                  <div class="container" style="padding: 0;">
+                     <div class="row" style="padding: 0;">
+                        
+                        <span><a href="https://www.balsamiq.com" target="_blank"><img src="../../../images/sponsors/webster/balsamiq.png"
+                                 style="width: 30%;height: 60px;margin-left: 50px;"></a></span>
+                     </div>
+                  
+                  </div> -->
+               </div>
+            </div>
+
          </div>
          <!-- /bb-bookblock -->
          <nav>
@@ -644,7 +860,7 @@ Droidrush provides an excellent opportunity to learn basics of app development a
 
 
 
-      
+
       <!-- /bb-custom-wrapper -->
       <div class="bb-custom-wrapper" id="book-5">
          <div class="bb-bookblock">
@@ -657,13 +873,17 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-1">
                   <p>A code a day, keeps boredom away</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="codeoftheday" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="codeoftheday"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="codeofthedayButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="codeofthedayButtonId"
+                        style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)"
+                        class="btn">Register</button>
                   </div>
                   <div class="d-flex justify-content-center download-problem-statement">
-                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#" target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>  
+                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#"
+                           target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>
                   </div>
                </div>
             </div>
@@ -671,16 +891,24 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>A week-long competitive coding event attracting nationwide participation. 
-                      It consists of a set of 7 problems, one for each day. 
-                      The participants labour relentlessly to submit efficient solutions within 24 hours of the release of the problem.
+                     <p>A week-long competitive coding event attracting nationwide participation.
+                        It consists of a set of 7 problems, one for each day.
+                        The participants labour relentlessly to submit efficient solutions within 24 hours of the
+                        release of the problem.
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : Individual Event</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <ul>
+                        <li> B.Tech-I year</li>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-I year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p><u>Outside Participation</u>: Allowed</p>
                      <p>All branches allowed</p>
                   </div>
@@ -688,23 +916,38 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                      <p><ul>
-                     <li>Prakhar Kulshrestha<ul><li>prakhar4020@gmail.com</li><li>9911129329</li></ul></li>
-                     <li>Sudhanshu Kumar<ul><li>sudhanshuat6324@gmail.com</li><li>7543895373</li></ul></li>
-                     <li>Gaurav Kumar<ul><li>kgaurav27143@gmail.com</li><li>9431613410</li></ul></li>
-                     </ul></p>
+                     <p>
+                     <ul>
+                        <li>Prakhar Kulshrestha<ul>
+                              <li>prakhar4020@gmail.com</li>
+                              <li>9911129329</li>
+                           </ul>
+                        </li>
+                        <li>Sudhanshu Kumar<ul>
+                              <li>sudhanshuat6324@gmail.com</li>
+                              <li>7543895373</li>
+                           </ul>
+                        </li>
+                        <li>Gaurav Kumar<ul>
+                              <li>kgaurav27143@gmail.com</li>
+                              <li>9431613410</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                        <ol>
-                           <li>This is an individual event and runs for 7 days on hackerearth.com.</li>
-                           <li>There will be 7 questions (2-easy, 3-medium, 2-hard)</li>
-                           <li>Users are free to submit as many times as they want.</li>
-                           <li>User can use any of the language.</li>
-                           <li>There will not be any partial scoring.</li>
-                           <li>Use of any unfair means will be dealt with immediate disqualification and judge’s decision will be treated as final.</li>
-                        </ol>
+                     <ol>
+                        <li>This is an individual event and runs for 7 days on hackerearth.com.</li>
+                        <li>There will be 7 questions (2-easy, 3-medium, 2-hard)</li>
+                        <li>Users are free to submit as many times as they want.</li>
+                        <li>User can use any of the language.</li>
+                        <li>There will not be any partial scoring.</li>
+                        <li>Use of any unfair means will be dealt with immediate disqualification and judge’s decision
+                           will be treated as final.</li>
+                     </ol>
                      </p>
                   </div>
                </div>
@@ -729,10 +972,12 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-1">
                   <p>We are pieces to each other’s puzzles.</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="operaomnia" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="operaomnia"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="operaomniaButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="operaomniaButtonId" style="background-color: darkslategrey; color:white;"
+                        onclick="registerForEvent(event)" class="btn">Register</button>
                   </div>
                </div>
             </div>
@@ -740,14 +985,24 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>It's not about your knowledge but about what can you think. Avishkar 20 brings you the most interesting puzzling event with mind boggling brain teasers and logical puzzles. This event will help you to open the locks of your brain and reach to a new level of thinking where you haven't been earlier and at the same time you will be having fun.
+                     <p>It's not about your knowledge but about what can you think. Avishkar 20 brings you the most
+                        interesting puzzling event with mind boggling brain teasers and logical puzzles. This event will
+                        help you to open the locks of your brain and reach to a new level of thinking where you haven't
+                        been earlier and at the same time you will be having fun.
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : Solo Event</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <ul>
+                        <li> B.Tech-I year</li>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-I year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p><u>Outside Participation</u>: Allowed</p>
                      <p>No Branch or year restriction in team formation (except Final years).</p>
                   </div>
@@ -755,21 +1010,35 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Mredul Jain<ul><li>mreduljain1999@gmail.com </li><li>9463532188</li></ul></li>
-                     <li>Prabhnoor Singh Saluja<ul><li>isaluja1811@gmail.com</li><li>9953444433</li></ul></li>
-                     <li>Chitransh<ul><li>chitransh.nigam2998@gmail.com</li><li>8887603830</li></ul></li>
-                     </ul></p>
+                     <p>
+                     <ul>
+                        <li>Mredul Jain<ul>
+                              <li>mreduljain1999@gmail.com </li>
+                              <li>9463532188</li>
+                           </ul>
+                        </li>
+                        <li>Prabhnoor Singh Saluja<ul>
+                              <li>isaluja1811@gmail.com</li>
+                              <li>9953444433</li>
+                           </ul>
+                        </li>
+                        <li>Chitransh<ul>
+                              <li>chitransh.nigam2998@gmail.com</li>
+                              <li>8887603830</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                        <ol>
-                           <li>There will be in total of 3 rounds.</li>
-                           <li>After each round there will be elimination.</li>
-                           <li>Any practice of unfair means is highly discouraged.</li>
-                           <li>The decision of coordinators will be final and binding.</li>
-                        </ol>
+                     <ol>
+                        <li>There will be in total of 3 rounds.</li>
+                        <li>After each round there will be elimination.</li>
+                        <li>Any practice of unfair means is highly discouraged.</li>
+                        <li>The decision of coordinators will be final and binding.</li>
+                     </ol>
                      </p>
                   </div>
                </div>
@@ -791,12 +1060,16 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                   </h3>
                </div>
                <div class="bb-custom-side page-layout-1">
-                  <p>Pure mathematics is the world's best game. It is more absorbing than chess, more of a gamble than poker, and lasts longer than Monopoly. It's free. It can be played anywhere - Archimedes did it in a bathtub.</p>
+                  <p>Pure mathematics is the world's best game. It is more absorbing than chess, more of a gamble than
+                     poker, and lasts longer than Monopoly. It's free. It can be played anywhere - Archimedes did it in
+                     a bathtub.</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="mathrush" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="mathrush"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="mathrushButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="mathrushButtonId" style="background-color: darkslategrey; color:white;"
+                        onclick="registerForEvent(event)" class="btn">Register</button>
                   </div>
                </div>
             </div>
@@ -804,14 +1077,22 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>MathRush is a mathematical puzzle contest in which sound knowledge of mathematics together with taste of programming will be essential to solve problems.
+                     <p>MathRush is a mathematical puzzle contest in which sound knowledge of mathematics together with
+                        taste of programming will be essential to solve problems.
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : Solo event</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <ul>
+                        <li> B.Tech-I year</li>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-I year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p><u>Outside Participation</u>: Allowed</p>
                      <p>No Branch or year restriction.</p>
                   </div>
@@ -819,22 +1100,36 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Gaurav Shukla<ul><li>gauravshukla672@gmail.com</li><li>7905909356</li></ul></li>
-                     <li>Mohit Bansal<ul><li>bansalmohitwss@gmail.com </li><li>8058880050</li></ul></li>
-                     <li>Nimesh Maheshwari<ul><li>nimesh12maheshwari@gmail.com</li><li>8077165188</li></ul></li>
-                     </ul></p>              
+                     <p>
+                     <ul>
+                        <li>Gaurav Shukla<ul>
+                              <li>gauravshukla672@gmail.com</li>
+                              <li>7905909356</li>
+                           </ul>
+                        </li>
+                        <li>Mohit Bansal<ul>
+                              <li>bansalmohitwss@gmail.com </li>
+                              <li>8058880050</li>
+                           </ul>
+                        </li>
+                        <li>Nimesh Maheshwari<ul>
+                              <li>nimesh12maheshwari@gmail.com</li>
+                              <li>8077165188</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                        <ol>
-                           <li>There is only one round of 3 hours and will be hosted on hackerrank.</li>
-                           <li>There will be 15 questions (6-easy 5-medium 4-hard).</li>
-                           <li>Users are free to submit as many times as they want.</li>
-                           <li>There will not be any partial scoring.</li>
-                           <li>User can use any of the programming language.</li>
-                        </ol>
+                     <ol>
+                        <li>There is only one round of 3 hours and will be hosted on hackerrank.</li>
+                        <li>There will be 15 questions (6-easy 5-medium 4-hard).</li>
+                        <li>Users are free to submit as many times as they want.</li>
+                        <li>There will not be any partial scoring.</li>
+                        <li>User can use any of the programming language.</li>
+                     </ol>
                      </p>
                   </div>
                </div>
@@ -857,12 +1152,15 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                </div>
                <div class="bb-custom-side page-layout-1">
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="softathalon" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="softathalon"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="softathalonButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="softathalonButtonId"
+                        style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)"
+                        class="btn">Register</button>
                   </div>
-                  
+
                   <p>Get ready to amaze us with your progress as a Computer Science Major</p>
                </div>
             </div>
@@ -870,10 +1168,14 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>An event aimed at simulating the software profile based recruitment procedure for under graduates. 
-                      It consists of a series of written and coding rounds testing the technical prowess of the candidate. 
-                      Interview rounds also form an integral part of the event in which the students are judged on the knowledge and confidence they exude.
-                      It provides students a learning experience and pushes them a step forward towards their “Dream job”.
+                     <p>An event aimed at simulating the software profile based recruitment procedure for under
+                        graduates.
+                        It consists of a series of written and coding rounds testing the technical prowess of the
+                        candidate.
+                        Interview rounds also form an integral part of the event in which the students are judged on the
+                        knowledge and confidence they exude.
+                        It provides students a learning experience and pushes them a step forward towards their “Dream
+                        job”.
                      </p>
                   </div>
                   <div>
@@ -881,27 +1183,40 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                      <p><u>Team size</u> : Individual Event</p>
                      <p><u>Branch</u> : CSE/IT (2nd/3rd Year), MCA(1st/2nd year)</p>
                      <p><u>Outside Participation</u>: Not Allowed</p>
-                     
+
                   </div>
                </div>
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Shashank Sharma<ul><li>shashanksharma7874@gmail.com</li><li>9084980484</li></ul></li>
-                     <li>Ranjit<ul><li>rkranjeet244@gmail.com</li><li>9773730420</li></ul></li>
-                     <li>Anzum Bano<ul><li>anzumsalim0786@gmail.com</li></ul></li>
-                     </ul></p> 
+                     <p>
+                     <ul>
+                        <li>Shashank Sharma<ul>
+                              <li>shashanksharma7874@gmail.com</li>
+                              <li>9084980484</li>
+                           </ul>
+                        </li>
+                        <li>Ranjit<ul>
+                              <li>rkranjeet244@gmail.com</li>
+                              <li>9773730420</li>
+                           </ul>
+                        </li>
+                        <li>Anzum Bano<ul>
+                              <li>anzumsalim0786@gmail.com</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                        <ol>
-                           <li>The event is mandatory for all CSE/IT students of 2nd/3rd year.</li>
-                           <li>First and second round are coding+MCQs rounds with elimination in each.</li>
-                           <li>Third round will be virtual interview round.</li>
-                           <li>Indulging in any unfair means will lead to disqualification.</li>
-                        </ol>
+                     <ol>
+                        <li>The event is mandatory for all CSE/IT students of 2nd/3rd year.</li>
+                        <li>First and second round are coding+MCQs rounds with elimination in each.</li>
+                        <li>Third round will be virtual interview round.</li>
+                        <li>Indulging in any unfair means will lead to disqualification.</li>
+                     </ol>
                      </p>
                   </div>
                </div>
@@ -926,13 +1241,17 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-1">
                   <p>ACCURACY_MATTERS</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="logicalrhythm" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="logicalrhythm"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="logicalrhythmButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="logicalrhythmButtonId"
+                        style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)"
+                        class="btn">Register</button>
                   </div>
                   <div class="d-flex justify-content-center download-problem-statement">
-                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#" target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>  
+                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#"
+                           target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>
                   </div>
                </div>
             </div>
@@ -940,8 +1259,12 @@ Droidrush provides an excellent opportunity to learn basics of app development a
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>A riveting journey across the terrains of machine learning and data science designed to catalyse the knowledge of budding engineers in this field.
-Logical Rhythm gives you a perfect platform to design innovative and intelligent models, which can study the intricacies of data themselves to solve real-life problems. This competitive forum will also help the budding Data Scientists or Machine Learning enthusiasts to assess their potential, and grow both in confidence and ability.
+                     <p>A riveting journey across the terrains of machine learning and data science designed to catalyse
+                        the knowledge of budding engineers in this field.
+                        Logical Rhythm gives you a perfect platform to design innovative and intelligent models, which
+                        can study the intricacies of data themselves to solve real-life problems. This competitive forum
+                        will also help the budding Data Scientists or Machine Learning enthusiasts to assess their
+                        potential, and grow both in confidence and ability.
 
                      </p>
                   </div>
@@ -949,37 +1272,65 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : 1-3</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
-                     <p style="font-size: 12px">For BTech 2nd,3rd years and MCA 1st,2nd year team members may be of different years or branches.</p>
+                     <ul>
+                        <li> B.Tech-I year</li>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-I year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
+                     <p style="font-size: 12px">For BTech 2nd,3rd years and MCA 1st,2nd year team members may be of
+                        different years or branches.</p>
                   </div>
                </div>
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Yash Sawarn<ul><li>yashsawarn1654@gmail.com</li><li>7042629877</li></ul></li>
-                     <li>Arpit Yadav<ul><li>yadavarpit771999@gmail.com</li><li>8299509672</li></ul></li>
-                     <li>Harsh Chaturvedi<ul><li>harsh48chaturvedi@gmail.com</li><li>9110903327</li></ul></li>
-                     </ul></p> 
+                     <p>
+                     <ul>
+                        <li>Yash Sawarn<ul>
+                              <li>yashsawarn1654@gmail.com</li>
+                              <li>7042629877</li>
+                           </ul>
+                        </li>
+                        <li>Arpit Yadav<ul>
+                              <li>yadavarpit771999@gmail.com</li>
+                              <li>8299509672</li>
+                           </ul>
+                        </li>
+                        <li>Harsh Chaturvedi<ul>
+                              <li>harsh48chaturvedi@gmail.com</li>
+                              <li>9110903327</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                        
-                         <u>First Round :</u><br>
-                           <ul>
-                              <li style="font-size: 12px"><u>Mid-term Evaluation </u>: For checking the progress of each team, an evaluation is conducted.</li>
-                              <li style="font-size: 12px"><u>Technical Quiz </u>: A quiz comprising of question from machine learning, deep learning and probability aspects of machine learning will be conducted.</li>
-                           </ul><br>
-                        <u>Second Round :</u><br>
-                           <ul>
-                              <li style="font-size: 12px"><u>Final Project Submission with Final Evaluation </u>: All teams will be required to submit the work they developed. Evaluations will be done on all the problem statements attempted.</a></li>
-                           </ul><br>
-                        <u>Third Round :</u><br>
-                           <ul>
-                              <li style="font-size: 12px"><u>Interview </u>: Interview on all aspects of attempted solutions to the problem statements as well as evaluating the insights of all the trending algorithms will help in finding the best of all.</a></li>
-                           </ul>
-                           
+
+                        <u>First Round :</u><br>
+                     <ul>
+                        <li style="font-size: 12px"><u>Mid-term Evaluation </u>: For checking the progress of each team,
+                           an evaluation is conducted.</li>
+                        <li style="font-size: 12px"><u>Technical Quiz </u>: A quiz comprising of question from machine
+                           learning, deep learning and probability aspects of machine learning will be conducted.</li>
+                     </ul><br>
+                     <u>Second Round :</u><br>
+                     <ul>
+                        <li style="font-size: 12px"><u>Final Project Submission with Final Evaluation </u>: All teams
+                           will be required to submit the work they developed. Evaluations will be done on all the
+                           problem statements attempted.</a></li>
+                     </ul><br>
+                     <u>Third Round :</u><br>
+                     <ul>
+                        <li style="font-size: 12px"><u>Interview </u>: Interview on all aspects of attempted solutions
+                           to the problem statements as well as evaluating the insights of all the trending algorithms
+                           will help in finding the best of all.</a></li>
+                     </ul>
+
                      </p>
                   </div>
                </div>
@@ -1004,13 +1355,17 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                <div class="bb-custom-side page-layout-1">
                   <p></p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="codewarriors" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="codewarriors"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="codewarriorsButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="codewarriorsButtonId"
+                        style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)"
+                        class="btn">Register</button>
                   </div>
                   <div class="d-flex justify-content-center download-problem-statement">
-                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#" target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>  
+                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#"
+                           target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>
                   </div>
                </div>
             </div>
@@ -1018,16 +1373,24 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>Code Warrior is an event where gaming bots made with the help of Artificial Intelligence and its concepts
-                        like alpha-beta pruning, mini-max etc, compete among themselves on an arena of board-game and the most
-                        unbeatable bot wins. Its is the most fun-oriented yet technical event of Cyberquest                        
+                     <p>Code Warrior is an event where gaming bots made with the help of Artificial Intelligence and its
+                        concepts
+                        like alpha-beta pruning, mini-max etc, compete among themselves on an arena of board-game and
+                        the most
+                        unbeatable bot wins. Its is the most fun-oriented yet technical event of Cyberquest
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : 2</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <ul>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-I year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p style="font-size: 12px">Eligibility: One member from CS/IT</p>
                      <p style="font-size: 12px">No of rounds: 1</p>
                   </div>
@@ -1035,23 +1398,38 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Arsh Singh<ul><li>arsh2300singh@gmail.com</li><li>9599325474</li></ul></li>
-                     <li>Nitish Gupta<ul><li>nitishgupta1101@gmail.com</li><li>9571039577</li></ul></li>
-                     <li>Sahaj Bamba<ul><li>sahajbamba1999@gmail.com</li><li>8476896757</li></ul></li>
-                     </ul></p> 
+                     <p>
+                     <ul>
+                        <li>Arsh Singh<ul>
+                              <li>arsh2300singh@gmail.com</li>
+                              <li>9599325474</li>
+                           </ul>
+                        </li>
+                        <li>Nitish Gupta<ul>
+                              <li>nitishgupta1101@gmail.com</li>
+                              <li>9571039577</li>
+                           </ul>
+                        </li>
+                        <li>Sahaj Bamba<ul>
+                              <li>sahajbamba1999@gmail.com</li>
+                              <li>8476896757</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                           <ul>
-                              <li style="font-size: 15px">Team should be available on the final round on the day of Avishkar.</li>
-                              <li style="font-size: 15px">Don't share your bots before final round.</li>
-                              <li style="font-size: 15px">Code has to be submitted before final round.</li>
-                              <li style="font-size: 15px">Bots will fight in a tournament based structure.</li>
-                              <li style="font-size: 15px">Languages allowed are: C, C++, Java.</li>
-                              <li style="font-size: 15px">Use of external libraries aren't allowed.</li>
-                           </ul><br>                   
+                     <ul>
+                        <li style="font-size: 15px">Team should be available on the final round on the day of Avishkar.
+                        </li>
+                        <li style="font-size: 15px">Don't share your bots before final round.</li>
+                        <li style="font-size: 15px">Code has to be submitted before final round.</li>
+                        <li style="font-size: 15px">Bots will fight in a tournament based structure.</li>
+                        <li style="font-size: 15px">Languages allowed are: C, C++, Java.</li>
+                        <li style="font-size: 15px">Use of external libraries aren't allowed.</li>
+                     </ul><br>
                      </p>
                   </div>
                </div>
@@ -1076,13 +1454,16 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                <div class="bb-custom-side page-layout-1">
                   <p>When solving problems, dig at the roots instead of just hacking at the leaves</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="revengg" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="revengg"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="revenggButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="revenggButtonId" style="background-color: darkslategrey; color:white;"
+                        onclick="registerForEvent(event)" class="btn">Register</button>
                   </div>
                   <div class="d-flex justify-content-center download-problem-statement">
-                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#" target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>  
+                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#"
+                           target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>
                   </div>
                </div>
             </div>
@@ -1090,38 +1471,68 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>A CTF-style challenge for all active and aspiring reverse engineers. So dust off the disassembler, oil your debugger and get your favourite chat client ready to participate in Revengg to win prizes bumper.
+                     <p>A CTF-style challenge for all active and aspiring reverse engineers. So dust off the
+                        disassembler, oil your debugger and get your favourite chat client ready to participate in
+                        Revengg to win prizes bumper.
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : 2</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li style="font-size:1em"> B.Tech-I year</li><li style="font-size:12px"> B.Tech-II year</li><li style="font-size:12px"> B.Tech-III year</li><li style="font-size:12px"> MCA-I year</li><li style="font-size:12px"> MCA-II year</li></ul></p>
-                     <p><ol>
+                     <ul>
+                        <li style="font-size:1em"> B.Tech-I year</li>
+                        <li style="font-size:12px"> B.Tech-II year</li>
+                        <li style="font-size:12px"> B.Tech-III year</li>
+                        <li style="font-size:12px"> MCA-I year</li>
+                        <li style="font-size:12px"> MCA-II year</li>
+                     </ul>
+                     </p>
+                     <p>
+                     <ol>
                         <li style="font-size: 1em">Team members must be from the same year.</li>
-                        <li style="font-size: 1em">All Rounds will be an open round where you can use the internet as per your requirement.</li>
+                        <li style="font-size: 1em">All Rounds will be an open round where you can use the internet as
+                           per your requirement.</li>
                         <li style="font-size: 1em">At least one member should be from CS/IT branch.</li>
-                     </ol></p>
+                     </ol>
+                     </p>
                   </div>
                </div>
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li style="font-size: 1em">Anuj Modi<ul><li>anujmodi2011@gmail.com</li><li>9711523327</li></ul></li>
-                     <li style="font-size: 1em">Anshul Singh<ul><li>iosdev747.icloud@gmail.com</li><li>9599325403</li></ul></li>
-                     <li style="font-size: 1em">Prashant Shakya<ul><li>prashushakya@gmail.com</li><li>9005902201</li></ul></li>
-                     </ul></p> 
+                     <p>
+                     <ul>
+                        <li style="font-size: 1em">Anuj Modi<ul>
+                              <li>anujmodi2011@gmail.com</li>
+                              <li>9711523327</li>
+                           </ul>
+                        </li>
+                        <li style="font-size: 1em">Anshul Singh<ul>
+                              <li>iosdev747.icloud@gmail.com</li>
+                              <li>9599325403</li>
+                           </ul>
+                        </li>
+                        <li style="font-size: 1em">Prashant Shakya<ul>
+                              <li>prashushakya@gmail.com</li>
+                              <li>9005902201</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                        <ul>
-                           <li style="font-size:1em"><u>Practise round </u>- Participants will have to find flags by tinkering with files, exploiting applications, etc. Problems will be mainly from binary exploitation, forensics, reverse engineering, web-based exploits with some fun challenges.</li>
-                           <li style="font-size:1em"><u>Round 1 </u>- A new surprise round. To be disclosed soon.</li>
-                           <li style="font-size:1em"><u>Round 2 </u>- This will be the final round. It will be similar to the practice round with tighter time constraints.</li>
-                        </ul>
+                     <ul>
+                        <li style="font-size:1em"><u>Practise round </u>- Participants will have to find flags by
+                           tinkering with files, exploiting applications, etc. Problems will be mainly from binary
+                           exploitation, forensics, reverse engineering, web-based exploits with some fun challenges.
+                        </li>
+                        <li style="font-size:1em"><u>Round 1 </u>- A new surprise round. To be disclosed soon.</li>
+                        <li style="font-size:1em"><u>Round 2 </u>- This will be the final round. It will be similar to
+                           the practice round with tighter time constraints.</li>
+                     </ul>
                      </p>
                   </div>
                </div>
@@ -1146,13 +1557,16 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                <div class="bb-custom-side page-layout-1">
                   <p>Why have just Windows, when Linux can give you the entire /home</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="tuxwars" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="tuxwars"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="tuxwarsButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="tuxwarsButtonId" style="background-color: darkslategrey; color:white;"
+                        onclick="registerForEvent(event)" class="btn">Register</button>
                   </div>
                   <div class="d-flex justify-content-center download-problem-statement">
-                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#" target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>  
+                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#"
+                           target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>
                   </div>
                </div>
             </div>
@@ -1160,36 +1574,60 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3>About</h3>
-                     <p>This event tests your practical acumen with Linux command line tools, shell scripting and networking. Using /bin/bash as your weapon dive into the dark /etc/shadow of the Kernel and fight for ultimate glory #!<br><br>
-                      The written round tests the theoretical understanding in Linux and the practical round expects the teams to compete in a time bound environment while working on systems and applying concepts.
+                     <p>This event tests your practical acumen with Linux command line tools, shell scripting and
+                        networking. Using /bin/bash as your weapon dive into the dark /etc/shadow of the Kernel and
+                        fight for ultimate glory #!<br><br>
+                        The written round tests the theoretical understanding in Linux and the practical round expects
+                        the teams to compete in a time bound environment while working on systems and applying concepts.
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : 2</p>
                      <p><u>Years participating</u> :<br>
-                     <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>
+                     <ul>
+                        <li> B.Tech-I year</li>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-I year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p>Min one member from CS/IT.</p>
                   </div>
                </div>
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Manas Uniyal<ul><li>manasuniyal100@gmail.com</li><li>9149379200</li></ul></li>
-                     <li>Rituparno Biswas<ul><li>rituparnobiswas@gmail.com</li><li>9031964914</li></ul></li>
-                     <li>A N Sai Krishna<ul><li>attalurisaikrishna@gmail.com</li><li>7376516392</li></ul></li>
-                     </ul></p>
+                     <p>
+                     <ul>
+                        <li>Manas Uniyal<ul>
+                              <li>manasuniyal100@gmail.com</li>
+                              <li>9149379200</li>
+                           </ul>
+                        </li>
+                        <li>Rituparno Biswas<ul>
+                              <li>rituparnobiswas@gmail.com</li>
+                              <li>9031964914</li>
+                           </ul>
+                        </li>
+                        <li>A N Sai Krishna<ul>
+                              <li>attalurisaikrishna@gmail.com</li>
+                              <li>7376516392</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                        <ol>
-                           <li>Team members should belong to the same year.</li>
-                           <li>Each team should have Linux installed on their system.</li>
-                           <li>For rounds each team should not use internet(unless explicitly allow).</li>
-                           <li>All the members of a team should be present in all rounds.</li>
-                        </ol>
+                     <ol>
+                        <li>Team members should belong to the same year.</li>
+                        <li>Each team should have Linux installed on their system.</li>
+                        <li>For rounds each team should not use internet(unless explicitly allow).</li>
+                        <li>All the members of a team should be present in all rounds.</li>
+                     </ol>
                      </p>
                   </div>
                </div>
@@ -1214,13 +1652,16 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                <div class="bb-custom-side page-layout-1">
                   <p>Have a dream to become techie? let's begin now.</p>
                   <div class="d-flex justify-content-center download-list">
-                     <button type="button" style="margin: 5px; display: none;" data-event-id="techmaiden" class="btn btn-success download-list">Download List</button>
+                     <button type="button" style="margin: 5px; display: none;" data-event-id="techmaiden"
+                        class="btn btn-success download-list">Download List</button>
                   </div>
                   <div class="d-flex justify-content-center register-button">
-                     <button type="button" id="techmaidenButtonId" style="background-color: darkslategrey; color:white;" onclick="registerForEvent(event)" class="btn">Register</button>  
+                     <button type="button" id="techmaidenButtonId" style="background-color: darkslategrey; color:white;"
+                        onclick="registerForEvent(event)" class="btn">Register</button>
                   </div>
                   <div class="d-flex justify-content-center download-problem-statement">
-                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#" target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>  
+                     <button type="button" style="background-color: darkslategrey; color:white;" class="btn"><a href="#"
+                           target="_blank" style="text-transform: capitalize;">Problem Statements</a></button>
                   </div>
                </div>
             </div>
@@ -1229,34 +1670,54 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
                   <div>
                      <h3>About</h3>
                      <p>
-                        The brand new all girls' event aims to provide you with overall development as a women techie. 
-                        The event is open to only girls and consists of coding and aptitude round followed by interviews.
+                        The brand new all girls' event aims to provide you with overall development as a women techie.
+                        The event is open to only girls and consists of coding and aptitude round followed by
+                        interviews.
                      </p>
                   </div>
                   <div>
                      <h3 style="font-size: 2em">Participation Criteria</h3>
                      <p><u>Team size</u> : Individual Event</p>
                      <p><u>Years participating</u> :<br>
-                        <ul><li> B.Tech-I year</li><li> B.Tech-II year</li><li> B.Tech-III year</li><li> MCA-I year</li><li> MCA-II year</li></ul></p>   
+                     <ul>
+                        <li> B.Tech-I year</li>
+                        <li> B.Tech-II year</li>
+                        <li> B.Tech-III year</li>
+                        <li> MCA-I year</li>
+                        <li> MCA-II year</li>
+                     </ul>
+                     </p>
                      <p>Open to all branches girls</p>
                   </div>
                </div>
                <div class="bb-custom-side page-layout-2">
                   <div>
                      <h3 style="font-size: 2em">Contact Info</h3>
-                     <p><ul>
-                     <li>Shikha Singh<ul><li>shikhasinghs216@gmail.com</li></ul></li>
-                     <li>Siddhi Mahawar<ul><li>siddhi@mnnit.ac.in</li></ul></li>
-                     <li>Gaurav Katare<ul><li>kataregaurav1501@gmail.com</li><li>7905436190</li></ul></li>
-                     </ul></p>
+                     <p>
+                     <ul>
+                        <li>Shikha Singh<ul>
+                              <li>shikhasinghs216@gmail.com</li>
+                           </ul>
+                        </li>
+                        <li>Siddhi Mahawar<ul>
+                              <li>siddhi@mnnit.ac.in</li>
+                           </ul>
+                        </li>
+                        <li>Gaurav Katare<ul>
+                              <li>kataregaurav1501@gmail.com</li>
+                              <li>7905436190</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </p>
                   </div>
                   <div>
                      <h3>Rules</h3>
                      <p>
-                        <ol>
-                           <li>1 Coding round open to all branches girls.</li>
-                           <li>Selection of one girl candidate to interview round from every branch.</li>
-                        </ol>
+                     <ol>
+                        <li>1 Coding round open to all branches girls.</li>
+                        <li>Selection of one girl candidate to interview round from every branch.</li>
+                     </ol>
                      </p>
                   </div>
                </div>
@@ -1270,24 +1731,47 @@ Logical Rhythm gives you a perfect platform to design innovative and intelligent
          </nav>
       </div>
       <!-- /bb-custom-wrapper -->
-      </main>
-      <div class="footer d-flex align-items-center justify-content-center">
-         <p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
-       </div>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-      <script src="../js/bookblock.min.js"></script>
-      <script src="../js/classie.js"></script>
-      <script src="../js/bookshelf.js"></script>
-      <script type="text/javascript">
-         $("header").append("<div class='glitch-window'></div>");
-         $( "h1.glitched" ).clone().appendTo( ".glitch-window" );
-      </script>
-      <script src="../../../js/navbar/main.js"></script> <!-- Resource jQuery -->
-      <script src="../../js/eventRegister.js"></script>
-   </body>
+   </main>
+   <div class="footer d-flex align-items-center justify-content-center">
+      <p class="footer_text" style="margin-bottom: 0">All Rights Reserved &copy; MNNIT Allahabad, 2020</p>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"></script>
+   <script src="../js/bookblock.min.js"></script>
+   <script src="../js/classie.js"></script>
+   <script src="../js/bookshelf.js"></script>
+   <script type="text/javascript">
+      $("header").append("<div class='glitch-window'></div>");
+      $("h1.glitched").clone().appendTo(".glitch-window");
+   </script>
+   <script src="../../../js/navbar/main.js"></script> <!-- Resource jQuery -->
+   <script src="../../js/eventRegister.js"></script>
+   <script>
+      document.addEventListener('DOMContentLoaded', function () {
+         let devfolioOptions = {
+            buttonSelector: '#devfolio-apply-now',
+         key: 'webster2k20',
+    }
+
+    let script = document.createElement('script');
+      script.src = "https://apply.devfolio.co";
+      document.head.append(script);
+
+      script.onload = function () {
+         new Devfolio(devfolioOptions);
+      }
+
+      script.onerror = function () {
+         document.querySelector(devfolioOptions.buttonSelector).addEventListener('click', function () {
+            window.location.href = 'https://devfolio.co/external-apply/' + devfolioOptions.key;
+         });
+      }
+});
+   </script>
+</body>
+
 </html>
