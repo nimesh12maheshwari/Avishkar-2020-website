@@ -101,6 +101,7 @@ $(document).ready(function () {
                     temp['email' + index.toString()] = student['email'];
                     temp['firstName' + index.toString()] = student['firstName'];
                     temp['lastName' + index.toString()] = student['lastName'];
+                    temp['regno' + index.toString()] = student['regno'];
                     temp['confirmed' + index.toString()] = student['confirmed'];
                     temp['feesPaid' + index.toString()] = student['feesPaid'];
                     temp['whatsapp' + index.toString()] = student['whatsapp'];
@@ -120,6 +121,7 @@ $(document).ready(function () {
                 headers.push('email' + i.toString());
                 headers.push('firstName' + i.toString());
                 headers.push('lastName' + i.toString());
+                headers.push('regno' + i.toString());
                 headers.push('confirmed' + i.toString());
                 headers.push('feesPaid' + i.toString());
                 headers.push('whatsapp' + i.toString());
