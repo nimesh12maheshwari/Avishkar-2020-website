@@ -19,12 +19,13 @@ function getUserDetails(tokenId) {
     var data = null;
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-
+    toastr.warning('Waiting for response!  .....  ', '', { timeOut: 0, extendedTimeOut: 0 });
     xhr.open('POST', 'https://avishkarapi.sahajbamba.me/auth/getuserdetails/', true);
     xhr.setRequestHeader('authorization', tokenId);
 
     xhr.onload = function () {
         details = JSON.parse(this.response);
+        toastr.remove();
         if (details.success == true) {
             setAllFields(details);
             document.getElementById('profile').style.display = "block";
