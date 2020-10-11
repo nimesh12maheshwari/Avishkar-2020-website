@@ -17,6 +17,7 @@ $(document).ready(function () {
     if (authtoken == null) {
         showLoginPrompt();
     } else {
+        toastr.warning('Waiting for response!  .....  ','',{ timeOut: 0, extendedTimeOut: 0 });
         fillAccordion();
         $('#send-create-team-request').on('click', (e) => {
             createTeamBtnClicked();
@@ -99,6 +100,7 @@ function fillAccordion() {
         .then(data => {
             userDetails = data;
             // console.log(data);
+            toastr.remove();
             if (data['detail'] == 'Invalid token.') {
                 showLoginPrompt();
             } else {
@@ -109,6 +111,7 @@ function fillAccordion() {
             }
         })
         .catch(() => {
+            toastr.remove();
             toastr.warning("Error in getting user details");
         });
 }
