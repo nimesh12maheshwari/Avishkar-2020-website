@@ -425,7 +425,7 @@ body {
     background-size: cover;
 }
 
-.page-layout-3 div { padding: 10% }
+/* .page-layout-3 div { padding: 10% } */
 
 .page-layout-3 h3 {
     text-align: center;
@@ -446,10 +446,10 @@ body {
     font-family: "Cardo", serif;
 }
 
-.page-layout-3 img {
+/* .page-layout-3 img {
     margin-left: 30%;
     width: 40%;
-}
+} */
 /* Book navigation */
 
 .bb-custom-wrapper > nav a {
