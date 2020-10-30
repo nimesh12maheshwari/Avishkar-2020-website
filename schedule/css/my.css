@@ -2,6 +2,7 @@ body{
     background: url("../../img/4.gif");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }   
 .footer{
   width: 100%;
@@ -19,8 +20,17 @@ body{
   min-height:400px;
  }
  
+.page-header h1{
+    color:#e3e9f7 !important;
+    font-family: Allerta;
+    font-size: 7rem;
+    text-shadow: 5px 8px 5px #000080;
+    font-weight: 900;
+    text-align:center;
+}
+
 @media only screen and (max-width: 600px) and (min-width: 200px)  {
-    header.header h1{
+    .page-header h1{
         font-size: 3rem;
         color: #222222;
         text-align: center;
@@ -37,6 +47,8 @@ body{
     }
 }
 
+
+
 /*Toaster color*/
 #toast-container > .toast-success {
     background-color: green;
@@ -52,3 +64,17 @@ body{
     color: white;
 }
 
+.card{
+    background-color: var(--bgcolor) !important;
+    font-family: 'Orbitron', sans-serif;
+
+    color: white!important;
+    border-width: 2px;
+    border-color: var(--accent-color);
+    font-size: 0.9rem;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+
+.card h5{
+    text-align:center;
+}
