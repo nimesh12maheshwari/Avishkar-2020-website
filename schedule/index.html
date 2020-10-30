@@ -24,9 +24,9 @@
   <link rel="stylesheet" href="../css/navbar/navbar.css">
   
   
-  <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-glyphicons.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
-  <link rel="stylesheet" href="css/my.css"> <!-- Resource style -->
+  <!-- <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-glyphicons.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css"> -->
+  <link rel="stylesheet" href="css/my.css">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161923538-7"></script>
@@ -142,16 +142,82 @@
     <main class="cd-main-content">
 <div class="container">
   <div class="page-header">
-    <h1 style="color:#e3e9f7 !important;font-family: Allerta;font-size: 9rem;text-shadow: 5px 8px 5px #000080;font-weight: 900;">SCHEDULE</h1>
+    <h1>SCHEDULE</h1>
   </div>
   
   <!-- <ul class="timeline"> -->
-	  
-	<div class="footer d-flex align-items-center justify-content-center" style="margin-top: 10%;">
-		<h1 id="content-text" style="font-weight: bolder; color: white; text-align: center;">Schedule will be updated soon</h1>
-	  </div>
+<!-- </ul> -->
 
-  <!-- </ul> -->
+<div id="accordion">
+	<div class="card">
+	  <div class="card-header" id="headingOne">
+		<h5 class="mb-0">
+		  <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			31st October
+		  </button>
+		</h5>
+	  </div>
+  
+	  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+		<div class="card-body">
+			<div class="d-flex align-items-center justify-content-center" style="margin-top: 0%;">
+				<img src="img/31Oct.png" width="300">
+			</div>
+		</div>
+	  </div>
+	</div>
+	<div class="card">
+		<div class="card-header" id="headingTwo">
+		  <h5 class="mb-0">
+			<button class="btn" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+			  1st Nov
+			</button>
+		  </h5>
+		</div>
+	
+		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+		  <div class="card-body">
+			  <div class="d-flex align-items-center justify-content-center" style="margin-top: 0%;">
+				  <img src="img/1stNov.png" width="300">
+			  </div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="card">
+		<div class="card-header" id="headingThree">
+		  <h5 class="mb-0">
+			<button class="btn" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+				2nd Nov
+			</button>
+		  </h5>
+		</div>
+	
+		<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+		  <div class="card-body">
+			  <div class="d-flex align-items-center justify-content-center" style="margin-top: 0%;">
+				  <img src="img/2ndNov.png" width="300">
+			  </div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="card">
+		<div class="card-header" id="headingFour">
+		  <h5 class="mb-0">
+			<button class="btn" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+			  3rd Nov
+			</button>
+		  </h5>
+		</div>
+	
+		<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+		  <div class="card-body">
+			  <div class="d-flex align-items-center justify-content-center" style="margin-top: 0%;">
+				  <img src="img/3rdNov.png" width="300">
+			  </div>
+		  </div>
+		</div>
+	  </div>
+  </div>
 </div>
 <div style="height: 100px;"></div>
 </main>
